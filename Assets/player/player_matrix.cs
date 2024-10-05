@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class player_matrix : MonoBehaviour
 {
-    void Start()
+    public card_manager cmanager;
+    private GameObject instantiating_prefab;   
+    public void InstantiatePrefab()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        instantiating_prefab=cmanager.selected_element.GetComponent<CardSettings>().card_stat.prefab;
+        var Cloned_bacteria=Instantiate(instantiating_prefab,transform.position,Quaternion.Euler(Vector3.forward*Random.Range(0.0f, 360.0f)));
+        //float randomDirectionModifier=Random.Range(-180f,180f);
+        //Cloned_bacteria.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0f+randomDirectionModifier,1f));
     }
 }

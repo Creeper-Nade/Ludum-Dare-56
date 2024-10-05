@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b260c374da8703b41acdb86dd14950f0, type: 3}
+  m_Name: BacteriaCardA
+  m_EditorClassIdentifier: 
+  X_consume: 5
+  Y_consume: 0
+  Z_consume: 2
+  prefab: {fileID: 8643734692263511170, guid: f2a9e221f132fd84897228caafd6476a, type: 3}
