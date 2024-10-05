@@ -47,9 +47,6 @@ public class Global_Data : MonoBehaviour
                 production_x[i]+=production_rate[0];
                 production_y[i]+=production_rate[1];
                 production_z[i]+=production_rate[2];
-                Debug.Log("x"+i+production_x[i]);
-                Debug.Log("y"+i+production_y[i]);
-                Debug.Log("z"+i+production_z[i]);
             }
             
         }
