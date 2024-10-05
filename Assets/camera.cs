@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class camera : MonoBehaviour
 {
+    [Header("Camera settings")]
+    private Camera _mainCamera;
     public CinemachineVirtualCamera cinemachine;
    private bool dragPanMoveActive;
    private Vector2 lastMousePosition;
@@ -13,11 +16,45 @@ public class camera : MonoBehaviour
    [SerializeField ]private float maximumFOV=20;
    [SerializeField ]private float minimumFOV=5;
    private float targetFOV=10;
+    [Header("gameobj and stuffs")]
+   private card_manager cards;
+   private player_matrix matrix;
+
+   private void Awake()
+   {
+    _mainCamera=Camera.main;
+    matrix=FindObjectOfType<player_matrix>();
+    cards=FindObjectOfType<card_manager>();
+   }
     void Update()
     {
         
         PanCamera();
         HandleCameraZoom();
+        if(Input.GetMouseButtonDown(0))
+        {
+            Left_clicked();
+        }
+        if(transform.position!=matrix.gameObject.transform.position)
+        {
+            cards.matrix_quit();
+        }
+    }
+    void Left_clicked()
+    {
+        GameObject hittedObject;
+        var rayHit=Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Input.mousePosition));
+        
+        if(!rayHit.collider)return;
+        Debug.Log(rayHit.collider.gameObject.name);
+        hittedObject=rayHit.collider.gameObject;
+        transform.position=hittedObject.transform.position;
+        targetFOV=8;
+
+        if(hittedObject==matrix.gameObject)
+        {
+            cards.matrix_clicked();
+        }
     }
     void PanCamera()
     {
