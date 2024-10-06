@@ -13,5 +13,4 @@ public class BacteriaSTATS : ScriptableObject
     public float atk_speed;
     public float speed;
     public Sprite sprite;
-    public int Team;
 }

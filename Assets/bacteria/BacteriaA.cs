@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using NavMeshPlus.Extensions;
 using UnityEngine;
 using UnityEngine.AI;
 public class BacteriaA : MonoBehaviour
 {
     [SerializeField] BacteriaSTATS stat;
+    public Global_Data data;
     [SerializeField] SpriteRenderer _spriteRenderer;
     [Header("AI")]
     [SerializeField] NavMeshAgent agent;
@@ -17,13 +19,17 @@ public class BacteriaA : MonoBehaviour
 
     [SerializeField] private GameObject nearestFoe;
     [SerializeField] Rigidbody2D rb;
-    public Global_Data data;
     
+
     private void Awake()
     {
+        //initialize components
         _spriteRenderer=gameObject.GetComponent<SpriteRenderer>();
         rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
+
+
+
        
     }
     void Start()
@@ -50,11 +56,12 @@ public class BacteriaA : MonoBehaviour
     {
         if(gameObject.GetComponent<Team1bacteria>()!=null)
         {
-            Debug.Log("in team 1");
+            if(data.Team2.Any())
             foreach(GameObject bacteria in data.Team2)
             {
                 foe.Add(bacteria);
             }
+            if(data.Team3.Any())
             foreach(GameObject bacteria in data.Team3)
             {
                 foe.Add(bacteria);
@@ -62,10 +69,12 @@ public class BacteriaA : MonoBehaviour
         }
         if(gameObject.GetComponent<team2bacteria>()!=null)
         {
+            if(data.Team1.Any())
             foreach(GameObject bacteria in data.Team1)
             {
                 foe.Add(bacteria);
             }
+            if(data.Team3.Any())
             foreach(GameObject bacteria in data.Team3)
             {
                 foe.Add(bacteria);
@@ -73,10 +82,12 @@ public class BacteriaA : MonoBehaviour
         }
         if(gameObject.GetComponent<Team3bacteria>()!=null)
         {
+            if(data.Team1.Any())
             foreach(GameObject bacteria in data.Team1)
             {
                 foe.Add(bacteria);
             }
+            if(data.Team2.Any())
             foreach(GameObject bacteria in data.Team2)
             {
                 foe.Add(bacteria);
