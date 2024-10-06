@@ -27,14 +27,13 @@ public class BacteriaA : MonoBehaviour
         _spriteRenderer=gameObject.GetComponent<SpriteRenderer>();
         rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
-
+        data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
 
 
        
     }
     void Start()
     {
-        _spriteRenderer.sprite=stat.sprite;
         agent.updateRotation=false;
         agent.updateUpAxis=false;
 
@@ -48,8 +47,10 @@ public class BacteriaA : MonoBehaviour
     }
     private void FixedUpdate() {
         Vector3 targetDirection= nearestFoe.transform.position-this.transform.position;
-        Quaternion targetRotation= Quaternion.LookRotation(targetDirection);
-        rb.MoveRotation(targetRotation);
+        float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
+        transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+        //Quaternion targetRotation= Quaternion.LookRotation(targetDirection);
+        //rb.MoveRotation(targetRotation);
     }
 
     void FindTarget()
@@ -103,6 +104,7 @@ public class BacteriaA : MonoBehaviour
             }
         }
         foe.Clear();
+        nearestDistance=100000;
         agent.SetDestination(nearestFoe.transform.position);
     }
 }

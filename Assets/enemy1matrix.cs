@@ -7,7 +7,7 @@ public class enemy1matrix : MonoBehaviour
     [SerializeField] Global_Data data;
     void Awake()
     {
-        data=GameObject.FindWithTag("data").GetComponent<Global_Data>();
+        data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         data.Team2.Add(this.gameObject);
     }
 }

@@ -10,6 +10,8 @@ public class Bacteria_General : MonoBehaviour
     private GameObject AttackArea;
 
     [SerializeField] Global_Data data;
+
+    private SpriteRenderer sprite;
     private int Team;
 
         [Header("STATS")]
@@ -27,6 +29,8 @@ public class Bacteria_General : MonoBehaviour
         ATK_speed=stat.atk_speed;
         ATK_CD/=ATK_speed;
         speed=stat.speed;
+
+        sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
 
         AttackArea=this.gameObject.transform.GetChild(0).gameObject;
         AttackArea.SetActive(false);
@@ -84,6 +88,15 @@ public class Bacteria_General : MonoBehaviour
     public void Damage(int damage)
     {
         Health-=damage;
+        StartCoroutine("damaged_blink");
         Debug.Log("ouch");
+    }
+
+    IEnumerator damaged_blink()
+    {
+        Color defaultColor=sprite.color;
+        sprite.color=Color.red;
+        yield return new WaitForSeconds(0.05f);
+        sprite.color=defaultColor;
     }
 }

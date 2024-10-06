@@ -11,7 +11,7 @@ public class player_matrix : MonoBehaviour
 
     void Awake()
     {
-        data=GameObject.FindWithTag("data").GetComponent<Global_Data>();
+        data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         data.Team1.Add(this.gameObject);
     }  
     public void InstantiatePrefab()
