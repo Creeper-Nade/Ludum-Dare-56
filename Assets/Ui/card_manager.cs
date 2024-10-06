@@ -130,15 +130,15 @@ public class card_manager : MonoBehaviour
 
     private bool CalculateCost()
     {
-        if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_x-selected_element.GetComponent<CardSettings>().card_stat.X_consume>=0)
+        if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x-selected_element.GetComponent<CardSettings>().card_stat.X_consume>=0)
         {
-            if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_y-selected_element.GetComponent<CardSettings>().card_stat.Y_consume>=0)
+            if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_y-selected_element.GetComponent<CardSettings>().card_stat.Y_consume>=0)
             {
-                if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_z-selected_element.GetComponent<CardSettings>().card_stat.Z_consume>=0)
+                if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z-selected_element.GetComponent<CardSettings>().card_stat.Z_consume>=0)
                 {
-                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_x-=selected_element.GetComponent<CardSettings>().card_stat.X_consume;
-                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_y-=selected_element.GetComponent<CardSettings>().card_stat.Y_consume;
-                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_z-=selected_element.GetComponent<CardSettings>().card_stat.Z_consume;
+                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x-=selected_element.GetComponent<CardSettings>().card_stat.X_consume;
+                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_y-=selected_element.GetComponent<CardSettings>().card_stat.Y_consume;
+                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z-=selected_element.GetComponent<CardSettings>().card_stat.Z_consume;
                     Debug.Log("summoning success");
                     _player_matrix.InstantiatePrefab();
                     return true;
