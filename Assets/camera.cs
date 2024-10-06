@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class camera : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class camera : MonoBehaviour
         
         PanCamera();
         HandleCameraZoom();
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0)&&EventSystem.current.IsPointerOverGameObject()==false)
         {
             Left_clicked();
         }

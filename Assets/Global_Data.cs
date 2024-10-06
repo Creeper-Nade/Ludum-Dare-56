@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class Global_Data : MonoBehaviour
 {
+    [Header("production")]
     public float[] production_rate={3,3,2};
-    public float[] production_x=new float[999];
-    public float[] production_y=new float[999];
-    public float[] production_z=new float[999];
     public static float productionCD=3;
     [SerializeField] float elapsedTime;
+
+    [Header("list of objects")]
+    public List<GameObject> Team1;
+    public List<GameObject> Team2;
+    public List<GameObject> Team3;
+    
+    void Awake()
+    {
+        //initialize data of scriptable objects
+        foreach(GameObject matrix in GameObject.FindGameObjectsWithTag("Matrix"))
+            {
+                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_x=0;
+                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_y=0;
+                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_z=0;
+            }
+    }
     void Start()
     {
         StartCoroutine(AddProduction());
@@ -42,11 +56,12 @@ public class Global_Data : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(productionCD);
-            for(int i=0;i<=2;i++)
+            foreach(GameObject matrix in GameObject.FindGameObjectsWithTag("Matrix"))
             {
-                production_x[i]+=production_rate[0];
-                production_y[i]+=production_rate[1];
-                production_z[i]+=production_rate[2];
+                //add resources to every bacterial matrix
+                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_x+=production_rate[0];
+                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_y+=production_rate[1];
+                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_z+=production_rate[2];
             }
             
         }

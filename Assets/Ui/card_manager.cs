@@ -6,18 +6,26 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class card_manager : MonoBehaviour
 {
+    [Header("visual")]
+
     private Animator animator;
     public GameObject canvas;
-    private GameObject blinking_element;
+    public GameObject selected_element;
     public Image img;
     private UnityEngine.Color originalcolor;
+
+    [Header("raycast")]
     GraphicRaycaster ui_raycaster;
     PointerEventData hovered_data;
     List<RaycastResult> casted_results;
+    [SerializeField] List<GameObject> children;
 
-    public List<GameObject> children;
+
+    [Header("misc")]
 
     private float RectmaximumY=-390;
+
+    private player_matrix _player_matrix;
 
     void Awake()
     {
@@ -25,6 +33,14 @@ public class card_manager : MonoBehaviour
         ui_raycaster=canvas.GetComponent<GraphicRaycaster>();
         hovered_data=new PointerEventData(EventSystem.current);
         casted_results=new List<RaycastResult>();
+
+        //addressing player matrix to find it
+        _player_matrix=FindObjectOfType<player_matrix>();
+        //Find children in this
+        foreach(Transform child in transform)
+        {
+            children.Add(child.gameObject);
+        }
 
         originalcolor=img.color;
     }
@@ -47,7 +63,7 @@ public class card_manager : MonoBehaviour
  
         foreach(RaycastResult result in casted_results)
         {
-            //hovering effect
+            //confusing code of hovering effect
             GameObject ui_element = result.gameObject;
             Vector2 anchoredPos=ui_element.GetComponent<RectTransform>().anchoredPosition;
             if(children.Contains(ui_element)&&ui_element.GetComponent<RectTransform>().anchoredPosition.y<=RectmaximumY)
@@ -58,8 +74,17 @@ public class card_manager : MonoBehaviour
             
             if(Input.GetMouseButtonDown(0))
             {
-                blinking_element=ui_element;
-                StartCoroutine("CardFlash");
+                //more confusing codes of blinking effect when card is clicked
+                selected_element=ui_element;
+                if(CalculateCost()==true)
+                {
+                    StartCoroutine("SuccessfulFlash");
+                }
+                else
+                {
+                    StartCoroutine("FailingFlash");
+                }
+                
                 Debug.Log(ui_element.name);
             }
 
@@ -75,25 +100,55 @@ public class card_manager : MonoBehaviour
         
     }
 
-    public IEnumerator CardFlash()
+    public IEnumerator SuccessfulFlash()
     {
-        blinking_element.GetComponent<Image>().color= UnityEngine.Color.red;
+        selected_element.GetComponent<Image>().color= UnityEngine.Color.cyan;
         yield return new WaitForSeconds(0.1f);
-        blinking_element.GetComponent<Image>().color = originalcolor;
+        selected_element.GetComponent<Image>().color = originalcolor;
+        StopCoroutine("CardFlash");
+    }
+
+        public IEnumerator FailingFlash()
+    {
+        selected_element.GetComponent<Image>().color= UnityEngine.Color.red;
+        yield return new WaitForSeconds(0.1f);
+        selected_element.GetComponent<Image>().color = originalcolor;
         StopCoroutine("CardFlash");
     }
     public void matrix_clicked()
     {
-        Debug.Log("haa");
         animator.SetBool("visible",true);
     }
     public void matrix_quit()
     {
-        Debug.Log("quit");
         animator.SetBool("visible",false);
         foreach(GameObject child in children)
             {
                 child.GetComponent<RectTransform>().anchoredPosition= new Vector2(child.GetComponent<RectTransform>().anchoredPosition.x,-403);
             }
     }
+
+    private bool CalculateCost()
+    {
+        if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_x-selected_element.GetComponent<CardSettings>().card_stat.X_consume>=0)
+        {
+            if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_y-selected_element.GetComponent<CardSettings>().card_stat.Y_consume>=0)
+            {
+                if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_z-selected_element.GetComponent<CardSettings>().card_stat.Z_consume>=0)
+                {
+                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_x-=selected_element.GetComponent<CardSettings>().card_stat.X_consume;
+                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_y-=selected_element.GetComponent<CardSettings>().card_stat.Y_consume;
+                    _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_z-=selected_element.GetComponent<CardSettings>().card_stat.Z_consume;
+                    Debug.Log("summoning success");
+                    _player_matrix.InstantiatePrefab();
+                    return true;
+                    //instantiate corresponding prefab
+                }
+                else return false;
+            }
+            else return false;
+        }
+        return false;
+    }
+
 }
