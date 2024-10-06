@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Global_Data : MonoBehaviour
 {
-
+    [Header("production")]
     public float[] production_rate={3,3,2};
     public static float productionCD=3;
     [SerializeField] float elapsedTime;
+
+    [Header("list of objects")]
+    public List<GameObject> Team1;
+    public List<GameObject> Team2;
+    public List<GameObject> Team3;
+    
     void Awake()
     {
         //initialize data of scriptable objects

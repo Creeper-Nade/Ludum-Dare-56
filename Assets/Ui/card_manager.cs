@@ -76,8 +76,15 @@ public class card_manager : MonoBehaviour
             {
                 //more confusing codes of blinking effect when card is clicked
                 selected_element=ui_element;
-                StartCoroutine("CardFlash");
-                CalculateCost();
+                if(CalculateCost()==true)
+                {
+                    StartCoroutine("SuccessfulFlash");
+                }
+                else
+                {
+                    StartCoroutine("FailingFlash");
+                }
+                
                 Debug.Log(ui_element.name);
             }
 
@@ -93,7 +100,15 @@ public class card_manager : MonoBehaviour
         
     }
 
-    public IEnumerator CardFlash()
+    public IEnumerator SuccessfulFlash()
+    {
+        selected_element.GetComponent<Image>().color= UnityEngine.Color.cyan;
+        yield return new WaitForSeconds(0.1f);
+        selected_element.GetComponent<Image>().color = originalcolor;
+        StopCoroutine("CardFlash");
+    }
+
+        public IEnumerator FailingFlash()
     {
         selected_element.GetComponent<Image>().color= UnityEngine.Color.red;
         yield return new WaitForSeconds(0.1f);
@@ -113,7 +128,7 @@ public class card_manager : MonoBehaviour
             }
     }
 
-    private void CalculateCost()
+    private bool CalculateCost()
     {
         if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_x-selected_element.GetComponent<CardSettings>().card_stat.X_consume>=0)
         {
@@ -126,10 +141,14 @@ public class card_manager : MonoBehaviour
                     _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().matrixdata.production_z-=selected_element.GetComponent<CardSettings>().card_stat.Z_consume;
                     Debug.Log("summoning success");
                     _player_matrix.InstantiatePrefab();
+                    return true;
                     //instantiate corresponding prefab
                 }
+                else return false;
             }
+            else return false;
         }
+        return false;
     }
 
 }
