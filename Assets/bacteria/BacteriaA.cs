@@ -16,11 +16,13 @@ public class BacteriaA : MonoBehaviour
     private float nearestDistance=10000;
 
     [SerializeField] private GameObject nearestFoe;
+    [SerializeField] Rigidbody2D rb;
     public Global_Data data;
     
     private void Awake()
     {
         _spriteRenderer=gameObject.GetComponent<SpriteRenderer>();
+        rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
        
     }
@@ -36,6 +38,12 @@ public class BacteriaA : MonoBehaviour
     {
         FindTarget();
         
+        
+    }
+    private void FixedUpdate() {
+        Vector3 targetDirection= nearestFoe.transform.position-this.transform.position;
+        Quaternion targetRotation= Quaternion.LookRotation(targetDirection);
+        rb.MoveRotation(targetRotation);
     }
 
     void FindTarget()
