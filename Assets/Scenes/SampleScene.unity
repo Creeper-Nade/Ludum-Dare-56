@@ -151,7 +151,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1862006042}
   m_Father: {fileID: 1120971082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &78116311
@@ -166,6 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60e25c1dd5561a44a9db9f50fccbf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionAreaTransform: {fileID: 1862006042}
+  startPos: {x: 0, y: 0, z: 0}
+  selectedUnitRTS: []
 --- !u!1 &255192295
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +984,6 @@ Transform:
   - {fileID: 796492476}
   - {fileID: 1725421260}
   - {fileID: 78116310}
-  - {fileID: 1862006042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129299341
@@ -1047,8 +1050,8 @@ Transform:
   m_GameObject: {fileID: 1168031064}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21, y: 0.27, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 1}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1862006042}
@@ -1094,8 +1097,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 170577bce7cbda144b82578f81308d23, type: 3}
+  m_Color: {r: 0.5707547, g: 0.9543907, b: 1, a: 0.4392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2030,13 +2033,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862006041}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.465, y: -0.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1168031065}
-  m_Father: {fileID: 1120971082}
+  m_Father: {fileID: 78116310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888342202
 GameObject:
@@ -2540,6 +2543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: 62f364e4fcaaa6f409b1ce0c02c5e41e, type: 2}
   data: {fileID: 255192296}
+  Bacgen: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   agent: {fileID: 0}
   foe: []
@@ -2742,6 +2746,14 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3790267785873817623, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: original_cursor
+      value: 
+      objectReference: {fileID: 2800000, guid: feee09437d40f394fa3ab153955e6c7f, type: 3}
+    - target: {fileID: 3790267785873817623, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: designating_cursor
+      value: 
+      objectReference: {fileID: 2800000, guid: da161d79736d51147a9932d6e0e10e49, type: 3}
     - target: {fileID: 7563621849051229256, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.16
@@ -3294,9 +3306,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: 62f364e4fcaaa6f409b1ce0c02c5e41e, type: 2}
+  rts: {fileID: 0}
   data: {fileID: 255192296}
   healthBar: {fileID: 2105792589297456175}
   particle: {fileID: 9008237628335716193}
+  agent: {fileID: 0}
+  original_cursor: {fileID: 2800000, guid: feee09437d40f394fa3ab153955e6c7f, type: 3}
+  designating_cursor: {fileID: 2800000, guid: da161d79736d51147a9932d6e0e10e49, type: 3}
+  designated_destination: 0
   Health: 0
   ATK: 0
   ATK_speed: 0

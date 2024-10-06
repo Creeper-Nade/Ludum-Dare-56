@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Bacteria_General : MonoBehaviour
 {
     public BacteriaSTATS stat;
+    public RTS_controll rts;
 
     private GameObject AttackArea;
 
@@ -14,9 +16,15 @@ public class Bacteria_General : MonoBehaviour
 
     [SerializeField] ParticleSystem particle;
 
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] public Texture2D original_cursor;
+    [SerializeField] public Texture2D designating_cursor;
+    private Vector2 cursorHotspot;
+
     private SpriteRenderer sprite;
     private int Team;
     private bool death_coroutine_ran=false;
+    public bool designated_destination=false;
 
         [Header("STATS")]
     [SerializeField] public float Health;
@@ -40,6 +48,10 @@ public class Bacteria_General : MonoBehaviour
 
         AttackArea=this.gameObject.transform.GetChild(0).gameObject;
         AttackArea.SetActive(false);
+
+        rts=FindObjectOfType<RTS_controll>();
+
+        agent=this.gameObject.GetComponent<NavMeshAgent>();
 
         if(this.gameObject.GetComponent<Team1bacteria>()!=null)Team=1;
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
@@ -80,6 +92,30 @@ public class Bacteria_General : MonoBehaviour
                 StartCoroutine("Die");
             }           
         }
+
+
+        //rts thing
+        if(rts.selectedUnitRTS.Contains(this.gameObject.GetComponent<UnitRTS>()))
+        {
+            designated_destination=true;
+            cursorHotspot=new Vector2(designating_cursor.width/2,designating_cursor.height/2);
+            Cursor.SetCursor(designating_cursor,cursorHotspot,CursorMode.Auto);
+            SetPos();
+        }
+
+        // Check if we've reached the destination
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    designated_destination=false;
+                    Vector2 orignalCursor_hotspot=new Vector2(512,462);
+                    Cursor.SetCursor(original_cursor,orignalCursor_hotspot,CursorMode.Auto);
+                }
+            }
+}
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -120,5 +156,17 @@ public class Bacteria_General : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
         death_coroutine_ran=false;
+    }
+
+    void SetPos()
+    {
+        agent.SetDestination(rts.startPos);
+    }
+
+    public void FaceDir()
+    {
+        Vector3 targetDirection= rts.startPos-this.transform.position;
+        float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
+        transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
     }
 }

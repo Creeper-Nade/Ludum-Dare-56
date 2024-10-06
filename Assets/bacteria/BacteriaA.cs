@@ -9,6 +9,7 @@ public class BacteriaA : MonoBehaviour
 {
     [SerializeField] BacteriaSTATS stat;
     public Global_Data data;
+    [SerializeField] Bacteria_General Bacgen;
     [SerializeField] SpriteRenderer _spriteRenderer;
     [Header("AI")]
     [SerializeField] NavMeshAgent agent;
@@ -27,6 +28,7 @@ public class BacteriaA : MonoBehaviour
         _spriteRenderer=gameObject.GetComponent<SpriteRenderer>();
         rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
+        Bacgen=GetComponent<Bacteria_General>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         agent.speed=stat.speed;
 
@@ -46,11 +48,17 @@ public class BacteriaA : MonoBehaviour
         
     }
     private void FixedUpdate() {
-        Vector3 targetDirection= nearestFoe.transform.position-this.transform.position;
-        float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
-        transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
-        //Quaternion targetRotation= Quaternion.LookRotation(targetDirection);
-        //rb.MoveRotation(targetRotation);
+        if(Bacgen.designated_destination==false)
+        {
+            //rotate as foe
+            Vector3 targetDirection= nearestFoe.transform.position-this.transform.position;
+            float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
+            transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+        }
+        else if (Bacgen.designated_destination==true)
+        {
+            Bacgen.FaceDir();
+        }
     }
 
     void FindTarget()
@@ -105,6 +113,7 @@ public class BacteriaA : MonoBehaviour
         }
         foe.Clear();
         nearestDistance=100000;
+        if(this.gameObject.GetComponent<Bacteria_General>().designated_destination==false)
         agent.SetDestination(nearestFoe.transform.position);
     }
 }
