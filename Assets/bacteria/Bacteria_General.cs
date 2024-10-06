@@ -66,6 +66,8 @@ public class Bacteria_General : MonoBehaviour
                 case 3:
                 data.Team3.Remove(this.gameObject);
                 break;
+                default:
+                break;
             }
             Destroy(this.gameObject);
         }
@@ -96,6 +98,7 @@ public class Bacteria_General : MonoBehaviour
     {
         Color defaultColor=sprite.color;
         sprite.color=Color.red;
+
         yield return new WaitForSeconds(0.05f);
         sprite.color=defaultColor;
     }

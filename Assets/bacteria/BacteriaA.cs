@@ -28,7 +28,7 @@ public class BacteriaA : MonoBehaviour
         rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
-
+        agent.speed=stat.speed;
 
        
     }

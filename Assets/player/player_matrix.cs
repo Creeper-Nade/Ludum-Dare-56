@@ -17,8 +17,9 @@ public class player_matrix : MonoBehaviour
     public void InstantiatePrefab()
     {
         instantiating_prefab=cmanager.selected_element.GetComponent<CardSettings>().card_stat.prefab;
-        data.Team1.Add(instantiating_prefab);
+        //data.Team1.Add(instantiating_prefab);
         var Cloned_bacteria=Instantiate(instantiating_prefab,transform.position,Quaternion.Euler(Vector3.forward*Random.Range(0.0f, 360.0f)));
+        data.Team1.Add(Cloned_bacteria);
     }
 
     
