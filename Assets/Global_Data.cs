@@ -19,9 +19,9 @@ public class Global_Data : MonoBehaviour
         //initialize data of scriptable objects
         foreach(GameObject matrix in GameObject.FindGameObjectsWithTag("Matrix"))
             {
-                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_x=0;
-                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_y=0;
-                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_z=0;
+                matrix.GetComponent<Bacterial_Matrix>().production_x=0;
+                matrix.GetComponent<Bacterial_Matrix>().production_y=0;
+                matrix.GetComponent<Bacterial_Matrix>().production_z=0;
             }
     }
     void Start()
@@ -59,9 +59,9 @@ public class Global_Data : MonoBehaviour
             foreach(GameObject matrix in GameObject.FindGameObjectsWithTag("Matrix"))
             {
                 //add resources to every bacterial matrix
-                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_x+=production_rate[0];
-                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_y+=production_rate[1];
-                matrix.GetComponent<Bacterial_Matrix>().matrixdata.production_z+=production_rate[2];
+                matrix.GetComponent<Bacterial_Matrix>().production_x+=production_rate[0];
+                matrix.GetComponent<Bacterial_Matrix>().production_y+=production_rate[1];
+                matrix.GetComponent<Bacterial_Matrix>().production_z+=production_rate[2];
             }
             
         }

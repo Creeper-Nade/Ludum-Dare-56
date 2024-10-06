@@ -10,12 +10,16 @@ public class Bacteria_General : MonoBehaviour
     private GameObject AttackArea;
 
     [SerializeField] Global_Data data;
+    [SerializeField] Health_Bar healthBar;
+
+    [SerializeField] ParticleSystem particle;
 
     private SpriteRenderer sprite;
     private int Team;
+    private bool death_coroutine_ran=false;
 
         [Header("STATS")]
-    [SerializeField] float Health;
+    [SerializeField] public float Health;
     [SerializeField] float ATK;
     [SerializeField] float ATK_speed;
     private bool is_attack_ready=true;
@@ -31,6 +35,8 @@ public class Bacteria_General : MonoBehaviour
         speed=stat.speed;
 
         sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+
+        particle.gameObject.SetActive(false);
 
         AttackArea=this.gameObject.transform.GetChild(0).gameObject;
         AttackArea.SetActive(false);
@@ -69,7 +75,10 @@ public class Bacteria_General : MonoBehaviour
                 default:
                 break;
             }
-            Destroy(this.gameObject);
+            if(death_coroutine_ran==false)
+            {
+                StartCoroutine("Die");
+            }           
         }
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -90,6 +99,7 @@ public class Bacteria_General : MonoBehaviour
     public void Damage(int damage)
     {
         Health-=damage;
+        healthBar.Change(-damage);
         StartCoroutine("damaged_blink");
         Debug.Log("ouch");
     }
@@ -101,5 +111,14 @@ public class Bacteria_General : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
         sprite.color=defaultColor;
+    }
+
+    IEnumerator Die()
+    {
+        death_coroutine_ran=true;
+        particle.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
+        death_coroutine_ran=false;
     }
 }
