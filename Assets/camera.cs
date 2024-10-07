@@ -16,6 +16,7 @@ public class camera : MonoBehaviour
    private Vector3 inputDir=new Vector3(0,0,0);
    [SerializeField ]private float maximumFOV=20;
    [SerializeField ]private float minimumFOV=5;
+   public LayerMask layermask;
    private float targetFOV=10;
     [Header("gameobj and stuffs")]
    private card_manager cards;
@@ -44,6 +45,7 @@ public class camera : MonoBehaviour
     void Left_clicked()
     {
         GameObject hittedObject;
+        Physics2D.IgnoreLayerCollision(6,2,true);
         var rayHit=Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Input.mousePosition));
         
         if(!rayHit.collider)return;

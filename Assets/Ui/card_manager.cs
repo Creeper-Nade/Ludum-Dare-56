@@ -78,11 +78,11 @@ public class card_manager : MonoBehaviour
                 selected_element=ui_element;
                 if(CalculateCost()==true)
                 {
-                    StartCoroutine("SuccessfulFlash");
+                    StartCoroutine(SuccessfulFlash());
                 }
                 else
                 {
-                    StartCoroutine("FailingFlash");
+                    StartCoroutine(FailingFlash());
                 }
                 
                 Debug.Log(ui_element.name);
@@ -105,7 +105,7 @@ public class card_manager : MonoBehaviour
         selected_element.GetComponent<Image>().color= UnityEngine.Color.cyan;
         yield return new WaitForSeconds(0.1f);
         selected_element.GetComponent<Image>().color = originalcolor;
-        StopCoroutine("CardFlash");
+        StopCoroutine(SuccessfulFlash());
     }
 
         public IEnumerator FailingFlash()
@@ -113,7 +113,7 @@ public class card_manager : MonoBehaviour
         selected_element.GetComponent<Image>().color= UnityEngine.Color.red;
         yield return new WaitForSeconds(0.1f);
         selected_element.GetComponent<Image>().color = originalcolor;
-        StopCoroutine("CardFlash");
+        StopCoroutine(FailingFlash());
     }
     public void matrix_clicked()
     {
