@@ -11,26 +11,28 @@ public class Bacteria_General : MonoBehaviour
 
     private GameObject AttackArea;
 
+    [SerializeField] Global_Data data;
     [SerializeField] Health_Bar healthBar;
 
     [SerializeField] ParticleSystem particle;
 
     [SerializeField] NavMeshAgent agent;
-
-    private SpriteRenderer sprite;
-    private int Team;
+    public Animator animator;
+    [SerializeField]private SpriteRenderer sprite;
+    public int Team;
     private bool death_coroutine_ran=false;
     public bool designated_destination=false;
 
         [Header("STATS")]
     [SerializeField] public float Health;
-    [SerializeField] float ATK;
-    [SerializeField] float ATK_speed;
-    private bool is_attack_ready=true;
-    [SerializeField] float ATK_CD=15f;
-    [SerializeField] float speed;
-    public EnemyType enemyType;
-    bool isDied;
+    [SerializeField] public float ATK;
+    [SerializeField] public float ATK_speed;
+    public bool is_attack_ready=true;
+    [SerializeField] public float ATK_CD=15f;
+    [SerializeField] public float speed;
+
+    public int shield;
+    Color defaultColor;
     private void Awake()
     {
                 //initialize bacteria
@@ -39,8 +41,9 @@ public class Bacteria_General : MonoBehaviour
         ATK_speed=stat.atk_speed;
         ATK_CD/=ATK_speed;
         speed=stat.speed;
-        isDied = false;
-        sprite =gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        shield=0;
+
+        sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
 
         particle.gameObject.SetActive(false);
 
@@ -54,8 +57,9 @@ public class Bacteria_General : MonoBehaviour
         if(this.gameObject.GetComponent<Team1bacteria>()!=null)Team=1;
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
         if(this.gameObject.GetComponent<Team3bacteria>()!=null)Team=3;
+        defaultColor=sprite.color;
     }
-   
+
     private void Update() {
         if(is_attack_ready==false)
         {
@@ -66,46 +70,33 @@ public class Bacteria_General : MonoBehaviour
                 ATK_CD=15f/ATK_speed;
             }
         }
-        if(Health<=0&& isDied==false)
+        if(Health<=0)
         {
-            isDied = true;
             Debug.Log("I am dead");
             switch(Team)
             {
                 case 1:
-                    Global_Data.Instance.Team1.Remove(this.gameObject);
-                    //Global_Data.Instance.TeamDatas[TeamType.Team1].RemoveEnemy(enemyType);
-                    break;
+                data.Team1.Remove(this.gameObject);
+                break;
                 
                 case 2:
-                    Global_Data.Instance.Team2.Remove(this.gameObject);
-                    Global_Data.Instance.TeamDatas[TeamType.Team2].RemoveEnemy(enemyType);
-                    break;
+                data.Team2.Remove(this.gameObject);
+                break;
 
                 case 3:
-                    Global_Data.Instance.Team3.Remove(this.gameObject);
-                    Global_Data.Instance.TeamDatas[TeamType.Team3].RemoveEnemy(enemyType);
-                    break;
+                data.Team3.Remove(this.gameObject);
+                break;
                 default:
                 break;
             }
             if(death_coroutine_ran==false)
             {
-                StartCoroutine("Die");
+                StartCoroutine(Die());
             }           
         }
 
 
         //rts thing
-        if(rts.selectedUnitRTS.Contains(this.gameObject.GetComponent<UnitRTS>()))
-        {
-            
-            if(Input.GetMouseButtonDown(0))
-            {
-                designated_destination=true;
-            }
-            
-        }
 
         // Check if we've reached the destination
         if (!agent.pathPending)
@@ -120,12 +111,15 @@ public class Bacteria_General : MonoBehaviour
             }
 }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if(!((this.gameObject.GetComponent<Team1bacteria>()!=null&&other.GetComponent<Team1bacteria>()!=null)||(this.gameObject.GetComponent<team2bacteria>()!=null&&other.GetComponent<team2bacteria>()!=null)||(this.gameObject.GetComponent<Team3bacteria>()!=null&&other.GetComponent<Team3bacteria>()!=null)))
+        if(!((data.Team1.Contains(this.gameObject)&&data.Team1.Contains(other.gameObject))||(data.Team2.Contains(this.gameObject)&&data.Team2.Contains(other.gameObject))||(data.Team3.Contains(this.gameObject)&&data.Team3.Contains(other.gameObject))))
         {
+            //!((this.gameObject.GetComponent<Team1bacteria>()!=null&&(other.gameObject.GetComponent<Team1bacteria>()!=null||other.gameObject.GetComponentInParent<Team1bacteria>()!=null))||(this.gameObject.GetComponent<team2bacteria>()!=null&&(other.gameObject.GetComponent<team2bacteria>()!=null||other.gameObject.GetComponentInParent<team2bacteria>()!=null))||(this.gameObject.GetComponent<Team3bacteria>()!=null&&(other.gameObject.GetComponent<Team3bacteria>()!=null||other.gameObject.GetComponentInParent<Team3bacteria>()!=null)))
+            Debug.Log("attack");
             AttackArea.SetActive(is_attack_ready);
-            StartCoroutine("Attack_time");
+            if(is_attack_ready==true)
+            StartCoroutine(Attack_time());
         }
         
     }
@@ -137,18 +131,26 @@ public class Bacteria_General : MonoBehaviour
     }
     public void Damage(int damage)
     {
-        Health-=damage;
-        healthBar.Change(-damage);
-        StartCoroutine("damaged_blink");
-        Debug.Log("ouch");
+        if(shield>0)
+        {
+            shield-=1;
+        }
+        else{
+            Health-=damage;
+            Debug.Log(damage);
+            healthBar.Change(-damage);
+            StartCoroutine("damaged_blink");
+            Debug.Log("ouch");
+        }
+        
     }
 
     IEnumerator damaged_blink()
     {
-        Color defaultColor=sprite.color;
         sprite.color=Color.red;
 
         yield return new WaitForSeconds(0.05f);
+        Debug.Log("color back to original");
         sprite.color=defaultColor;
     }
 

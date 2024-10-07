@@ -1,37 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
-public class TeamData
-{
-    public Dictionary<EnemyType, int> EnemyData=new Dictionary<EnemyType, int>();
-    public void AddEnemy(EnemyType enemyType)
-    {
-        if (!EnemyData.ContainsKey(enemyType))
-        {
-            EnemyData.Add(enemyType,0);
-        }
-      
-        EnemyData[enemyType] += 1;
-    }
 
-    public void RemoveEnemy(EnemyType enemyType)
-    {
-        if (!EnemyData.ContainsKey(enemyType))
-        {
-            EnemyData.Add(enemyType, 0);
-        }
-        Debug.LogError("xxxxxxxxxx");
-        EnemyData[enemyType] -= 1;
-    }
-}
-
-public enum TeamType
-{
-    Team1,
-    Team2,
-    Team3
-}
 public class Global_Data : MonoBehaviour
 {
     [Header("production")]
@@ -43,15 +13,9 @@ public class Global_Data : MonoBehaviour
     public List<GameObject> Team1;
     public List<GameObject> Team2;
     public List<GameObject> Team3;
-    public Dictionary<TeamType, TeamData> TeamDatas = new Dictionary<TeamType, TeamData>();
-
-    public static Global_Data Instance;
+    
     void Awake()
     {
-        if (Instance==null)
-        {
-            Instance = this;
-        }
         //initialize data of scriptable objects
         foreach(GameObject matrix in GameObject.FindGameObjectsWithTag("Matrix"))
             {
@@ -60,15 +24,9 @@ public class Global_Data : MonoBehaviour
                 matrix.GetComponent<Bacterial_Matrix>().production_z=0;
             }
     }
-
     void Start()
     {
         StartCoroutine(AddProduction());
-    }
-
-    void InitDic()
-    {
-        
     }
 
     void Update()

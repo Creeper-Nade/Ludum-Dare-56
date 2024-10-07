@@ -19,8 +19,8 @@ public class UiHandler : MonoBehaviour
 
     void Update()
     {
-        X_display.text=string.Format("X:{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x);
-        Y_display.text=string.Format("Y:{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_y);
-        Z_display.text=string.Format("Z:{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z);
+        X_display.text=string.Format("{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x);
+        Y_display.text=string.Format("{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_y);
+        Z_display.text=string.Format("{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z);
     }
 }
