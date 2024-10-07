@@ -55,10 +55,6 @@ public class BacteriaA : MonoBehaviour
             float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
             transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
         }
-        else if (Bacgen.designated_destination==true)
-        {
-            Bacgen.FaceDir();
-        }
     }
 
     void FindTarget()

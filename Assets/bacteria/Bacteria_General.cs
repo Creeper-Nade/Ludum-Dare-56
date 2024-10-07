@@ -17,9 +17,6 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] ParticleSystem particle;
 
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] public Texture2D original_cursor;
-    [SerializeField] public Texture2D designating_cursor;
-    private Vector2 cursorHotspot;
 
     private SpriteRenderer sprite;
     private int Team;
@@ -97,10 +94,12 @@ public class Bacteria_General : MonoBehaviour
         //rts thing
         if(rts.selectedUnitRTS.Contains(this.gameObject.GetComponent<UnitRTS>()))
         {
-            designated_destination=true;
-            cursorHotspot=new Vector2(designating_cursor.width/2,designating_cursor.height/2);
-            Cursor.SetCursor(designating_cursor,cursorHotspot,CursorMode.Auto);
-            SetPos();
+            
+            if(Input.GetMouseButtonDown(0))
+            {
+                designated_destination=true;
+            }
+            
         }
 
         // Check if we've reached the destination
@@ -111,8 +110,7 @@ public class Bacteria_General : MonoBehaviour
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     designated_destination=false;
-                    Vector2 orignalCursor_hotspot=new Vector2(512,462);
-                    Cursor.SetCursor(original_cursor,orignalCursor_hotspot,CursorMode.Auto);
+                    
                 }
             }
 }
@@ -158,11 +156,7 @@ public class Bacteria_General : MonoBehaviour
         death_coroutine_ran=false;
     }
 
-    void SetPos()
-    {
-        agent.SetDestination(rts.startPos);
-    }
-
+    
     public void FaceDir()
     {
         Vector3 targetDirection= rts.startPos-this.transform.position;
