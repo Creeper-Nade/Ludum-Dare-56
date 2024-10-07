@@ -70,7 +70,7 @@ public class BacteriaD : MonoBehaviour
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
-
+        UnityEngine.Debug.Log("randompoint");
         Vector3 randomPoint = center + Random.insideUnitSphere * range; //random point in a sphere 
         NavMeshHit hit;
         if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
