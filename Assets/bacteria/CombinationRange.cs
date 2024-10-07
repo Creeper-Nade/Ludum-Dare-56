@@ -66,7 +66,6 @@ public class CombinationRange : MonoBehaviour
                 break;
 
                 case 2:
-                bacGen.shield+=2;
                 //bacteriaB shield effect
                 break;
 
@@ -104,7 +103,6 @@ public class CombinationRange : MonoBehaviour
                 break;
 
                 case 2:
-                bacGen.shield=0;
                 //bacteriaB shield effect
                 break;
 

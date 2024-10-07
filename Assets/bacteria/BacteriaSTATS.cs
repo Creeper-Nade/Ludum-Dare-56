@@ -13,6 +13,4 @@ public class BacteriaSTATS : ScriptableObject
     public float atk_speed;
     public float speed;
     public Sprite sprite;
-    public int number1_for_combination;
-    public int number2_for_combination_upgrade;
 }
