@@ -16,11 +16,19 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
 
         damage=Bacteria_stats.stat.attack;
-        if(other.GetComponent<Bacteria_General>()!=null)
+        
+        
+        Debug.Log("touched stuff");
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.GetComponent<Bacteria_General>()!=null)
         {
+            Bacteria_stats.animator.SetTrigger("is_attacking");
+            Debug.Log(other.gameObject.name);
             Foe_stats=other.GetComponent<Bacteria_General>();
             if(!((data.Team1.Contains(Bacteria_stats.gameObject)&&data.Team1.Contains(Foe_stats.gameObject))||(data.Team2.Contains(Bacteria_stats.gameObject)&&data.Team2.Contains(Foe_stats.gameObject))||(data.Team3.Contains(Bacteria_stats.gameObject)&&data.Team3.Contains(Foe_stats.gameObject))))
             Foe_stats.Damage(damage);
+            Bacteria_stats.is_attack_ready=false;
+            this.gameObject.SetActive(false);
         }
         else if (other.GetComponent<Bacterial_Matrix>())
         {
