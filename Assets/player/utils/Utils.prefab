@@ -474,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764213259509719188}
   - component: {fileID: 6472819077376995570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraFocus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,3 +511,6 @@ MonoBehaviour:
   cinemachine: {fileID: 0}
   maximumFOV: 20
   minimumFOV: 5
+  layermask:
+    serializedVersion: 2
+    m_Bits: 4
