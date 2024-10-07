@@ -197,10 +197,12 @@ public class BacteriaC : MonoBehaviour
     // 尝试收集资源（考虑冷却时间）
     private void TryCollectResource()
     {
-        if (Time.time - lastCollectionTime >= collectionCooldown)
+        if (Time.deltaTime - lastCollectionTime >= collectionCooldown)
         {
+            Debug.Log($"Time.time:{Time.deltaTime}");
+            Debug.Log($"lastCollectionTime:{lastCollectionTime}");
             CollectResource();
-            lastCollectionTime = Time.time;
+            lastCollectionTime = Time.deltaTime;
         }
     }
 
