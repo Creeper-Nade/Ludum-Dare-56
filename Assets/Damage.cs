@@ -31,10 +31,12 @@ public class Damage : MonoBehaviour
             Foe_matrix=other.GetComponent<Bacterial_Matrix>();
             if(!((data.Team1.Contains(Bacteria_stats.gameObject)&&data.Team1.Contains(Foe_matrix.gameObject))||(data.Team2.Contains(Bacteria_stats.gameObject)&&data.Team2.Contains(Foe_matrix.gameObject))||(data.Team3.Contains(Bacteria_stats.gameObject)&&data.Team3.Contains(Foe_matrix.gameObject))))
             {
+                Debug.Log("matrixdamaged");
                 Foe_matrix.Damage(damage);
-                Bacteria_stats.is_attack_ready=false;
-                this.gameObject.SetActive(false);
+                
             }
+            Bacteria_stats.is_attack_ready=false;
+                this.gameObject.SetActive(false);
         }
 
     }
