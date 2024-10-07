@@ -109,6 +109,16 @@ public class Resource : MonoBehaviour
         return false;
     }
 
+    public bool HasRemainingResources()
+    {
+        if (currentX > 0 || currentY > 0 || currentZ > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     // 确认采集并减少资源
     public void ConfirmCollection(string resourceType)
     {
