@@ -19,7 +19,7 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     public Animator animator;
     [SerializeField]private SpriteRenderer sprite;
-    private int Team;
+    public int Team;
     private bool death_coroutine_ran=false;
     public bool designated_destination=false;
 
