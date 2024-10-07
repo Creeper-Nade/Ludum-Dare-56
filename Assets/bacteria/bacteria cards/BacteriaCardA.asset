@@ -15,4 +15,4 @@ MonoBehaviour:
   X_consume: 5
   Y_consume: 0
   Z_consume: 2
-  prefab: {fileID: 8903180356457449344, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+  prefab: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
