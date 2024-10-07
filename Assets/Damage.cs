@@ -16,6 +16,7 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
 
         damage=Bacteria_stats.stat.attack;
+        Bacteria_stats.animator.SetTrigger("is_attacking");
         if(other.GetComponent<Bacteria_General>()!=null)
         {
             Foe_stats=other.GetComponent<Bacteria_General>();

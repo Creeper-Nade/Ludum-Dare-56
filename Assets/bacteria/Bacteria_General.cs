@@ -17,7 +17,7 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] ParticleSystem particle;
 
     [SerializeField] NavMeshAgent agent;
-
+    public Animator animator;
     private SpriteRenderer sprite;
     private int Team;
     private bool death_coroutine_ran=false;
@@ -25,11 +25,11 @@ public class Bacteria_General : MonoBehaviour
 
         [Header("STATS")]
     [SerializeField] public float Health;
-    [SerializeField] float ATK;
-    [SerializeField] float ATK_speed;
+    [SerializeField] public float ATK;
+    [SerializeField] public float ATK_speed;
     private bool is_attack_ready=true;
-    [SerializeField] float ATK_CD=15f;
-    [SerializeField] float speed;
+    [SerializeField] public float ATK_CD=15f;
+    [SerializeField] public float speed;
     private void Awake()
     {
                 //initialize bacteria
@@ -86,21 +86,12 @@ public class Bacteria_General : MonoBehaviour
             }
             if(death_coroutine_ran==false)
             {
-                StartCoroutine("Die");
+                StartCoroutine(Die());
             }           
         }
 
 
         //rts thing
-        if(rts.selectedUnitRTS.Contains(this.gameObject.GetComponent<UnitRTS>()))
-        {
-            
-            if(Input.GetMouseButtonDown(0))
-            {
-                designated_destination=true;
-            }
-            
-        }
 
         // Check if we've reached the destination
         if (!agent.pathPending)
@@ -120,7 +111,7 @@ public class Bacteria_General : MonoBehaviour
         if(!((this.gameObject.GetComponent<Team1bacteria>()!=null&&other.GetComponent<Team1bacteria>()!=null)||(this.gameObject.GetComponent<team2bacteria>()!=null&&other.GetComponent<team2bacteria>()!=null)||(this.gameObject.GetComponent<Team3bacteria>()!=null&&other.GetComponent<Team3bacteria>()!=null)))
         {
             AttackArea.SetActive(is_attack_ready);
-            StartCoroutine("Attack_time");
+            StartCoroutine(Attack_time());
         }
         
     }
