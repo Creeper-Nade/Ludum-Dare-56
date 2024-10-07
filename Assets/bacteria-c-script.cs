@@ -229,11 +229,11 @@ public class BacteriaC : MonoBehaviour
                     }
 
                     // 如果资源点被采集完毕，通知所有细菌返回母巢
-                    // if (!resourceScript.HasRemainingResources())
-                    // {
-                    //     Debug.Log("Resource depleted. All bacteria returning home.");
-                    //     NotifyAllBacteriaToReturnHome();
-                    // }
+                    if (!resourceScript.HasRemainingResources())
+                    {
+                        Debug.Log("Resource depleted. All bacteria returning home.");
+                        NotifyAllBacteriaToReturnHome();
+                    }
                 }
                 else
                 {
