@@ -127,6 +127,25 @@ public class Resource : MonoBehaviour
 
         CheckResourceDepletion();
     }
+    
+    // 确认采集并减少资源
+    public void ConfirmCollection(string resourceType, int collectionAmount)
+    {
+        switch (resourceType)
+        {
+            case "X":
+                currentX -= collectionAmount;
+                break;
+            case "Y":
+                currentY -= collectionAmount;
+                break;
+            case "Z":
+                currentZ -= collectionAmount;
+                break;
+        }
+
+        CheckResourceDepletion();
+    }
 
     // 检查资源是否耗尽
     private void CheckResourceDepletion()

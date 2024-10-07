@@ -22,4 +22,12 @@ public class Bacterial_Matrix : MonoBehaviour
         Debug.Log(gameObject.name + production_y);
         Debug.Log(gameObject.name + production_z);
     }
+    
+    public void AddResources(int carryingX, int carryingY, int carryingZ)
+    {
+        production_x += carryingX;
+        production_y += carryingY;
+        production_z += carryingZ;
+        
+    }
 }
