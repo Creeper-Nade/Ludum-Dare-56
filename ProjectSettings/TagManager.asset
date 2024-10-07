@@ -8,6 +8,7 @@ TagManager:
   - GBdata
   - resource
   - BacteriaC
+  - EnemyBacteria
   layers:
   - Default
   - TransparentFX
