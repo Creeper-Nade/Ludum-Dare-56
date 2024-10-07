@@ -9,6 +9,9 @@ public class Bacterial_Matrix : MonoBehaviour
     public float production_y;
     public float production_z;
     public float Health;
+    Color defaultColor;
+    public SpriteRenderer sprite;
+    private bool death_coroutine_ran=false;
     private void Awake() {
         production_x=0;
         production_y=0;
@@ -29,5 +32,31 @@ public class Bacterial_Matrix : MonoBehaviour
         production_y += carryingY;
         production_z += carryingZ;
         
+    }
+
+    public void Damage(int damage)
+    {
+            Health-=damage;
+            Debug.Log(damage);
+            StartCoroutine("damaged_blink");
+            Debug.Log("ouch");
+        
+    }
+
+    IEnumerator damaged_blink()
+    {
+        sprite.color=Color.red;
+
+        yield return new WaitForSeconds(0.05f);
+        Debug.Log("color back to original");
+        sprite.color=defaultColor;
+    }
+
+    IEnumerator Die()
+    {
+        death_coroutine_ran=true;
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
+        death_coroutine_ran=false;
     }
 }
