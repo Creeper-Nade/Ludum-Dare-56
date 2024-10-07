@@ -11,13 +11,12 @@ public class Bacteria_General : MonoBehaviour
 
     private GameObject AttackArea;
 
-    [SerializeField] Global_Data data;
     [SerializeField] Health_Bar healthBar;
 
     [SerializeField] ParticleSystem particle;
 
     [SerializeField] NavMeshAgent agent;
-    public Animator animator;
+
     private SpriteRenderer sprite;
     private int Team;
     private bool death_coroutine_ran=false;
@@ -25,11 +24,13 @@ public class Bacteria_General : MonoBehaviour
 
         [Header("STATS")]
     [SerializeField] public float Health;
-    [SerializeField] public float ATK;
-    [SerializeField] public float ATK_speed;
+    [SerializeField] float ATK;
+    [SerializeField] float ATK_speed;
     private bool is_attack_ready=true;
-    [SerializeField] public float ATK_CD=15f;
-    [SerializeField] public float speed;
+    [SerializeField] float ATK_CD=15f;
+    [SerializeField] float speed;
+    public EnemyType enemyType;
+    bool isDied;
     private void Awake()
     {
                 //initialize bacteria
@@ -38,8 +39,8 @@ public class Bacteria_General : MonoBehaviour
         ATK_speed=stat.atk_speed;
         ATK_CD/=ATK_speed;
         speed=stat.speed;
-
-        sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        isDied = false;
+        sprite =gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
 
         particle.gameObject.SetActive(false);
 
@@ -54,7 +55,7 @@ public class Bacteria_General : MonoBehaviour
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
         if(this.gameObject.GetComponent<Team3bacteria>()!=null)Team=3;
     }
-
+   
     private void Update() {
         if(is_attack_ready==false)
         {
@@ -65,33 +66,46 @@ public class Bacteria_General : MonoBehaviour
                 ATK_CD=15f/ATK_speed;
             }
         }
-        if(Health<=0)
+        if(Health<=0&& isDied==false)
         {
+            isDied = true;
             Debug.Log("I am dead");
             switch(Team)
             {
                 case 1:
-                data.Team1.Remove(this.gameObject);
-                break;
+                    Global_Data.Instance.Team1.Remove(this.gameObject);
+                    //Global_Data.Instance.TeamDatas[TeamType.Team1].RemoveEnemy(enemyType);
+                    break;
                 
                 case 2:
-                data.Team2.Remove(this.gameObject);
-                break;
+                    Global_Data.Instance.Team2.Remove(this.gameObject);
+                    Global_Data.Instance.TeamDatas[TeamType.Team2].RemoveEnemy(enemyType);
+                    break;
 
                 case 3:
-                data.Team3.Remove(this.gameObject);
-                break;
+                    Global_Data.Instance.Team3.Remove(this.gameObject);
+                    Global_Data.Instance.TeamDatas[TeamType.Team3].RemoveEnemy(enemyType);
+                    break;
                 default:
                 break;
             }
             if(death_coroutine_ran==false)
             {
-                StartCoroutine(Die());
+                StartCoroutine("Die");
             }           
         }
 
 
         //rts thing
+        if(rts.selectedUnitRTS.Contains(this.gameObject.GetComponent<UnitRTS>()))
+        {
+            
+            if(Input.GetMouseButtonDown(0))
+            {
+                designated_destination=true;
+            }
+            
+        }
 
         // Check if we've reached the destination
         if (!agent.pathPending)
@@ -111,7 +125,7 @@ public class Bacteria_General : MonoBehaviour
         if(!((this.gameObject.GetComponent<Team1bacteria>()!=null&&other.GetComponent<Team1bacteria>()!=null)||(this.gameObject.GetComponent<team2bacteria>()!=null&&other.GetComponent<team2bacteria>()!=null)||(this.gameObject.GetComponent<Team3bacteria>()!=null&&other.GetComponent<Team3bacteria>()!=null)))
         {
             AttackArea.SetActive(is_attack_ready);
-            StartCoroutine(Attack_time());
+            StartCoroutine("Attack_time");
         }
         
     }

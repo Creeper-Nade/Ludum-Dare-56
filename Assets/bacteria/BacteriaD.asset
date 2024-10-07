@@ -19,5 +19,3 @@ MonoBehaviour:
   atk_speed: 3
   speed: 5
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  number1_for_combination: 4
-  number2_for_combination_upgrade: 9999

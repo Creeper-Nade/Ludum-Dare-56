@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.AI;
 public class BacteriaA : MonoBehaviour
 {
-    [Header("reference")]
     [SerializeField] BacteriaSTATS stat;
     public Global_Data data;
     [SerializeField] Bacteria_General Bacgen;
@@ -16,16 +15,11 @@ public class BacteriaA : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
 
     [SerializeField] List<GameObject> foe;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Animator animator;
-
-    [Header("setup")]
     private float distance;
     private float nearestDistance=10000;
 
     [SerializeField] private GameObject nearestFoe;
-    
-    
+    [SerializeField] Rigidbody2D rb;
 
     private void Awake()
     {
@@ -34,7 +28,6 @@ public class BacteriaA : MonoBehaviour
         rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
         Bacgen=GetComponent<Bacteria_General>();
-        animator=this.gameObject.GetComponent<Animator>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         agent.speed=stat.speed;
 

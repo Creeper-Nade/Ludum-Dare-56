@@ -15,4 +15,11 @@ public class Bacterial_Matrix : MonoBehaviour
         production_z=0;
         Health=50;
     }
+
+    private void Update()
+    {
+        Debug.Log(gameObject.name+production_x);
+        Debug.Log(gameObject.name + production_y);
+        Debug.Log(gameObject.name + production_z);
+    }
 }
