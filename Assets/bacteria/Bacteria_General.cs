@@ -18,7 +18,7 @@ public class Bacteria_General : MonoBehaviour
 
     [SerializeField] NavMeshAgent agent;
     public Animator animator;
-    private SpriteRenderer sprite;
+    [SerializeField]private SpriteRenderer sprite;
     private int Team;
     private bool death_coroutine_ran=false;
     public bool designated_destination=false;
@@ -27,9 +27,12 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] public float Health;
     [SerializeField] public float ATK;
     [SerializeField] public float ATK_speed;
-    private bool is_attack_ready=true;
+    public bool is_attack_ready=true;
     [SerializeField] public float ATK_CD=15f;
     [SerializeField] public float speed;
+
+    public int shield;
+    Color defaultColor;
     private void Awake()
     {
                 //initialize bacteria
@@ -38,6 +41,7 @@ public class Bacteria_General : MonoBehaviour
         ATK_speed=stat.atk_speed;
         ATK_CD/=ATK_speed;
         speed=stat.speed;
+        shield=0;
 
         sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
 
@@ -53,6 +57,7 @@ public class Bacteria_General : MonoBehaviour
         if(this.gameObject.GetComponent<Team1bacteria>()!=null)Team=1;
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
         if(this.gameObject.GetComponent<Team3bacteria>()!=null)Team=3;
+        defaultColor=sprite.color;
     }
 
     private void Update() {
@@ -106,11 +111,14 @@ public class Bacteria_General : MonoBehaviour
             }
 }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if(!((this.gameObject.GetComponent<Team1bacteria>()!=null&&other.GetComponent<Team1bacteria>()!=null)||(this.gameObject.GetComponent<team2bacteria>()!=null&&other.GetComponent<team2bacteria>()!=null)||(this.gameObject.GetComponent<Team3bacteria>()!=null&&other.GetComponent<Team3bacteria>()!=null)))
+        if(!((data.Team1.Contains(this.gameObject)&&data.Team1.Contains(other.gameObject))||(data.Team2.Contains(this.gameObject)&&data.Team2.Contains(other.gameObject))||(data.Team3.Contains(this.gameObject)&&data.Team3.Contains(other.gameObject))))
         {
+            //!((this.gameObject.GetComponent<Team1bacteria>()!=null&&(other.gameObject.GetComponent<Team1bacteria>()!=null||other.gameObject.GetComponentInParent<Team1bacteria>()!=null))||(this.gameObject.GetComponent<team2bacteria>()!=null&&(other.gameObject.GetComponent<team2bacteria>()!=null||other.gameObject.GetComponentInParent<team2bacteria>()!=null))||(this.gameObject.GetComponent<Team3bacteria>()!=null&&(other.gameObject.GetComponent<Team3bacteria>()!=null||other.gameObject.GetComponentInParent<Team3bacteria>()!=null)))
+            Debug.Log("attack");
             AttackArea.SetActive(is_attack_ready);
+            if(is_attack_ready==true)
             StartCoroutine(Attack_time());
         }
         
@@ -123,18 +131,26 @@ public class Bacteria_General : MonoBehaviour
     }
     public void Damage(int damage)
     {
-        Health-=damage;
-        healthBar.Change(-damage);
-        StartCoroutine("damaged_blink");
-        Debug.Log("ouch");
+        if(shield>0)
+        {
+            shield-=1;
+        }
+        else{
+            Health-=damage;
+            Debug.Log(damage);
+            healthBar.Change(-damage);
+            StartCoroutine("damaged_blink");
+            Debug.Log("ouch");
+        }
+        
     }
 
     IEnumerator damaged_blink()
     {
-        Color defaultColor=sprite.color;
         sprite.color=Color.red;
 
         yield return new WaitForSeconds(0.05f);
+        Debug.Log("color back to original");
         sprite.color=defaultColor;
     }
 

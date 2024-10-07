@@ -17,7 +17,6 @@ public class BacteriaA : MonoBehaviour
 
     [SerializeField] List<GameObject> foe;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] Animator animator;
 
     [Header("setup")]
     private float distance;
@@ -34,7 +33,7 @@ public class BacteriaA : MonoBehaviour
         rb=gameObject.GetComponent<Rigidbody2D>();
         agent=GetComponent<NavMeshAgent>();
         Bacgen=GetComponent<Bacteria_General>();
-        animator=this.gameObject.GetComponent<Animator>();
+        
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         agent.speed=stat.speed;
 
@@ -116,6 +115,8 @@ public class BacteriaA : MonoBehaviour
         foe.Clear();
         nearestDistance=100000;
         if(this.gameObject.GetComponent<Bacteria_General>().designated_destination==false)
-        agent.SetDestination(nearestFoe.transform.position);
+        {
+            agent.SetDestination(nearestFoe.transform.position);
+        }
     }
 }

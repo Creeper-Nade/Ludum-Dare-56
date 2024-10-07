@@ -5098,6 +5098,7 @@ GameObject:
   - component: {fileID: 1539243158970588570}
   - component: {fileID: 7007825680505464682}
   - component: {fileID: 4080908174322392671}
+  - component: {fileID: 126955119673464600}
   m_Layer: 0
   m_Name: attack area
   m_TagString: Untagged
@@ -5142,7 +5143,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4785738497045687210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -5190,6 +5191,41 @@ PolygonCollider2D:
       - {x: 1.7583771, y: -0.7746334}
       - {x: 2.257619, y: 1.1898701}
   m_UseDelaunayMesh: 0
+--- !u!58 &126955119673464600
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785738497045687210}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2, y: 1.7}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1 &5038711317380030449
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,7 +5325,6 @@ GameObject:
   - component: {fileID: 8571294708672822503}
   - component: {fileID: 8884261669182976470}
   - component: {fileID: 4576399403823474641}
-  - component: {fileID: 7871164812456802625}
   - component: {fileID: 4448010595196154328}
   - component: {fileID: 7614340560369348256}
   m_Layer: 0
@@ -5391,7 +5426,6 @@ MonoBehaviour:
   agent: {fileID: 0}
   foe: []
   rb: {fileID: 0}
-  animator: {fileID: 0}
   nearestFoe: {fileID: 0}
 --- !u!195 &8571294708672822503
 NavMeshAgent:
@@ -5401,7 +5435,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6560203450986768451}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.35
   m_Speed: 3.5
   m_Acceleration: 8
@@ -5461,47 +5495,15 @@ MonoBehaviour:
   particle: {fileID: 4355090516755062046}
   agent: {fileID: 0}
   animator: {fileID: 5054310073379243905}
+  sprite: {fileID: 0}
   designated_destination: 0
   Health: 0
   ATK: 0
   ATK_speed: 0
+  is_attack_ready: 1
   ATK_CD: 15
   speed: 0
---- !u!58 &7871164812456802625
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6560203450986768451}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 6
+  shield: 0
 --- !u!58 &4448010595196154328
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5536,7 +5538,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 4
 --- !u!114 &7614340560369348256
 MonoBehaviour:
   m_ObjectHideFlags: 0
