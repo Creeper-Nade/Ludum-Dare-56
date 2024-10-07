@@ -44,6 +44,7 @@ public class Bacteria_General : MonoBehaviour
         shield=0;
 
         sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
 
         particle.gameObject.SetActive(false);
 
