@@ -102,7 +102,7 @@ public class ResourceManager : MonoBehaviour
             {
                 position = GetRandomPosition();
                 attempts++;
-            } while (IsOverlappingAny(position, positions) && attempts < maxAttempts);
+            } while (IsOverlappingAny(position, positions) && attempts < maxAttempts && IsOverlappingMatrix(position));
 
             if (attempts >= maxAttempts)
             {
@@ -145,6 +145,21 @@ public class ResourceManager : MonoBehaviour
                 return true;
             }
         }
+        return false;
+    }
+
+    private bool IsOverlappingMatrix(Vector2 position)
+    {
+        GameObject pm = FindFirstObjectByType<player_matrix>().gameObject;
+        if (position.x > (pm.transform.position.x - 5)
+            && position.x < (pm.transform.position.x + 5)
+            && position.y > (pm.transform.position.y - 5)
+            && position.y < (pm.transform.position.y + 5)
+           )
+        {
+            return true;
+        }
+
         return false;
     }
 }
