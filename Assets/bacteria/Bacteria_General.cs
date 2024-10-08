@@ -17,6 +17,7 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] ParticleSystem particle;
 
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] UnitRTS unitRTS;
     public Animator animator;
     [SerializeField]private SpriteRenderer sprite;
     public int Team;
@@ -30,8 +31,9 @@ public class Bacteria_General : MonoBehaviour
     public bool is_attack_ready=true;
     [SerializeField] public float ATK_CD=15f;
     [SerializeField] public float speed;
-
+    public int damage_intake;
     public int shield;
+    public bool intake_recovery_activated=false;
     Color defaultColor;
     private void Awake()
     {
@@ -44,6 +46,7 @@ public class Bacteria_General : MonoBehaviour
         shield=0;
 
         sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
 
         particle.gameObject.SetActive(false);
 
@@ -51,6 +54,10 @@ public class Bacteria_General : MonoBehaviour
         AttackArea.SetActive(false);
 
         rts=FindObjectOfType<RTS_controll>();
+        if(this.gameObject.GetComponent<UnitRTS>()!=null)
+        {
+            unitRTS=this.gameObject.GetComponent<UnitRTS>();
+        }
 
         agent=this.gameObject.GetComponent<NavMeshAgent>();
 
@@ -58,6 +65,7 @@ public class Bacteria_General : MonoBehaviour
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
         if(this.gameObject.GetComponent<Team3bacteria>()!=null)Team=3;
         defaultColor=sprite.color;
+        
     }
 
     private void Update() {
@@ -88,6 +96,10 @@ public class Bacteria_General : MonoBehaviour
                 break;
                 default:
                 break;
+            }
+            if(rts.selectedUnitRTS.Contains(unitRTS))
+            {
+                rts.selectedUnitRTS.Remove(unitRTS);
             }
             if(death_coroutine_ran==false)
             {
@@ -137,8 +149,24 @@ public class Bacteria_General : MonoBehaviour
         }
         else{
             Health-=damage;
+            
             Debug.Log(damage);
             healthBar.Change(-damage);
+
+            damage_intake+=damage;
+            //bacteria D recovery effect
+            if(damage_intake>=4)
+            {
+                for(int i=0;i<damage_intake/4;i++)
+                {
+                    if(intake_recovery_activated==true)
+                    {
+                        Health++;
+                        healthBar.Change(1);
+                    }
+                }
+            }
+
             StartCoroutine("damaged_blink");
             Debug.Log("ouch");
         }
