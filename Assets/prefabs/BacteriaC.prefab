@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2773382224545520452}
   - component: {fileID: -8593418693448570660}
   - component: {fileID: 7289364492067650821}
+  - component: {fileID: 5657039310095968466}
   m_Layer: 0
   m_Name: BacteriaC
   m_TagString: BacteriaC
@@ -134,7 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b996b89b85681447faf0f12ad6e14987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 8
+  damage: 2
   moveSpeed: 7
+  collectionAmount: 10
+  attackSpeed: 6
   wanderRadius: 5
   maxTotalResources: 10
   carryingX: 0
@@ -143,6 +148,11 @@ MonoBehaviour:
   collectionCooldown: 3
   findResourceDelayMin: 0.1
   findResourceDelayMax: 1
+  groupingRadius: 2
+  extraCollectionAmount3: 5
+  extraCollectionAmount6: 10
+  extraSpeed6: 2
+  attackRange: 1
 --- !u!50 &7289364492067650821
 Rigidbody2D:
   serializedVersion: 4
@@ -170,3 +180,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &5657039310095968466
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707332300828825536}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67ba3f068b0dccc47be26c5457b391a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
