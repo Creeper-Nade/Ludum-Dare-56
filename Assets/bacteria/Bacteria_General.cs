@@ -17,6 +17,7 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] ParticleSystem particle;
 
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] UnitRTS unitRTS;
     public Animator animator;
     [SerializeField]private SpriteRenderer sprite;
     public int Team;
@@ -53,6 +54,10 @@ public class Bacteria_General : MonoBehaviour
         AttackArea.SetActive(false);
 
         rts=FindObjectOfType<RTS_controll>();
+        if(this.gameObject.GetComponent<UnitRTS>()!=null)
+        {
+            unitRTS=this.gameObject.GetComponent<UnitRTS>();
+        }
 
         agent=this.gameObject.GetComponent<NavMeshAgent>();
 
@@ -91,6 +96,10 @@ public class Bacteria_General : MonoBehaviour
                 break;
                 default:
                 break;
+            }
+            if(rts.selectedUnitRTS.Contains(unitRTS))
+            {
+                rts.selectedUnitRTS.Remove(unitRTS);
             }
             if(death_coroutine_ran==false)
             {
@@ -157,7 +166,7 @@ public class Bacteria_General : MonoBehaviour
                     }
                 }
             }
-            
+
             StartCoroutine("damaged_blink");
             Debug.Log("ouch");
         }
