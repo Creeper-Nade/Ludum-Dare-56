@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2773382224545520452}
   - component: {fileID: -8593418693448570660}
   - component: {fileID: 7289364492067650821}
-  - component: {fileID: 5657039310095968466}
+  - component: {fileID: 2219911185191088127}
   m_Layer: 0
   m_Name: BacteriaC
   m_TagString: BacteriaC
@@ -153,6 +153,8 @@ MonoBehaviour:
   extraCollectionAmount6: 10
   extraSpeed6: 2
   attackRange: 1
+  targetResource: {fileID: 0}
+  currentState: 0
 --- !u!50 &7289364492067650821
 Rigidbody2D:
   serializedVersion: 4
@@ -180,7 +182,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &5657039310095968466
+--- !u!95 &2219911185191088127
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

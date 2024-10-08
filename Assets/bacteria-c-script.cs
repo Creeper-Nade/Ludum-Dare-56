@@ -35,7 +35,7 @@ public class BacteriaC : MonoBehaviour
     [Header("战斗设置")]
     public float attackRange = 1f; // 攻击范围
 
-    private GameObject targetResource; // 当前目标资源
+    public GameObject targetResource; // 当前目标资源
     private bool isPlayerControlled = false; // 是否被玩家控制
     private float lastCollectionTime; // 上次采集时间
     private Vector3 wanderTarget; // 随机游走的目标点
@@ -43,7 +43,7 @@ public class BacteriaC : MonoBehaviour
     private float lastAttackTime; // 上次攻击时间
 
     // 细菌的状态枚举
-    private enum State
+    public enum State
     {
         SeekingResource, // 寻找资源
         CollectingResource, // 收集资源
@@ -53,14 +53,14 @@ public class BacteriaC : MonoBehaviour
         Dead // 被击杀
     }
 
-    private State currentState = State.SeekingResource; // 当前状态
+    public State currentState = State.SeekingResource; // 当前状态
 
     private void Start()
     {
         currentHealth = maxHealth; // 初始化当前血量为最大血量
         var playerMatrix = FindFirstObjectByType<player_matrix>();
         matrixGo = playerMatrix.gameObject;
-        lastCollectionTime = -collectionCooldown; // 确保游戏开始时可以立即采集
+        lastCollectionTime = 0; // 确保游戏开始时可以立即采集
         lastAttackTime = -1f / attackSpeed; // 确保游戏开始时可以立即攻击
         StartCoroutine(BehaviorRoutine());
     }
@@ -185,6 +185,7 @@ public class BacteriaC : MonoBehaviour
             // 如果到达目标附近，尝试收集资源
             if (Vector3.Distance(transform.position, targetResource.transform.position) < 0.1f)
             {
+                Debug.Log("TryCollectResource");
                 TryCollectResource();
             }
         }
@@ -197,12 +198,11 @@ public class BacteriaC : MonoBehaviour
     // 尝试收集资源（考虑冷却时间）
     private void TryCollectResource()
     {
-        if (Time.deltaTime - lastCollectionTime >= collectionCooldown)
+        Debug.Log($"Time.time:{Time.time}  lastCollectionTime:{lastCollectionTime}   collectionCooldown:{collectionCooldown}");
+        if (Time.time - lastCollectionTime >= collectionCooldown)
         {
-            Debug.Log($"Time.time:{Time.deltaTime}");
-            Debug.Log($"lastCollectionTime:{lastCollectionTime}");
             CollectResource();
-            lastCollectionTime = Time.deltaTime;
+            lastCollectionTime = Time.time;
         }
     }
 
@@ -217,8 +217,8 @@ public class BacteriaC : MonoBehaviour
                 string collectedResourceType;
                 if (resourceScript.TryCollect(out collectedResourceType))
                 {
-                    resourceScript.ConfirmCollection(collectedResourceType, collectionAmount);
-                    AddResource(collectedResourceType, collectionAmount);
+                    int confirmCount = resourceScript.ConfirmCollection(collectedResourceType, collectionAmount);
+                    AddResource(collectedResourceType, confirmCount);
                     
                     Debug.Log($"BacteriaC collected {collectionAmount} {collectedResourceType} from {targetResource.name}. " +
                               $"Current: X={carryingX}, Y={carryingY}, Z={carryingZ}");

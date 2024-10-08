@@ -18,9 +18,9 @@ public class Bacterial_Matrix : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(gameObject.name+production_x);
-        Debug.Log(gameObject.name + production_y);
-        Debug.Log(gameObject.name + production_z);
+        // Debug.Log(gameObject.name + production_x);
+        // Debug.Log(gameObject.name + production_y);
+        // Debug.Log(gameObject.name + production_z);
     }
     
     public void AddResources(int carryingX, int carryingY, int carryingZ)
