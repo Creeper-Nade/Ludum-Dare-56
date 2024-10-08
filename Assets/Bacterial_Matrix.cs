@@ -22,13 +22,16 @@ public class Bacterial_Matrix : MonoBehaviour
         Health=50;
 
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
+        if(this.gameObject.GetComponent<player_matrix>())Team=1;
+        if(this.gameObject.GetComponent<enemy1matrix>())Team=2;
+        if(this.gameObject.GetComponent<enemy2matrix>())Team=3;
     }
 
     private void Update()
     {
-        Debug.Log(gameObject.name+production_x);
-        Debug.Log(gameObject.name + production_y);
-        Debug.Log(gameObject.name + production_z);
+        //Debug.Log(gameObject.name+production_x);
+        //Debug.Log(gameObject.name + production_y);
+        //Debug.Log(gameObject.name + production_z);
 
         if(Health<=0)
         {

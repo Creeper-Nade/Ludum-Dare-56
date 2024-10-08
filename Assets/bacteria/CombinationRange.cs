@@ -9,6 +9,8 @@ public class CombinationRange : MonoBehaviour
     [SerializeField] List<Bacteria_General> same_within_range;
     [SerializeField] Bacteria_General bacGen; 
 
+    public CircleCollider2D patrolCollider;
+
     public ParticleSystem Upgraded_particle1;
     public ParticleSystem Upgraded_particle2;
     [SerializeField] private Global_Data data;
@@ -75,6 +77,10 @@ public class CombinationRange : MonoBehaviour
                 break;
 
                 case 4:
+                bacGen.intake_recovery_activated=true;
+                patrolCollider=this.gameObject.GetComponentInParent<BacteriaD>().patrolRange.gameObject.GetComponent<CircleCollider2D>();
+                patrolCollider.radius=2;
+                bacGen.gameObject.GetComponentInParent<BacteriaD>().range=12;
                 //insert bacteria D recovering effect;
                 break;
                 default:
@@ -113,6 +119,10 @@ public class CombinationRange : MonoBehaviour
                 break;
 
                 case 4:
+                bacGen.intake_recovery_activated=false;
+                patrolCollider=this.gameObject.GetComponentInParent<BacteriaD>().patrolRange.gameObject.GetComponent<CircleCollider2D>();
+                patrolCollider.radius=1.5f;
+                bacGen.gameObject.GetComponentInParent<BacteriaD>().range=8;
                 //insert bacteria D recovering effect;
                 break;
                 default:
