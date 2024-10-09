@@ -48,7 +48,15 @@ MonoBehaviour:
   resource2: {fileID: 0}
   resource3: {fileID: 0}
   resource4: {fileID: 0}
-  minResourceCount: 1
+  reinitializeThreshold: 1
   minDistanceBetweenResources: 10
-  minRange: -10
-  maxRange: 10
+  minRange: -80
+  maxRange: 80
+  matrix_list: []
+  obstacle_list:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

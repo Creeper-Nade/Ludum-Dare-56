@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 5195990253565894164}
   - component: {fileID: 4838293509682113901}
   - component: {fileID: 2148180217796389973}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: Patrol Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

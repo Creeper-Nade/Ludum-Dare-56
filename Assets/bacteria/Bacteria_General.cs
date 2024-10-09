@@ -16,7 +16,7 @@ public class Bacteria_General : MonoBehaviour
 
     [SerializeField] ParticleSystem particle;
 
-    [SerializeField] NavMeshAgent agent;
+    [SerializeField] public NavMeshAgent agent;
     [SerializeField] UnitRTS unitRTS;
     public Animator animator;
     [SerializeField]private SpriteRenderer sprite;
@@ -45,6 +45,7 @@ public class Bacteria_General : MonoBehaviour
         speed=stat.speed;
         shield=0;
 
+        
         sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
 
@@ -60,6 +61,7 @@ public class Bacteria_General : MonoBehaviour
         }
 
         agent=this.gameObject.GetComponent<NavMeshAgent>();
+        agent.speed=speed;
 
         if(this.gameObject.GetComponent<Team1bacteria>()!=null)Team=1;
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
@@ -68,6 +70,10 @@ public class Bacteria_General : MonoBehaviour
         
     }
 
+    private void Start() {
+        agent.updateRotation=false;
+        agent.updateUpAxis=false;
+    }
     private void Update() {
         if(is_attack_ready==false)
         {
@@ -127,11 +133,15 @@ public class Bacteria_General : MonoBehaviour
     {
         if(!((data.Team1.Contains(this.gameObject)&&data.Team1.Contains(other.gameObject))||(data.Team2.Contains(this.gameObject)&&data.Team2.Contains(other.gameObject))||(data.Team3.Contains(this.gameObject)&&data.Team3.Contains(other.gameObject))))
         {
-            //!((this.gameObject.GetComponent<Team1bacteria>()!=null&&(other.gameObject.GetComponent<Team1bacteria>()!=null||other.gameObject.GetComponentInParent<Team1bacteria>()!=null))||(this.gameObject.GetComponent<team2bacteria>()!=null&&(other.gameObject.GetComponent<team2bacteria>()!=null||other.gameObject.GetComponentInParent<team2bacteria>()!=null))||(this.gameObject.GetComponent<Team3bacteria>()!=null&&(other.gameObject.GetComponent<Team3bacteria>()!=null||other.gameObject.GetComponentInParent<Team3bacteria>()!=null)))
+            if(!other.gameObject.CompareTag("resource"))
+            {
+                //!((this.gameObject.GetComponent<Team1bacteria>()!=null&&(other.gameObject.GetComponent<Team1bacteria>()!=null||other.gameObject.GetComponentInParent<Team1bacteria>()!=null))||(this.gameObject.GetComponent<team2bacteria>()!=null&&(other.gameObject.GetComponent<team2bacteria>()!=null||other.gameObject.GetComponentInParent<team2bacteria>()!=null))||(this.gameObject.GetComponent<Team3bacteria>()!=null&&(other.gameObject.GetComponent<Team3bacteria>()!=null||other.gameObject.GetComponentInParent<Team3bacteria>()!=null)))
             Debug.Log("attack");
             AttackArea.SetActive(is_attack_ready);
             if(is_attack_ready==true)
             StartCoroutine(Attack_time());
+            }
+            
         }
         
     }

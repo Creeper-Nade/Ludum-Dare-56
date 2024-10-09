@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -22,9 +23,16 @@ public class ResourceManager : MonoBehaviour
     public float minDistanceBetweenResources = 10f;
 
     // 资源点生成范围
-    public float minRange = -125f;
-    public float maxRange = 125f;
+    public float minRange = -525f;
+    public float maxRange = 525f;
 
+    //stuff
+    [SerializeField]List<Bacterial_Matrix> matrix_list;
+    [SerializeField]public List<GameObject> obstacle_list;
+
+    private void Awake() {
+        matrix_list.AddRange(FindObjectsOfType<Bacterial_Matrix>());
+    }
     private void Start()
     {
         InitializeAllResources();
@@ -102,7 +110,7 @@ public class ResourceManager : MonoBehaviour
             {
                 position = GetRandomPosition();
                 attempts++;
-            } while (IsOverlappingAny(position, positions) && attempts < maxAttempts && IsOverlappingMatrix(position));
+            } while (IsOverlappingAny(position, positions) && attempts < maxAttempts && IsOverlappingMatrix(position)&& IsOverlappingObstacle(position));
 
             if (attempts >= maxAttempts)
             {
@@ -150,16 +158,58 @@ public class ResourceManager : MonoBehaviour
 
     private bool IsOverlappingMatrix(Vector2 position)
     {
-        GameObject pm = FindFirstObjectByType<player_matrix>().gameObject;
-        if (position.x > (pm.transform.position.x - 5)
-            && position.x < (pm.transform.position.x + 5)
-            && position.y > (pm.transform.position.y - 5)
-            && position.y < (pm.transform.position.y + 5)
-           )
+        bool not_overlapping=false;
+        
+        foreach(Bacterial_Matrix matrix in matrix_list)
+        {
+                    if (position.x > (matrix.gameObject.transform.position.x - 5)
+                && position.x < (matrix.gameObject.transform.position.x + 5)
+                && position.y > (matrix.gameObject.transform.position.y - 5)
+                && position.y < (matrix.gameObject.transform.position.y + 5)
+            )
+            {
+                not_overlapping=true;
+            }
+            else{
+                not_overlapping=false;
+                break;
+            }
+        }
+        if(not_overlapping==true)
         {
             return true;
         }
 
+
         return false;
+    }
+    private bool IsOverlappingObstacle(Vector2 position)
+    {
+        
+        bool not_overlapping=false;
+        foreach(GameObject obstacle in obstacle_list)
+        {
+            Collider2D obstacle_collider;
+            obstacle_collider=obstacle.gameObject.GetComponent<Collider2D>(); 
+            if (!obstacle_collider.bounds.Contains(position))
+            {
+                not_overlapping=true;
+            }
+            else{
+                not_overlapping=false;
+                break;
+            }
+        }
+            if(not_overlapping==true)
+            {
+                    return true;
+            }
+
+        return false;
+    }
+
+    private object FindObjectByType<T>()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -281,6 +281,11 @@ MonoBehaviour:
   - {fileID: 0}
   Team3:
   - {fileID: 0}
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
+  matrix1: {fileID: 0}
+  matrix2: {fileID: 0}
+  matrix3: {fileID: 0}
 --- !u!4 &255192297
 Transform:
   m_ObjectHideFlags: 0
@@ -1791,10 +1796,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7707332300828825536, guid: ce31f6bfe9a8e446a91458fcc46554c1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1643368169}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce31f6bfe9a8e446a91458fcc46554c1, type: 3}
 --- !u!1001 &1425634172
 PrefabInstance:
@@ -2186,32 +2188,6 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588272806}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 67ba3f068b0dccc47be26c5457b391a7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1643368168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7707332300828825536, guid: ce31f6bfe9a8e446a91458fcc46554c1, type: 3}
-  m_PrefabInstance: {fileID: 1367822776}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1643368169
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643368168}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 67ba3f068b0dccc47be26c5457b391a7, type: 2}
@@ -3462,6 +3438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bacteria_stats: {fileID: 0}
   Foe_stats: {fileID: 0}
+  Foe_matrix: {fileID: 0}
   data: {fileID: 0}
 --- !u!1001 &3110175810635019082
 PrefabInstance:
@@ -4048,6 +4025,7 @@ MonoBehaviour:
   healthBar: {fileID: 2105792589297456175}
   particle: {fileID: 9008237628335716193}
   agent: {fileID: 0}
+  unitRTS: {fileID: 0}
   animator: {fileID: 0}
   sprite: {fileID: 0}
   Team: 0
@@ -4058,7 +4036,9 @@ MonoBehaviour:
   is_attack_ready: 1
   ATK_CD: 15
   speed: 0
+  damage_intake: 0
   shield: 0
+  intake_recovery_activated: 0
 --- !u!4 &7879782923992122010
 Transform:
   m_ObjectHideFlags: 0

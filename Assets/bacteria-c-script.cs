@@ -1,19 +1,25 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
+using System.Linq;
 
 public class BacteriaC : MonoBehaviour
 {
-    [Header("基础属性")]
-    public int maxHealth = 8; // 最大血量
-    private int currentHealth; // 当前血量
-    public int damage = 2; // 攻击力
-    public float moveSpeed = 8f; // 移动速度
-    public int collectionAmount = 10; // 采集量
-    public float attackSpeed = 6f; // 攻击速度（每秒攻击次数）
+    [Header("my stuff")]
+    public Bacteria_General bacGen;
 
-    [Header("移动设置")]
-    public float wanderRadius = 5f; // 随机游走的半径
+    [SerializeField] Global_Data data;
+    public NavMeshAgent agent;
+    [SerializeField] Bacterial_Matrix own_matrix;
+    [SerializeField] BacC_Enemy_Detection enemy_Detection;
+    public bool Had_collected=false;
+        private float distance;
+    private float nearestDistance=10000;
+    [SerializeField] private GameObject nearestFoe;
+    [Header("基础属性")]
+    public int collectionAmount = 1; // 采集量
+
 
     [Header("资源携带")]
     public int maxTotalResources = 10; // 最大携带资源总量
@@ -22,25 +28,13 @@ public class BacteriaC : MonoBehaviour
     public int carryingZ = 0; // 携带的Z资源量
 
     [Header("采集设置")]
-    public float collectionCooldown = 1f / 6f; // 采集冷却时间（基于攻击速度）
+    public int collectionCooldown = 1; // 采集冷却时间（基于攻击速度）
     public float findResourceDelayMin = 0.1f; // 寻找资源的最小延迟时间
     public float findResourceDelayMax = 1f; // 寻找资源的最大延迟时间
 
-    [Header("集群效果")]
-    public float groupingRadius = 2f; // 集群检测半径
-    public int extraCollectionAmount3 = 5; // 3个细菌集合时的额外采集量
-    public int extraCollectionAmount6 = 10; // 6个细菌集合时的额外采集量
-    public float extraSpeed6 = 2f; // 6个细菌集合时的额外速度
-
     [Header("战斗设置")]
-    public float attackRange = 1f; // 攻击范围
-
     public GameObject targetResource; // 当前目标资源
-    private bool isPlayerControlled = false; // 是否被玩家控制
-    private float lastCollectionTime; // 上次采集时间
-    private Vector3 wanderTarget; // 随机游走的目标点
     private GameObject matrixGo; // 母巢对象
-    private float lastAttackTime; // 上次攻击时间
 
     // 细菌的状态枚举
     public enum State
@@ -55,13 +49,48 @@ public class BacteriaC : MonoBehaviour
 
     public State currentState = State.SeekingResource; // 当前状态
 
+    private void Awake() {
+        agent = GetComponent<NavMeshAgent>();
+        data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
+        bacGen=this.gameObject.GetComponent<Bacteria_General>();
+        Had_collected=false;
+        enemy_Detection=this.gameObject.GetComponentInChildren<BacC_Enemy_Detection>();
+        //initialize stats
+        collectionAmount = 1;
+        Had_collected=false;
+    }
     private void Start()
     {
-        currentHealth = maxHealth; // 初始化当前血量为最大血量
-        var playerMatrix = FindFirstObjectByType<player_matrix>();
-        matrixGo = playerMatrix.gameObject;
-        lastCollectionTime = 0; // 确保游戏开始时可以立即采集
-        lastAttackTime = -1f / attackSpeed; // 确保游戏开始时可以立即攻击
+        switch(bacGen.Team)
+        {
+            case 1:
+            foreach(GameObject elements in data.Team1)
+            {   
+                if(elements.GetComponent<Bacterial_Matrix>()!=null)
+                own_matrix=elements.GetComponent<Bacterial_Matrix>();
+            }
+            break;
+
+            case 2:
+            foreach(GameObject elements in data.Team2)
+            {
+                if(elements.GetComponent<Bacterial_Matrix>()!=null)
+                own_matrix=elements.GetComponent<Bacterial_Matrix>(); 
+            }
+            break;
+
+            case 3:
+            foreach(GameObject elements in data.Team3)
+            {
+                if(elements.GetComponent<Bacterial_Matrix>()!=null)
+                own_matrix=elements.GetComponent<Bacterial_Matrix>();  
+            }
+            break;
+
+            default:
+            break;
+        }
+        matrixGo = own_matrix.gameObject;
         StartCoroutine(BehaviorRoutine());
     }
 
@@ -70,7 +99,7 @@ public class BacteriaC : MonoBehaviour
     {
         while (true)
         {
-            if (!isPlayerControlled)
+            if (!bacGen.designated_destination&&CheckForEnemies()==false)
             {
                 switch (currentState)
                 {
@@ -90,19 +119,6 @@ public class BacteriaC : MonoBehaviour
                     case State.ReturnHome:
                         ReturnToMatrix();
                         break;
-                    case State.Wandering:
-                        Wander();
-                        break;
-                    case State.Fighting:
-                        Fight();
-                        break;
-                    case State.Dead:
-                        if (carryingX > 0 || carryingY > 0 || carryingZ > 0)
-                        {
-                            SpawnResources();
-                        }
-                        Destroy(gameObject);
-                        yield break;
                 }
             }
             else
@@ -110,22 +126,11 @@ public class BacteriaC : MonoBehaviour
                 // 预留给玩家控制的逻辑
             }
 
-            CheckForEnemies(); // 检查附近的敌人
-            ApplyGroupingEffect(); // 应用集群效果
 
             yield return null;
         }
     }
     
-    // 被击杀，掉落资源
-    private void SpawnResources()
-    {
-        // TODO: 实现资源掉落逻辑
-        Debug.Log($"掉落资源: X={carryingX}, Y={carryingY}, Z={carryingZ}");
-        carryingX = 0;
-        carryingY = 0;
-        carryingZ = 0;
-    }
 
     // 带延迟的寻找最近资源
     private IEnumerator FindNearestResourceWithDelay()
@@ -135,15 +140,7 @@ public class BacteriaC : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         FindNearestResource();
-        if (targetResource != null)
-        {
             currentState = State.CollectingResource;
-        }
-        else
-        {
-            currentState = State.Wandering;
-            SetNewWanderTarget();
-        }
     }
 
     // 寻找最近的资源
@@ -179,31 +176,34 @@ public class BacteriaC : MonoBehaviour
     {
         if (targetResource != null && targetResource.activeSelf)
         {
-            Vector3 direction = (targetResource.transform.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-
-            // 如果到达目标附近，尝试收集资源
-            if (Vector3.Distance(transform.position, targetResource.transform.position) < 0.1f)
-            {
-                Debug.Log("TryCollectResource");
-                TryCollectResource();
-            }
+            agent.SetDestination(targetResource.transform.position);
         }
         else
         {
             currentState = State.SeekingResource;
         }
     }
-
-    // 尝试收集资源（考虑冷却时间）
-    private void TryCollectResource()
+    private void OnCollisionStay2D(Collision2D other)
     {
-        Debug.Log($"Time.time:{Time.time}  lastCollectionTime:{lastCollectionTime}   collectionCooldown:{collectionCooldown}");
-        if (Time.time - lastCollectionTime >= collectionCooldown)
-        {
-            CollectResource();
-            lastCollectionTime = Time.time;
+        if(other.gameObject.CompareTag("resource"))
+        {            
+            if(Had_collected==false)StartCoroutine(CollectResourceEnum());
+            Had_collected=true;
+            
         }
+        if(other.gameObject==matrixGo)
+        {
+            TransferResourcesToMatrix();
+            currentState = State.SeekingResource;
+        }
+        
+    }
+
+    IEnumerator CollectResourceEnum()
+    {
+        CollectResource();
+        yield return new WaitForSeconds(collectionCooldown);       
+        Had_collected=false;
     }
 
     // 收集资源
@@ -272,37 +272,10 @@ public class BacteriaC : MonoBehaviour
         return carryingX + carryingY + carryingZ;
     }
 
-    // 设置新的随机游走目标
-    private void SetNewWanderTarget()
-    {
-        Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        wanderTarget = transform.position + new Vector3(randomDirection.x, randomDirection.y, 0) * wanderRadius;
-    }
-
-    // 执行随机游走
-    private void Wander()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, wanderTarget, moveSpeed * Time.deltaTime);
-
-        // 如果到达游走目标，设置新的目标
-        if (Vector3.Distance(transform.position, wanderTarget) < 0.1f)
-        {
-            SetNewWanderTarget();
-        }
-    }
-
     // 返回母巢
     private void ReturnToMatrix()
     {
-        Vector3 direction = (matrixGo.transform.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
-
-        // 如果靠近母巢，转移资源并切换到寻找资源状态
-        if (Vector3.Distance(transform.position, matrixGo.transform.position) < 2f)
-        {
-            TransferResourcesToMatrix();
-            currentState = State.SeekingResource;
-        }
+        agent.SetDestination(matrixGo.transform.position);
     }
 
     // 将资源转移给母巢
@@ -329,102 +302,56 @@ public class BacteriaC : MonoBehaviour
         }
     }
 
-    // 应用集群效果
-    private void ApplyGroupingEffect()
-    {
-        Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, groupingRadius);
-        int nearbyBacteriaCount = 0;
-
-        foreach (Collider2D collider in nearbyColliders)
-        {
-            if (collider.gameObject != gameObject && collider.GetComponent<BacteriaC>() != null)
-            {
-                nearbyBacteriaCount++;
-            }
-        }
-
-        if (nearbyBacteriaCount >= 5) // 6个细菌（包括自己）
-        {
-            collectionAmount = 10 + extraCollectionAmount3 + extraCollectionAmount6;
-            moveSpeed = 8f + extraSpeed6;
-        }
-        else if (nearbyBacteriaCount >= 2) // 3个细菌（包括自己）
-        {
-            collectionAmount = 10 + extraCollectionAmount3;
-            moveSpeed = 8f;
-        }
-        else
-        {
-            collectionAmount = 10;
-            moveSpeed = 8f;
-        }
-    }
-
     // 检查附近的敌人
-    private void CheckForEnemies()
+    private bool CheckForEnemies()
     {
-        Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);
-        foreach (Collider2D collider in nearbyColliders)
+        if(enemy_Detection.entered_object.Any())
         {
-            if (collider.gameObject != gameObject && collider.CompareTag("EnemyBacteria"))
+            foreach(GameObject bacteria in enemy_Detection.entered_object)
             {
-                currentState = State.Fighting;
-                return;
-            }
-        }
-
-        if (currentState == State.Fighting)
-        {
-            currentState = State.SeekingResource;
-        }
-    }
-
-    // 战斗逻辑
-    private void Fight()
-    {
-        Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);
-        foreach (Collider2D collider in nearbyColliders)
-        {
-            if (collider.gameObject != gameObject && collider.CompareTag("EnemyBacteria"))
-            {
-                if (Time.time - lastAttackTime >= 1f / attackSpeed)
+                distance=Vector3.Distance(this.transform.position,bacteria.transform.position);
+                if(distance<nearestDistance)
                 {
-                    AttackEnemy(collider.gameObject);
-                    lastAttackTime = Time.time;
+                    nearestFoe=bacteria;
+                    nearestDistance=distance;
                 }
-                return;
             }
+            nearestDistance=100000;
+            if(bacGen.designated_destination==false)
+            {
+                agent.SetDestination(nearestFoe.transform.position);
+                return true;
+            }
+            else return false;
         }
-
-        currentState = State.SeekingResource;
+        else{
+            return false;
+        }  
     }
-
-    // 攻击敌人
-    private void AttackEnemy(GameObject enemy)
-    {
-        BacteriaC enemyBacteria = enemy.GetComponent<BacteriaC>();
-        if (enemyBacteria != null)
+        private void FixedUpdate() {
+        if(bacGen.designated_destination==false&&CheckForEnemies()==true)
         {
-            enemyBacteria.TakeDamage(damage);
-            Debug.Log($"攻击敌人: {enemy.name}，造成 {damage} 点伤害");
+            //rotate as foe
+            Vector3 targetDirection= nearestFoe.transform.position-this.transform.position;
+            float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
+            transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
         }
-    }
-
-    // 受到伤害
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
-        Debug.Log($"受到 {damageAmount} 点伤害，剩余生命值: {currentHealth}");
-
-        if (currentHealth <= 0)
+        else if(bacGen.designated_destination==false)
         {
-            currentState = State.Dead;
+            if(currentState!=State.ReturnHome)
+            {
+                //rotate to resourec destination
+                Vector3 targetDirection= targetResource.transform.position-this.transform.position;
+                float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
+                transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+            }
+            if(currentState==State.ReturnHome)
+            {
+                Vector3 targetDirection= matrixGo.transform.position-this.transform.position;
+                float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
+                transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+            }
+            
         }
-    }
-
-    // 设置是否由玩家控制（预留给外部控制）
-    public void SetPlayerControlled(bool controlled)
-    {
-        isPlayerControlled = controlled;
     }
 }

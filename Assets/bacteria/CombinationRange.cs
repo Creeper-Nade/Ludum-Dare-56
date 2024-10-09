@@ -8,6 +8,7 @@ public class CombinationRange : MonoBehaviour
 {
     [SerializeField] List<Bacteria_General> same_within_range;
     [SerializeField] Bacteria_General bacGen; 
+    [SerializeField] BacteriaC BacC; 
 
     public CircleCollider2D patrolCollider;
 
@@ -30,6 +31,11 @@ public class CombinationRange : MonoBehaviour
         if(this.gameObject.GetComponentInParent<BacteriaB>()!=null)BacteriaType=2;
         if(this.gameObject.GetComponentInParent<BacteriaC>()!=null)BacteriaType=3;
         if(this.gameObject.GetComponentInParent<BacteriaD>()!=null)BacteriaType=4;
+
+        if(BacteriaType==3)
+        {
+            BacC=this.gameObject.GetComponentInParent<BacteriaC>();
+        }
         
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -73,6 +79,7 @@ public class CombinationRange : MonoBehaviour
                 break;
 
                 case 3:
+                BacC.maxTotalResources=12;
                 //insert bacteriaC combination effect1
                 break;
 
@@ -93,12 +100,20 @@ public class CombinationRange : MonoBehaviour
                 Upgraded_particle2.gameObject.SetActive(true);
                 if(BacteriaType==3)
                 {
-                    //set bacteriaC 2nd effect
+                    BacC.maxTotalResources=15;//set bacteriaC 2nd effect
+                    bacGen.speed=10;
+                    bacGen.agent.speed=bacGen.speed;
                 }
             }
             else
             {
                 //reset bacteriaC 2nd effect;
+                if(BacteriaType==3)
+                {
+                    BacC.maxTotalResources=12;//set bacteriaC 2nd effect
+                    bacGen.speed=8;
+                    bacGen.agent.speed=bacGen.speed;
+                }
                 Upgraded_particle2.gameObject.SetActive(false);
             }
         }
@@ -115,6 +130,9 @@ public class CombinationRange : MonoBehaviour
                 break;
 
                 case 3:
+                BacC.maxTotalResources=10;//set bacteriaC 2nd effect
+                bacGen.speed=8;
+                bacGen.agent.speed=bacGen.speed;
                 //insert bacteriaC combination effect1
                 break;
 

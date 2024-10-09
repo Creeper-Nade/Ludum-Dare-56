@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2773382224545520452}
   - component: {fileID: -8593418693448570660}
   - component: {fileID: 7289364492067650821}
-  - component: {fileID: 2219911185191088127}
+  - component: {fileID: 6807359507811500329}
   m_Layer: 0
   m_Name: BacteriaC
   m_TagString: BacteriaC
@@ -182,7 +182,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &2219911185191088127
+--- !u!95 &6807359507811500329
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

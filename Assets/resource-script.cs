@@ -23,9 +23,6 @@ public class Resource : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D resourceCollider;
 
-    // 采集冷却时间
-    private float collectCooldown = 3f;
-    private float lastCollectTime;
 
     // 当前重叠的Matrix实例
     private GameObject currentMatrixInstance;
@@ -38,8 +35,7 @@ public class Resource : MonoBehaviour
         {
             resourceCollider = gameObject.AddComponent<CircleCollider2D>();
         }
-        resourceCollider.isTrigger = true;
-        resourceCollider.radius = 1f; // 设置适当的半径
+        resourceCollider.radius = 0.5f; // 设置适当的半径
     }
 
     // 设置ResourceManager引用的方法
@@ -118,25 +114,6 @@ public class Resource : MonoBehaviour
 
         return false;
     }
-
-    // 确认采集并减少资源
-    public void ConfirmCollection(string resourceType)
-    {
-        switch (resourceType)
-        {
-            case "X":
-                currentX--;
-                break;
-            case "Y":
-                currentY--;
-                break;
-            case "Z":
-                currentZ--;
-                break;
-        }
-
-        CheckResourceDepletion();
-    }
     
     // 确认采集并减少资源
     public int ConfirmCollection(string resourceType, int collectionAmount)
@@ -207,46 +184,5 @@ public class Resource : MonoBehaviour
         if (resourceCollider != null) resourceCollider.enabled = isVisible;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("BacteriaC"))
-        {
-            Debug.Log($"{other.gameObject.name} 进入了资源点 {gameObject.name} 的范围！准备开始采集资源。");
-            currentMatrixInstance = other.gameObject;
-            StartCoroutine(CollectResourceRoutine());
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("BacteriaC"))
-        {
-            Debug.Log($"{other.gameObject.name} 离开了资源点 {gameObject.name} 的范围！");
-            currentMatrixInstance = null;
-            StopAllCoroutines();
-        }
-    }
-
-    private IEnumerator CollectResourceRoutine()
-    {
-        while (currentMatrixInstance != null)
-        {
-            if (Time.time - lastCollectTime >= collectCooldown)
-            {
-                lastCollectTime = Time.time;
-
-                string collectedResourceType;
-                if (TryCollect(out collectedResourceType))
-                {
-                    if (currentMatrixInstance != null)
-                    {
-                        currentMatrixInstance.SendMessage("TryCollectResource", collectedResourceType, SendMessageOptions.DontRequireReceiver);
-                        ConfirmCollection(collectedResourceType);
-                        Debug.Log($"Resource collected: {collectedResourceType}");
-                    }
-                }
-            }
-            yield return null;
-        }
-    }
 }
