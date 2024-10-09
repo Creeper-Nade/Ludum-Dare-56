@@ -139,22 +139,48 @@ public class Resource : MonoBehaviour
     }
     
     // 确认采集并减少资源
-    public void ConfirmCollection(string resourceType, int collectionAmount)
+    public int ConfirmCollection(string resourceType, int collectionAmount)
     {
+        int confirmCount = 0;
         switch (resourceType)
         {
             case "X":
-                currentX -= collectionAmount;
+                if (currentX >= collectionAmount)
+                {
+                    confirmCount = collectionAmount;
+                }
+                else
+                {
+                    confirmCount = currentX;
+                }
+                currentX -= confirmCount;
                 break;
             case "Y":
-                currentY -= collectionAmount;
+                if (currentY >= collectionAmount)
+                {
+                    confirmCount = collectionAmount;
+                }
+                else
+                {
+                    confirmCount = currentY;
+                }
+                currentY -= confirmCount;
                 break;
             case "Z":
-                currentZ -= collectionAmount;
+                if (currentZ >= collectionAmount)
+                {
+                    confirmCount = collectionAmount;
+                }
+                else
+                {
+                    confirmCount = currentZ;
+                }
+                currentZ -= confirmCount;
                 break;
         }
 
         CheckResourceDepletion();
+        return confirmCount;
     }
 
     // 检查资源是否耗尽
