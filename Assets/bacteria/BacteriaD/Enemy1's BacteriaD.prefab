@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5615326801853780417}
   - component: {fileID: 1390640951126620106}
   - component: {fileID: 2189259172606960138}
+  - component: {fileID: 2742385989508382619}
   m_Layer: 0
   m_Name: Enemy1's BacteriaD
   m_TagString: Untagged
@@ -163,6 +164,7 @@ MonoBehaviour:
   healthBar: {fileID: 3947028170941233755}
   particle: {fileID: 1564439778804457558}
   agent: {fileID: 0}
+  unitRTS: {fileID: 0}
   animator: {fileID: 143788197302470688}
   sprite: {fileID: 0}
   Team: 0
@@ -244,6 +246,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.031616688, y: -3.8255906}
   m_Size: {x: 4.035182, y: 16.112667}
   m_Direction: 0
+--- !u!114 &2742385989508382619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138116308066807227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3bfadcd9c1fa9458171cbb6451c817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_stat: {fileID: 11400000, guid: b02fec09206ea054baacdab752261d46, type: 2}
 --- !u!1 &3475554624204127337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5545,6 +5560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   same_within_range: []
   bacGen: {fileID: 0}
+  BacC: {fileID: 0}
   patrolCollider: {fileID: 0}
   Upgraded_particle1: {fileID: 563140220280761063}
   Upgraded_particle2: {fileID: 0}

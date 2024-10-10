@@ -10054,6 +10054,7 @@ GameObject:
   - component: {fileID: 3123634160806855988}
   - component: {fileID: 3599703866122399593}
   - component: {fileID: 8966544724643424503}
+  - component: {fileID: 3144199744329614982}
   m_Layer: 0
   m_Name: Enemy1's BacteriaC
   m_TagString: Untagged
@@ -10293,6 +10294,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.27236468, y: -0.3126982}
   m_Size: {x: 11.230616, y: 3.5246115}
   m_Direction: 1
+--- !u!114 &3144199744329614982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158372224272713216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3bfadcd9c1fa9458171cbb6451c817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_stat: {fileID: 11400000, guid: cf65065ebc7ffcb41ba2e3a353da81d5, type: 2}
 --- !u!1 &5644557333596492368
 GameObject:
   m_ObjectHideFlags: 0

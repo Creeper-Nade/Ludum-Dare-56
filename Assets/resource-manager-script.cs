@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.AI;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -158,7 +159,6 @@ public class ResourceManager : MonoBehaviour
 
     private bool IsOverlappingMatrix(Vector2 position)
     {
-        bool not_overlapping=false;
         
         foreach(Bacterial_Matrix matrix in matrix_list)
         {
@@ -168,16 +168,8 @@ public class ResourceManager : MonoBehaviour
                 && position.y < (matrix.gameObject.transform.position.y + 5)
             )
             {
-                not_overlapping=true;
+                return true;
             }
-            else{
-                not_overlapping=false;
-                break;
-            }
-        }
-        if(not_overlapping==true)
-        {
-            return true;
         }
 
 
@@ -186,24 +178,20 @@ public class ResourceManager : MonoBehaviour
     private bool IsOverlappingObstacle(Vector2 position)
     {
         
-        bool not_overlapping=false;
         foreach(GameObject obstacle in obstacle_list)
         {
             Collider2D obstacle_collider;
             obstacle_collider=obstacle.gameObject.GetComponent<Collider2D>(); 
-            if (!obstacle_collider.bounds.Contains(position))
+            //NavMeshHit hit;
+            //if (NavMesh.SamplePosition(position, out hit, Mathf.Infinity, NavMesh.GetAreaFromName("Enemy")))
+            //{
+            //    not_overlapping=true;
+            //}
+            if (obstacle_collider.bounds.Contains(position))
             {
-                not_overlapping=true;
-            }
-            else{
-                not_overlapping=false;
-                break;
+                return true;
             }
         }
-            if(not_overlapping==true)
-            {
-                    return true;
-            }
 
         return false;
     }

@@ -97,7 +97,7 @@ public class CombinationRange : MonoBehaviour
             //second upgrade
             if(same_within_range.Count>=bacGen.stat.number2_for_combination_upgrade)
             {
-                Upgraded_particle2.gameObject.SetActive(true);
+                if(Upgraded_particle2!=null)Upgraded_particle2.gameObject.SetActive(true);
                 if(BacteriaType==3)
                 {
                     BacC.maxTotalResources=15;//set bacteriaC 2nd effect

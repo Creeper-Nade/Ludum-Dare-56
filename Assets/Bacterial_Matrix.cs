@@ -15,6 +15,8 @@ public class Bacterial_Matrix : MonoBehaviour
     private bool death_coroutine_ran=false;
 
     public int Team;
+    [Header("other references")]
+    public Animator ui_animator;
     private void Awake() {
         production_x=0;
         production_y=0;
@@ -58,7 +60,14 @@ public class Bacterial_Matrix : MonoBehaviour
     {
             Health-=damage;
             Debug.Log(damage);
-            StartCoroutine("damaged_blink");
+            if(this.gameObject.GetComponent<player_matrix>()!=null)
+            {
+                Cinemachine_shake.Instance.ShakeCamera(8f,.2f);
+                ui_animator.SetTrigger("is_damaged");
+            }
+            else{
+            Cinemachine_shake.Instance.ShakeCamera(4f,.1f);}
+            StartCoroutine(damaged_blink());
             Debug.Log("ouch");
         
     }

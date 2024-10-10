@@ -9917,6 +9917,7 @@ GameObject:
   - component: {fileID: 2599650412291918854}
   - component: {fileID: 1292105867437175249}
   - component: {fileID: 8241896757240397976}
+  - component: {fileID: 6116736299557489019}
   - component: {fileID: 618632843232968561}
   m_Layer: 0
   m_Name: Enemy2's BacteriaB
@@ -10065,8 +10066,10 @@ MonoBehaviour:
   healthBar: {fileID: 1727960471608004869}
   particle: {fileID: 7496257700934129713}
   agent: {fileID: 0}
+  unitRTS: {fileID: 0}
   animator: {fileID: 2893262014797468810}
   sprite: {fileID: 0}
+  Team: 0
   designated_destination: 0
   Health: 0
   ATK: 0
@@ -10074,7 +10077,9 @@ MonoBehaviour:
   is_attack_ready: 1
   ATK_CD: 15
   speed: 0
+  damage_intake: 0
   shield: 0
+  intake_recovery_activated: 0
 --- !u!58 &1292105867437175249
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10124,11 +10129,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: 607a1f959adf79141a7b74b5fa87f70d, type: 2}
   data: {fileID: 0}
-  Bacgen: {fileID: 0}
+  bacGen: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  range: 0
+  centrePoint: {fileID: 0}
   agent: {fileID: 0}
   foe: []
   rb: {fileID: 0}
+  matrix_collider: {fileID: 0}
+  own_matrix: {fileID: 0}
+--- !u!114 &6116736299557489019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388227658294590134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3bfadcd9c1fa9458171cbb6451c817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_stat: {fileID: 11400000, guid: 8560e53ddd706e948b23450815034ca9, type: 2}
 --- !u!114 &618632843232968561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10418,6 +10440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   same_within_range: []
   bacGen: {fileID: 0}
+  BacC: {fileID: 0}
+  patrolCollider: {fileID: 0}
   Upgraded_particle1: {fileID: 3878567779514808251}
   Upgraded_particle2: {fileID: 0}
   data: {fileID: 0}
@@ -10468,6 +10492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bacteria_stats: {fileID: 0}
   Foe_stats: {fileID: 0}
+  Foe_matrix: {fileID: 0}
   data: {fileID: 0}
 --- !u!58 &2548614930290557201
 CircleCollider2D:

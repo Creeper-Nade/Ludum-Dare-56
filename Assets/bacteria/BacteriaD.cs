@@ -187,7 +187,7 @@ public class BacteriaD : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        if(other.gameObject.GetComponent<BacteriaD>()!=null&&other.gameObject.GetComponent<Bacteria_General>().Team==bacGen.Team)
+        if(other.gameObject.GetComponent<Bacteria_General>()!=null&&other.gameObject.GetComponent<Bacteria_General>().Team==bacGen.Team)
         {
             if(FindTarget()==false&&bacGen.designated_destination==false)
             {

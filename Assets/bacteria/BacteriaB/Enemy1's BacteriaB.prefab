@@ -5010,6 +5010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bacteria_stats: {fileID: 0}
   Foe_stats: {fileID: 0}
+  Foe_matrix: {fileID: 0}
   data: {fileID: 0}
 --- !u!58 &7348891346583666123
 CircleCollider2D:
@@ -5234,6 +5235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   same_within_range: []
   bacGen: {fileID: 0}
+  BacC: {fileID: 0}
+  patrolCollider: {fileID: 0}
   Upgraded_particle1: {fileID: 9158779401392916765}
   Upgraded_particle2: {fileID: 0}
   data: {fileID: 0}
@@ -10161,6 +10164,7 @@ GameObject:
   - component: {fileID: 5035426466164421937}
   - component: {fileID: 6382643850868140003}
   - component: {fileID: 5481389742437762915}
+  - component: {fileID: 350239737200920905}
   m_Layer: 0
   m_Name: Enemy1's BacteriaB
   m_TagString: Untagged
@@ -10308,8 +10312,10 @@ MonoBehaviour:
   healthBar: {fileID: 2606420614264316727}
   particle: {fileID: 2264536320605103461}
   agent: {fileID: 0}
+  unitRTS: {fileID: 0}
   animator: {fileID: 5369199486905542771}
   sprite: {fileID: 0}
+  Team: 0
   designated_destination: 0
   Health: 0
   ATK: 0
@@ -10317,7 +10323,9 @@ MonoBehaviour:
   is_attack_ready: 1
   ATK_CD: 15
   speed: 0
+  damage_intake: 0
   shield: 0
+  intake_recovery_activated: 0
 --- !u!58 &5035426466164421937
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10384,6 +10392,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68af5f14f9fcd9747b38d9cf1418b2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &350239737200920905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577539410801149593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3bfadcd9c1fa9458171cbb6451c817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_stat: {fileID: 11400000, guid: a0b52a1fe1858934686fa641426db91a, type: 2}
 --- !u!1 &7454949536263607738
 GameObject:
   m_ObjectHideFlags: 0

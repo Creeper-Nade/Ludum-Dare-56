@@ -14847,6 +14847,7 @@ GameObject:
   - component: {fileID: 7400673926126918196}
   - component: {fileID: 656808131917787445}
   - component: {fileID: 6462941085051686996}
+  - component: {fileID: 4069072922847984949}
   - component: {fileID: 6353266096901182067}
   m_Layer: 0
   m_Name: Enemy2's BacteriaC
@@ -15052,6 +15053,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b989801a57bbd44c8bae161afb56470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4069072922847984949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336541854887706297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3bfadcd9c1fa9458171cbb6451c817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_stat: {fileID: 11400000, guid: 578bd6715d692ff488f2fb2a3873d968, type: 2}
 --- !u!70 &6353266096901182067
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

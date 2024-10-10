@@ -220,20 +220,20 @@ public class BacteriaC : MonoBehaviour
                     int confirmCount = resourceScript.ConfirmCollection(collectedResourceType, collectionAmount);
                     AddResource(collectedResourceType, confirmCount);
                     
-                    Debug.Log($"BacteriaC collected {collectionAmount} {collectedResourceType} from {targetResource.name}. " +
-                              $"Current: X={carryingX}, Y={carryingY}, Z={carryingZ}");
+                    //Debug.Log($"BacteriaC collected {collectionAmount} {collectedResourceType} from {targetResource.name}. " +
+                              //$"Current: X={carryingX}, Y={carryingY}, Z={carryingZ}");
 
                     // 如果资源已满，切换到返回母巢状态
                     if (GetTotalResources() >= maxTotalResources)
                     {
-                        Debug.Log("BacteriaC reached maximum capacity. Returning home.");
+                        //Debug.Log("BacteriaC reached maximum capacity. Returning home.");
                         currentState = State.ReturnHome;
                     }
 
                     // 如果资源点被采集完毕，通知所有细菌返回母巢
                     if (!resourceScript.HasRemainingResources())
                     {
-                        Debug.Log("Resource depleted. All bacteria returning home.");
+                        //Debug.Log("Resource depleted. All bacteria returning home.");
                         NotifyAllBacteriaToReturnHome();
                     }
                 }
@@ -285,7 +285,7 @@ public class BacteriaC : MonoBehaviour
         if (bm != null)
         {
             bm.AddResources(carryingX, carryingY, carryingZ);
-            Debug.Log($"Transferred resources to matrix: X={carryingX}, Y={carryingY}, Z={carryingZ}");
+            //Debug.Log($"Transferred resources to matrix: X={carryingX}, Y={carryingY}, Z={carryingZ}");
             carryingX = 0;
             carryingY = 0;
             carryingZ = 0;
