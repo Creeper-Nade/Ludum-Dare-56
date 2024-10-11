@@ -24,8 +24,8 @@ public class ResourceManager : MonoBehaviour
     public float minDistanceBetweenResources = 10f;
 
     // 资源点生成范围
-    public float minRange = -525f;
-    public float maxRange = 525f;
+    public float minRange = -80f;
+    public float maxRange = 80f;
 
     //stuff
     [SerializeField]List<Bacterial_Matrix> matrix_list;
@@ -111,7 +111,7 @@ public class ResourceManager : MonoBehaviour
             {
                 position = GetRandomPosition();
                 attempts++;
-            } while (IsOverlappingAny(position, positions) && attempts < maxAttempts && IsOverlappingMatrix(position)&& IsOverlappingObstacle(position));
+            } while (IsOverlappingAny(position, positions) && attempts < maxAttempts || IsOverlappingMatrix(position)|| IsOverlappingObstacle(position));
 
             if (attempts >= maxAttempts)
             {

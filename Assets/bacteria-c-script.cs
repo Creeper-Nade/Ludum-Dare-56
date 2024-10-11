@@ -30,7 +30,7 @@ public class BacteriaC : MonoBehaviour
     [Header("采集设置")]
     public int collectionCooldown = 1; // 采集冷却时间（基于攻击速度）
     public float findResourceDelayMin = 0.1f; // 寻找资源的最小延迟时间
-    public float findResourceDelayMax = 1f; // 寻找资源的最大延迟时间
+    public float findResourceDelayMax = 0.5f; // 寻找资源的最大延迟时间
 
     [Header("战斗设置")]
     public GameObject targetResource; // 当前目标资源
@@ -58,6 +58,8 @@ public class BacteriaC : MonoBehaviour
         //initialize stats
         collectionAmount = 1;
         Had_collected=false;
+        findResourceDelayMin=0.1f;
+        findResourceDelayMax=0.5f;
     }
     private void Start()
     {
@@ -105,6 +107,7 @@ public class BacteriaC : MonoBehaviour
                 {
                     case State.SeekingResource:
                         yield return StartCoroutine(FindNearestResourceWithDelay());
+
                         break;
                     case State.CollectingResource:
                         if (targetResource != null && GetTotalResources() < maxTotalResources)
@@ -275,7 +278,10 @@ public class BacteriaC : MonoBehaviour
     // 返回母巢
     private void ReturnToMatrix()
     {
-        agent.SetDestination(matrixGo.transform.position);
+        Debug.Log(this.gameObject.name+"had return home");
+        NavMeshHit hit;
+        NavMesh.SamplePosition(matrixGo.transform.position,out hit, 10.0f,1);
+        agent.SetDestination(hit.position);
     }
 
     // 将资源转移给母巢
@@ -338,7 +344,7 @@ public class BacteriaC : MonoBehaviour
         }
         else if(bacGen.designated_destination==false)
         {
-            if(currentState!=State.ReturnHome)
+            if(currentState!=State.ReturnHome&&currentState==State.CollectingResource)
             {
                 //rotate to resourec destination
                 Vector3 targetDirection= targetResource.transform.position-this.transform.position;

@@ -66,6 +66,22 @@ public class Bacteria_General : MonoBehaviour
         if(this.gameObject.GetComponent<Team1bacteria>()!=null)Team=1;
         if(this.gameObject.GetComponent<team2bacteria>()!=null)Team=2;
         if(this.gameObject.GetComponent<Team3bacteria>()!=null)Team=3;
+
+        if(!data.Team1.Contains(this.gameObject)&&!data.Team2.Contains(this.gameObject)&&!data.Team3.Contains(this.gameObject))
+        {
+            switch(Team)
+            {
+                case 1:
+                data.Team1.Add(this.gameObject);
+                break;
+                case 2:
+                data.Team2.Add(this.gameObject);
+                break;
+                case 3:
+                data.Team3.Add(this.gameObject);
+                break;
+            }
+        }
         defaultColor=sprite.color;
         
     }
@@ -117,7 +133,7 @@ public class Bacteria_General : MonoBehaviour
         //rts thing
 
         // Check if we've reached the destination
-        if (!agent.pathPending)
+        if (!agent.pathPending&&this.gameObject.GetComponent<UnitRTS>()!=null)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {

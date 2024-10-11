@@ -5,6 +5,7 @@ using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Scripting.APIUpdating;
 
 public class camera : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class camera : MonoBehaviour
     matrix=FindObjectOfType<player_matrix>();
     cards=FindObjectOfType<card_manager>();
    }
+   private void Start() {
+    transform.position=matrix.gameObject.transform.position;
+   }
     void Update()
     {
         
@@ -46,6 +50,8 @@ public class camera : MonoBehaviour
     {
         GameObject hittedObject;
         Physics2D.IgnoreLayerCollision(6,2,true);
+        Physics2D.IgnoreLayerCollision(6,8,true);
+        Physics2D.IgnoreLayerCollision(6,7,true);
         var rayHit=Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Input.mousePosition));
         
         if(!rayHit.collider)return;
@@ -80,8 +86,18 @@ public class camera : MonoBehaviour
             lastMousePosition=Input.mousePosition;
 
             Vector3 moveDir=transform.up*inputDir.y+transform.right*inputDir.x;
-        float movespeed=10f;
-        transform.position+= -moveDir*movespeed*Time.deltaTime;
+            float movespeed=10f;
+            if(transform.position.x>-85&&transform.position.x<85&&transform.position.y>-82&&transform.position.y<82)
+            {
+                    transform.position+= -moveDir*movespeed*Time.deltaTime;
+            }
+            else if (transform.position.x-moveDir.x>-85&&transform.position.x-moveDir.x<85&&transform.position.y-moveDir.y>-82&&transform.position.y-moveDir.y<82)
+            {
+                transform.position+= -moveDir*movespeed*Time.deltaTime;
+            }
+            
+
+        
         }
 
         

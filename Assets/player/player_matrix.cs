@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class player_matrix : MonoBehaviour
 {
@@ -21,7 +22,9 @@ public class player_matrix : MonoBehaviour
         animator.SetTrigger("is_producing");
         instantiating_prefab=cmanager.selected_element.GetComponent<CardSettings>().card_stat.prefab;
         //data.Team1.Add(instantiating_prefab);
-        var Cloned_bacteria=Instantiate(instantiating_prefab,transform.position,Quaternion.Euler(Vector3.forward*Random.Range(0.0f, 360.0f)));
+        NavMeshHit hit;
+        NavMesh.SamplePosition(transform.position,out hit, 10.0f,1);
+        var Cloned_bacteria=Instantiate(instantiating_prefab,hit.position,Quaternion.Euler(Vector3.forward*Random.Range(0.0f, 360.0f)));
         data.Team1.Add(Cloned_bacteria);
     }
 

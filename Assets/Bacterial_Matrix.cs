@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NavMeshPlus.Components;
 using Unity.Collections;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class Bacterial_Matrix : MonoBehaviour
     Color defaultColor;
     public SpriteRenderer sprite;
     public Global_Data data;
+    public matrix_manager manager;
     private bool death_coroutine_ran=false;
 
     public int Team;
@@ -27,6 +29,7 @@ public class Bacterial_Matrix : MonoBehaviour
         if(this.gameObject.GetComponent<player_matrix>())Team=1;
         if(this.gameObject.GetComponent<enemy1matrix>())Team=2;
         if(this.gameObject.GetComponent<enemy2matrix>())Team=3;
+        defaultColor=sprite.color;
     }
 
     private void Update()
@@ -80,14 +83,18 @@ public class Bacterial_Matrix : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
         Debug.Log("color back to original");
-        sprite.color=Color.white;
+        sprite.color=defaultColor;
     }
 
     IEnumerator Die()
     {
-        death_coroutine_ran=true;
+        death_coroutine_ran=true;        
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
         death_coroutine_ran=false;
+    }
+    private void OnDestroy() {
+        //manager.RefreshNavMesh();
+        
     }
 }

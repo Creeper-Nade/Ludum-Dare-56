@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemy2matrix : MonoBehaviour
 {
@@ -45,7 +46,9 @@ public class enemy2matrix : MonoBehaviour
     {
         animator.SetTrigger("is_producing");
         instantiating_prefab=selected_product.GetComponent<CardSettings>().card_stat.prefab;
-        var Cloned_bacteria=Instantiate(instantiating_prefab,transform.position,Quaternion.Euler(Vector3.forward*Random.Range(0.0f, 360.0f)));
+        NavMeshHit hit;
+        NavMesh.SamplePosition(transform.position,out hit, 10.0f,1);
+        var Cloned_bacteria=Instantiate(instantiating_prefab,hit.position,Quaternion.Euler(Vector3.forward*Random.Range(0.0f, 360.0f)));
         data.Team3.Add(Cloned_bacteria);
     }
     void GetRandomValue(List<WeightedValue> weightedValueList)
