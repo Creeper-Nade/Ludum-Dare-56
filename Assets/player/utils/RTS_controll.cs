@@ -5,6 +5,7 @@ using CodeMonkey.Utils;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 public class RTS_controll : MonoBehaviour
 {
     [SerializeField] private Transform selectionAreaTransform;
@@ -28,7 +29,8 @@ public class RTS_controll : MonoBehaviour
             List<Vector3> targetPositionList=GetPositionListAround(startPos,new float[]{1f,2f,3f},new int[] {5,10,20});//get various destination
 
             int targetPositionListIndex=0;
-
+            if(EventSystem.current.IsPointerOverGameObject()==false)
+            {
             foreach(UnitRTS unitRTS in selectedUnitRTS)
             {
                 unitRTS.gameObject.GetComponent<Bacteria_General>().FaceDir();
@@ -36,6 +38,7 @@ public class RTS_controll : MonoBehaviour
                 unitRTS.gameObject.GetComponent<Bacteria_General>().designated_destination=true;
                 unitRTS.gameObject.GetComponent<NavMeshAgent>().SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex=(targetPositionListIndex+1)%targetPositionList.Count;
+            }
             }
         }
 
@@ -59,11 +62,15 @@ public class RTS_controll : MonoBehaviour
             selectionAreaTransform.gameObject.SetActive(false);
             Collider2D[] collider2DArray=Physics2D.OverlapAreaAll(startPos,UtilsClass.GetMouseWorldPosition());
             //deselect
-            foreach(UnitRTS unitRTS in selectedUnitRTS)
+            if(EventSystem.current.IsPointerOverGameObject()==false)
             {
-                unitRTS.SetSelectedVisible(false);
+                foreach(UnitRTS unitRTS in selectedUnitRTS)
+                {
+                    unitRTS.SetSelectedVisible(false);
+                }
+                selectedUnitRTS.Clear();
             }
-            selectedUnitRTS.Clear();
+            
             //select
             foreach(Collider2D collider2D in collider2DArray)
             {

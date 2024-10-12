@@ -30,7 +30,16 @@ public class camera : MonoBehaviour
     cards=FindObjectOfType<card_manager>();
    }
    private void Start() {
-    transform.position=matrix.gameObject.transform.position;
+    StartCoroutine(SetPosToMatrix());
+   }
+   private IEnumerator SetPosToMatrix()
+   {
+        yield return null;
+        this.gameObject.transform.position=matrix.gameObject.transform.position;
+   }
+   public void SetPosToMatrixPublic()
+   {
+        this.gameObject.transform.position=matrix.gameObject.transform.position;
    }
     void Update()
     {
