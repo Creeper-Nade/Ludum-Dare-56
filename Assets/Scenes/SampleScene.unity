@@ -518,83 +518,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6033252742716566945, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
   m_PrefabInstance: {fileID: 132130318}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &135056414
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1888407206}
-    m_Modifications:
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764080376455772696, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: ShapeModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764080376455772696, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7873728383240817253, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_Name
-      value: Matrix Dying
-      objectReference: {fileID: 0}
-    - target: {fileID: 7873728383240817253, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
 --- !u!1001 &159254426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2260,80 +2183,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5152647478004479093, guid: 52e019c70f936bf4c8e59c42e9395002, type: 3}
   m_PrefabInstance: {fileID: 4394725473811939094}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &737172165 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7534972503021703922, guid: 723f341038ae6e246ae35982203572cc, type: 3}
-  m_PrefabInstance: {fileID: 2832174662222687477}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &744585822
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 737172165}
-    m_Modifications:
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7873728383240817253, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_Name
-      value: Matrix Dying
-      objectReference: {fileID: 0}
-    - target: {fileID: 7873728383240817253, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
 --- !u!1001 &773567199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2545,16 +2394,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774673329}
   m_CullTransparentMesh: 1
---- !u!1 &789001221 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7873728383240817253, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-  m_PrefabInstance: {fileID: 744585822}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &789001224 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-  m_PrefabInstance: {fileID: 744585822}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &791964726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6560203450986768451, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
@@ -5846,11 +5685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864637172}
   m_CullTransparentMesh: 1
---- !u!4 &1888407206 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3092956304234753383, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
-  m_PrefabInstance: {fileID: 8301519208880050516}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1913256939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6116,16 +5950,6 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
   m_PrefabInstance: {fileID: 295612632}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1971111822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7873728383240817253, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-  m_PrefabInstance: {fileID: 135056414}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1971111825 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2130951760654376936, guid: 9cb83001330e3af449d6ad45ee7889b3, type: 3}
-  m_PrefabInstance: {fileID: 135056414}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1989328713
 PrefabInstance:
@@ -6914,25 +6738,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2083542232}
     - target: {fileID: 3028576074979283182, guid: 723f341038ae6e246ae35982203572cc, type: 3}
-      propertyPath: Dead_Burst
-      value: 
-      objectReference: {fileID: 7233379991348952053, guid: 50d9e38e103f7a842a1c867bdd562fd3, type: 3}
-    - target: {fileID: 3028576074979283182, guid: 723f341038ae6e246ae35982203572cc, type: 3}
       propertyPath: ui_animator
       value: 
       objectReference: {fileID: 668796424}
-    - target: {fileID: 3028576074979283182, guid: 723f341038ae6e246ae35982203572cc, type: 3}
-      propertyPath: enemy_navMesh
-      value: 
-      objectReference: {fileID: 14938915}
-    - target: {fileID: 3028576074979283182, guid: 723f341038ae6e246ae35982203572cc, type: 3}
-      propertyPath: Dying_particle
-      value: 
-      objectReference: {fileID: 789001221}
-    - target: {fileID: 3028576074979283182, guid: 723f341038ae6e246ae35982203572cc, type: 3}
-      propertyPath: player_navMesh
-      value: 
-      objectReference: {fileID: 1799588582}
     - target: {fileID: 3963257229136286050, guid: 723f341038ae6e246ae35982203572cc, type: 3}
       propertyPath: m_Name
       value: Enemy2's Bacterial Matrix
@@ -6979,10 +6787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7534972503021703922, guid: 723f341038ae6e246ae35982203572cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 789001224}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723f341038ae6e246ae35982203572cc, type: 3}
 --- !u!1 &3112402532333032379 stripped
@@ -7429,7 +7234,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4866291083689065197, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
@@ -7985,31 +7791,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2083542232}
     - target: {fileID: 5627189370851852598, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
-      propertyPath: Dead_Burst
-      value: 
-      objectReference: {fileID: 7233379991348952053, guid: 50d9e38e103f7a842a1c867bdd562fd3, type: 3}
-    - target: {fileID: 5627189370851852598, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
       propertyPath: ui_animator
       value: 
       objectReference: {fileID: 668796424}
-    - target: {fileID: 5627189370851852598, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
-      propertyPath: enemy_navMesh
-      value: 
-      objectReference: {fileID: 14938915}
-    - target: {fileID: 5627189370851852598, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
-      propertyPath: Dying_particle
-      value: 
-      objectReference: {fileID: 1971111822}
-    - target: {fileID: 5627189370851852598, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
-      propertyPath: player_navMesh
-      value: 
-      objectReference: {fileID: 1799588582}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3092956304234753383, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1971111825}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d562400f72255f14e9d2fbb9286bd49d, type: 3}
 --- !u!1001 &8485118757732119366

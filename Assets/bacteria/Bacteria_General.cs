@@ -10,11 +10,12 @@ public class Bacteria_General : MonoBehaviour
     public RTS_controll rts;
 
     private GameObject AttackArea;
+    public GameObject Death_particle;
 
     [SerializeField] Global_Data data;
     [SerializeField] Health_Bar healthBar;
 
-    [SerializeField] ParticleSystem particle;
+    //[SerializeField] ParticleSystem particle;
 
     [SerializeField] public NavMeshAgent agent;
     [SerializeField] UnitRTS unitRTS;
@@ -49,7 +50,7 @@ public class Bacteria_General : MonoBehaviour
         sprite=gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
 
-        particle.gameObject.SetActive(false);
+        //particle.gameObject.SetActive(false);
 
         AttackArea=this.gameObject.transform.GetChild(0).gameObject;
         AttackArea.SetActive(false);
@@ -211,7 +212,8 @@ public class Bacteria_General : MonoBehaviour
     IEnumerator Die()
     {
         death_coroutine_ran=true;
-        particle.gameObject.SetActive(true);
+        //particle.gameObject.SetActive(true);
+        Instantiate(Death_particle,transform.position,Quaternion.identity);
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
         death_coroutine_ran=false;
