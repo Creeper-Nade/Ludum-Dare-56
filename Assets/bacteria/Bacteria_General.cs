@@ -14,6 +14,7 @@ public class Bacteria_General : MonoBehaviour
 
     [SerializeField] Global_Data data;
     [SerializeField] Health_Bar healthBar;
+    public AudioSource sound_source;
 
     //[SerializeField] ParticleSystem particle;
 
@@ -179,6 +180,8 @@ public class Bacteria_General : MonoBehaviour
             
             Debug.Log(damage);
             healthBar.Change(-damage);
+
+            sound_source.PlayOneShot(sound_source.clip);
 
             damage_intake+=damage;
             //bacteria D recovery effect

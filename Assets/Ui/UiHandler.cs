@@ -14,10 +14,14 @@ public class UiHandler : MonoBehaviour
     private player_matrix _player_matrix;
     public Animator Black_screen_animator;
     public Animator Pause_animator;
+    public AudioSource audioSource;
+    public AudioClip swoosh;
+    public AudioClip boing;
     
     private void Awake()
     {
         _player_matrix=FindObjectOfType<player_matrix>();
+        audioSource=GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -29,10 +33,12 @@ public class UiHandler : MonoBehaviour
         {
             if(Pause_animator.GetBool("enabled")==true)
             {
-                SetPauseBool();
+                Time.timeScale=1;
+                StartCoroutine(SetPauseBoolCoroutine("enabled",false));
             }
             if(Pause_animator.GetBool("enabled")==false)
             {
+                audioSource.PlayOneShot(swoosh);
                 Pause_animator.SetBool("enabled",true);
                 Time.timeScale=0;
             }
@@ -40,11 +46,12 @@ public class UiHandler : MonoBehaviour
     }
     public void Return()
     {
-        
+        audioSource.PlayOneShot(boing);
         StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex-1));
     }
     public void Restart()
     {
+        audioSource.PlayOneShot(boing);
         StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex));
     }
     IEnumerator Load(int levelIndex)
@@ -58,11 +65,14 @@ public class UiHandler : MonoBehaviour
     public void SetPauseBool()
     {
         Time.timeScale=1;
+        audioSource.PlayOneShot(boing);
+        
         StartCoroutine(SetPauseBoolCoroutine("enabled",false));
     }
     IEnumerator SetPauseBoolCoroutine(string name, bool value)
     {
         yield return null;
+        audioSource.PlayOneShot(swoosh);
         Pause_animator.SetBool(name,value);
         yield return null;
     }

@@ -12,6 +12,8 @@ public class enemy1matrix : MonoBehaviour
     [SerializeField] GameObject selected_product;
     [SerializeField] Bacterial_Matrix matrix;
     [SerializeField] PatrolRange patrolRange;
+    public AudioSource audioSource;
+    public AudioClip Produced_unit;
     private bool instantiate_cd_setted=false;
     public List<WeightedValue> weightedValues;
     void Awake()
@@ -19,7 +21,9 @@ public class enemy1matrix : MonoBehaviour
         patrolRange=this.gameObject.GetComponentInChildren<PatrolRange>();
         animator=this.gameObject.GetComponentInChildren<Animator>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
+        audioSource=GetComponent<AudioSource>();
         matrix=this.gameObject.GetComponent<Bacterial_Matrix>();
+        audioSource=GetComponent<AudioSource>();
         data.Team2.Add(this.gameObject);
         GetRandomValue(weightedValues);
     }   
@@ -46,6 +50,7 @@ public class enemy1matrix : MonoBehaviour
     public void InstantiatePrefab()
     {
         animator.SetTrigger("is_producing");
+        audioSource.PlayOneShot(Produced_unit);
         instantiating_prefab=selected_product.GetComponent<CardSettings>().card_stat.prefab;
         NavMeshHit hit;
         NavMesh.SamplePosition(transform.position,out hit, 10.0f,1);

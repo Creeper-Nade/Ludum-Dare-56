@@ -17,6 +17,9 @@ public class Bacterial_Matrix : MonoBehaviour
     public GameObject Dying_particle;
     public GameObject Dead_Burst;
     public camera CameraFocus;
+    public AudioSource audioSource;
+    public AudioSource cameraSource;
+    public AudioClip Player_damaged;
     private bool death_coroutine_ran=false;
 
     public int Team;
@@ -32,6 +35,7 @@ public class Bacterial_Matrix : MonoBehaviour
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         CameraFocus=GameObject.FindFirstObjectByType<camera>();
         Matrix_animator=this.gameObject.GetComponentInChildren<Animator>();
+        audioSource=GetComponent<AudioSource>();
         if(this.gameObject.GetComponent<player_matrix>())Team=1;
         if(this.gameObject.GetComponent<enemy1matrix>())Team=2;
         if(this.gameObject.GetComponent<enemy2matrix>())Team=3;
@@ -72,10 +76,13 @@ public class Bacterial_Matrix : MonoBehaviour
         if(Health>0)
         {
             Health-=damage;
+            audioSource.PlayOneShot(audioSource.clip);
             Debug.Log(damage);
             if(this.gameObject.GetComponent<player_matrix>()!=null)
             {
                 Cinemachine_shake.Instance.ShakeCamera(8f,.2f);
+                ui_animator.SetTrigger("is_damaged");
+                cameraSource.PlayOneShot(Player_damaged);
             }
             else{
             Cinemachine_shake.Instance.ShakeCamera(4f,.1f);}

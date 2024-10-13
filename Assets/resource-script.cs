@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Resource : MonoBehaviour
 {
+    public GameObject audio_object;
     // 定义资源类型枚举
     public enum ResourceType
     {
@@ -173,6 +174,7 @@ public class Resource : MonoBehaviour
             {
                 Debug.LogError("ResourceManager引用丢失。无法报告资源耗尽。");
             }
+            Instantiate(audio_object,transform.position,Quaternion.identity);
             gameObject.SetActive(false);
         }
     }

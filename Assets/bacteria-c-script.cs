@@ -17,6 +17,9 @@ public class BacteriaC : MonoBehaviour
         private float distance;
     private float nearestDistance=10000;
     [SerializeField] private GameObject nearestFoe;
+    public AudioClip Retrieve;
+    public AudioClip Transfer;
+    public AudioSource audioSource;
     [Header("基础属性")]
     public int collectionAmount = 1; // 采集量
 
@@ -55,6 +58,7 @@ public class BacteriaC : MonoBehaviour
         bacGen=this.gameObject.GetComponent<Bacteria_General>();
         Had_collected=false;
         enemy_Detection=this.gameObject.GetComponentInChildren<BacC_Enemy_Detection>();
+        audioSource=bacGen.sound_source;
         //initialize stats
         collectionAmount = 1;
         Had_collected=false;
@@ -201,6 +205,13 @@ public class BacteriaC : MonoBehaviour
         }
         
     }
+    private void OnCollisionEnter2D(Collision2D other) {
+        
+        if(other.gameObject==matrixGo)
+        {
+            audioSource.PlayOneShot(Transfer);
+        }
+    }
 
     IEnumerator CollectResourceEnum()
     {
@@ -255,6 +266,7 @@ public class BacteriaC : MonoBehaviour
     // 添加收集到的资源
     private void AddResource(string resourceType, int amount)
     {
+        audioSource.PlayOneShot(Retrieve);
         switch (resourceType)
         {
             case "X":
@@ -291,6 +303,7 @@ public class BacteriaC : MonoBehaviour
         if (bm != null)
         {
             bm.AddResources(carryingX, carryingY, carryingZ);
+            
             //Debug.Log($"Transferred resources to matrix: X={carryingX}, Y={carryingY}, Z={carryingZ}");
             carryingX = 0;
             carryingY = 0;

@@ -26,11 +26,16 @@ public class card_manager : MonoBehaviour
     private float RectmaximumY=-390;
 
     private player_matrix _player_matrix;
+    public AudioSource CameraSource;
+    public AudioClip UnableSummon;
+    public AudioClip EnableSummon;
+    public AudioClip Hover;
 
     void Awake()
     {
         animator= gameObject.GetComponent<Animator>();
         ui_raycaster=canvas.GetComponent<GraphicRaycaster>();
+        CameraSource=GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
         hovered_data=new PointerEventData(EventSystem.current);
         casted_results=new List<RaycastResult>();
 
@@ -68,8 +73,9 @@ public class card_manager : MonoBehaviour
             Vector2 anchoredPos=ui_element.GetComponent<RectTransform>().anchoredPosition;
             if(children.Contains(ui_element)&&ui_element.GetComponent<RectTransform>().anchoredPosition.y<=RectmaximumY)
             {
-                anchoredPos.y+=2;
+                anchoredPos.y+=2;                
                 ui_element.GetComponent<RectTransform>().anchoredPosition=anchoredPos;
+                CameraSource.PlayOneShot(Hover);
             }
             
             if(Input.GetMouseButtonDown(0))
@@ -102,6 +108,7 @@ public class card_manager : MonoBehaviour
 
     public IEnumerator SuccessfulFlash()
     {
+        CameraSource.PlayOneShot(EnableSummon);
         selected_element.GetComponent<Image>().color= UnityEngine.Color.cyan;
         yield return new WaitForSeconds(0.1f);
         selected_element.GetComponent<Image>().color = originalcolor;
@@ -110,6 +117,7 @@ public class card_manager : MonoBehaviour
 
         public IEnumerator FailingFlash()
     {
+        CameraSource.PlayOneShot(UnableSummon);
         selected_element.GetComponent<Image>().color= UnityEngine.Color.red;
         yield return new WaitForSeconds(0.1f);
         selected_element.GetComponent<Image>().color = originalcolor;

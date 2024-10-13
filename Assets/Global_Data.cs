@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Global_Data : MonoBehaviour
@@ -16,13 +17,20 @@ public class Global_Data : MonoBehaviour
 
     public GameObject winScreen;
     public GameObject loseScreen;
+    public AudioSource audioSource;
+    public AudioClip WinSound;
+    public AudioClip LoseSound;
 
     public GameObject matrix1;
     public GameObject matrix2;
     public GameObject matrix3;
+    [Header("misc")]
+    private bool win_sound_played=false;
+    private bool lose_sound_played=false;
     
     void Awake()
     {
+        audioSource=GameObject.FindWithTag("MainCamera").GetComponent<AudioSource>();
         //initialize data of scriptable objects
         foreach(GameObject matrix in GameObject.FindGameObjectsWithTag("Matrix"))
             {
@@ -76,11 +84,21 @@ public class Global_Data : MonoBehaviour
         //detect win condition
         if(!Team2.Contains(matrix2)&&!Team3.Contains(matrix3))
         {
+            if(win_sound_played==false)
+            {
+                audioSource.PlayOneShot(WinSound);
+                win_sound_played=true;
+            }
             winScreen.SetActive(true);
             Time.timeScale=0;
         }
         if(!Team1.Contains(matrix1))
         {
+            if(lose_sound_played==false)
+            {
+                audioSource.PlayOneShot(LoseSound);
+                lose_sound_played=true;
+            }
             loseScreen.SetActive(true);
             Time.timeScale=0;
         }

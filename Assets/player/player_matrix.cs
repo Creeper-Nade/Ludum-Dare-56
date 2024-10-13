@@ -10,16 +10,20 @@ public class player_matrix : MonoBehaviour
     private GameObject instantiating_prefab; 
 
     public Global_Data data;
+    public AudioSource audioSource;
+    public AudioClip Produced_unit;
 
     void Awake()
     {
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
         data.Team1.Add(this.gameObject);
         animator=this.gameObject.GetComponentInChildren<Animator>();
+        audioSource=GetComponent<AudioSource>();
     }  
     public void InstantiatePrefab()
     {
         animator.SetTrigger("is_producing");
+        audioSource.PlayOneShot(Produced_unit);
         instantiating_prefab=cmanager.selected_element.GetComponent<CardSettings>().card_stat.prefab;
         //data.Team1.Add(instantiating_prefab);
         NavMeshHit hit;
