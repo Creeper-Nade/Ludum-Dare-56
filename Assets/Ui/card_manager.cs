@@ -31,6 +31,7 @@ public class card_manager : MonoBehaviour
     public AudioClip UnableSummon;
     public AudioClip EnableSummon;
     public AudioClip Hover;
+    private bool BlinkOccuring=false;
 
     void Awake()
     {
@@ -57,6 +58,25 @@ public class card_manager : MonoBehaviour
         {
             RaycastUI(); 
              
+        }
+        foreach(GameObject card in children)
+        {
+            if(CalculateCostConstanly(card))
+            {
+                if(card.GetComponent<Image>().color!=originalcolor&&BlinkOccuring==false)
+                {
+                    card.GetComponent<Image>().color=originalcolor;
+                }
+            }
+            else
+            {
+                if(card.GetComponent<Image>().color!=UnityEngine.Color.gray&&BlinkOccuring==false)
+                {
+
+                    card.GetComponent<Image>().color=UnityEngine.Color.gray;
+                }
+                
+            }
         }
 
     }
@@ -111,19 +131,23 @@ public class card_manager : MonoBehaviour
 
     public IEnumerator SuccessfulFlash()
     {
+        BlinkOccuring=true;
         CameraSource.PlayOneShot(EnableSummon);
         selected_element.GetComponent<Image>().color= UnityEngine.Color.cyan;
         yield return new WaitForSeconds(0.1f);
         selected_element.GetComponent<Image>().color = originalcolor;
+        BlinkOccuring=false;
         StopCoroutine(SuccessfulFlash());
     }
 
         public IEnumerator FailingFlash()
     {
+        BlinkOccuring=true;
         CameraSource.PlayOneShot(UnableSummon);
         selected_element.GetComponent<Image>().color= UnityEngine.Color.red;
         yield return new WaitForSeconds(0.1f);
-        selected_element.GetComponent<Image>().color = originalcolor;
+        selected_element.GetComponent<Image>().color = UnityEngine.Color.gray;
+        BlinkOccuring=false;
         StopCoroutine(FailingFlash());
     }
     public void matrix_clicked()
@@ -169,5 +193,20 @@ public class card_manager : MonoBehaviour
         }
         return false;
     }
-
+    private bool CalculateCostConstanly(GameObject TargetCard)
+    {
+        if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x-TargetCard.GetComponent<CardSettings>().card_stat.X_consume>=0)
+        {
+            if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_y-TargetCard.GetComponent<CardSettings>().card_stat.Y_consume>=0)
+            {
+                if(_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z-TargetCard.GetComponent<CardSettings>().card_stat.Z_consume>=0)
+                {
+                    return true;
+                }
+                else return false;
+            }
+            else return false;
+        }
+        return false;
+    }
 }
