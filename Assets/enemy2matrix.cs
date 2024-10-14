@@ -14,7 +14,7 @@ public class enemy2matrix : MonoBehaviour
     private bool instantiate_cd_setted=false;
     public List<WeightedValue> weightedValues;
     [SerializeField] AudioSource audioSource;
-    public AudioClip Produced_unit;
+    public AudioSource Produced_unit;
     void Awake()
     {
         patrolRange=this.gameObject.GetComponentInChildren<PatrolRange>();
@@ -48,7 +48,7 @@ public class enemy2matrix : MonoBehaviour
     public void InstantiatePrefab()
     {
         animator.SetTrigger("is_producing");
-        audioSource.PlayOneShot(Produced_unit);
+        Produced_unit.PlayOneShot(Produced_unit.clip);
         instantiating_prefab=selected_product.GetComponent<CardSettings>().card_stat.prefab;
         NavMeshHit hit;
         NavMesh.SamplePosition(transform.position,out hit, 10.0f,1);

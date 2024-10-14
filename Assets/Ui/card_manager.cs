@@ -27,6 +27,7 @@ public class card_manager : MonoBehaviour
 
     private player_matrix _player_matrix;
     public AudioSource CameraSource;
+    public AudioClip swoosh;
     public AudioClip UnableSummon;
     public AudioClip EnableSummon;
     public AudioClip Hover;
@@ -73,9 +74,11 @@ public class card_manager : MonoBehaviour
             Vector2 anchoredPos=ui_element.GetComponent<RectTransform>().anchoredPosition;
             if(children.Contains(ui_element)&&ui_element.GetComponent<RectTransform>().anchoredPosition.y<=RectmaximumY)
             {
+                if(ui_element.transform.GetComponent<RectTransform>().anchoredPosition.y==-403)
+                CameraSource.PlayOneShot(Hover);
                 anchoredPos.y+=2;                
                 ui_element.GetComponent<RectTransform>().anchoredPosition=anchoredPos;
-                CameraSource.PlayOneShot(Hover);
+                
             }
             
             if(Input.GetMouseButtonDown(0))
@@ -125,10 +128,18 @@ public class card_manager : MonoBehaviour
     }
     public void matrix_clicked()
     {
+        if(animator.GetBool("visible")==false)
+        {
+            CameraSource.PlayOneShot(swoosh);
+        }        
         animator.SetBool("visible",true);
     }
     public void matrix_quit()
     {
+        if(animator.GetBool("visible"))
+        {
+            CameraSource.PlayOneShot(swoosh);
+        }   
         animator.SetBool("visible",false);
         foreach(GameObject child in children)
             {

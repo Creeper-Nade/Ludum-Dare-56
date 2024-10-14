@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Ludum Dare 56
+  productName: Bactoria
   defaultCursor: {fileID: 2800000, guid: feee09437d40f394fa3ab153955e6c7f, type: 3}
   cursorHotspot: {x: 512, y: 462}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}

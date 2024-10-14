@@ -89,13 +89,13 @@ public class camera : MonoBehaviour
         if(dragPanMoveActive)
         {
             Vector2 mouseMovementDelta=(Vector2)Input.mousePosition-lastMousePosition;
-            float dragPanSpeed=2f;
+            float dragPanSpeed=1f;
             inputDir.x=mouseMovementDelta.x*dragPanSpeed;
             inputDir.y=mouseMovementDelta.y*dragPanSpeed;
             lastMousePosition=Input.mousePosition;
 
             Vector3 moveDir=transform.up*inputDir.y+transform.right*inputDir.x;
-            float movespeed=10f;
+            float movespeed=8f;
             if(transform.position.x>-85&&transform.position.x<85&&transform.position.y>-82&&transform.position.y<82)
             {
                     transform.position+= -moveDir*movespeed*Time.deltaTime;

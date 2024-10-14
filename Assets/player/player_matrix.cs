@@ -11,7 +11,7 @@ public class player_matrix : MonoBehaviour
 
     public Global_Data data;
     public AudioSource audioSource;
-    public AudioClip Produced_unit;
+    public AudioSource produce_sound;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class player_matrix : MonoBehaviour
     public void InstantiatePrefab()
     {
         animator.SetTrigger("is_producing");
-        audioSource.PlayOneShot(Produced_unit);
+        produce_sound.PlayOneShot(produce_sound.clip);
         instantiating_prefab=cmanager.selected_element.GetComponent<CardSettings>().card_stat.prefab;
         //data.Team1.Add(instantiating_prefab);
         NavMeshHit hit;

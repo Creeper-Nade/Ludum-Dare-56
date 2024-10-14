@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatrolRange : MonoBehaviour
@@ -7,6 +9,10 @@ public class PatrolRange : MonoBehaviour
     [SerializeField] private Bacterial_Matrix matrix;
     public List<GameObject> entered_object;
     public List<GameObject> BacteriaD;
+    public PatrolRange foe1Patrol;
+    public PatrolRange foe2Patrol;
+    public AudioSource DrumSource;
+    public static bool is_increasing_Drum_sound=false;
 
     private void Awake() {
         matrix=this.GetComponentInParent<Bacterial_Matrix>();
@@ -36,6 +42,30 @@ public class PatrolRange : MonoBehaviour
                 BacteriaD.Remove(other.gameObject);
             }     
 
+    }
+    private void Update() {
+        if(entered_object.Any())
+        {
+            if(DrumSource.volume<1)
+            {
+                is_increasing_Drum_sound=true;
+                DrumSource.volume+=Time.deltaTime;
+            }
+            else
+            {
+                is_increasing_Drum_sound=false;
+            }            
+        }
+        else if(!entered_object.Any()||entered_object.Count==0)
+        {
+            Debug.Log("drum fade out");
+            if(DrumSource.volume>0&&is_increasing_Drum_sound==false)
+            DrumSource.volume-=Time.deltaTime;
+        }
+        if(entered_object.Count==0&&foe1Patrol.entered_object.Count==0&&foe2Patrol.entered_object.Count==0)
+        {
+            is_increasing_Drum_sound=false;
+        }
     }
     //private void OnTriggerStay2D(Collider2D other) {
         

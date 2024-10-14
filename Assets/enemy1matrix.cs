@@ -13,7 +13,7 @@ public class enemy1matrix : MonoBehaviour
     [SerializeField] Bacterial_Matrix matrix;
     [SerializeField] PatrolRange patrolRange;
     public AudioSource audioSource;
-    public AudioClip Produced_unit;
+    public AudioSource Produced_unit;
     private bool instantiate_cd_setted=false;
     public List<WeightedValue> weightedValues;
     void Awake()
@@ -50,7 +50,7 @@ public class enemy1matrix : MonoBehaviour
     public void InstantiatePrefab()
     {
         animator.SetTrigger("is_producing");
-        audioSource.PlayOneShot(Produced_unit);
+        Produced_unit.PlayOneShot(Produced_unit.clip);
         instantiating_prefab=selected_product.GetComponent<CardSettings>().card_stat.prefab;
         NavMeshHit hit;
         NavMesh.SamplePosition(transform.position,out hit, 10.0f,1);

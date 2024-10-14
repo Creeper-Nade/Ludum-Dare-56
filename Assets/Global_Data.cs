@@ -18,6 +18,8 @@ public class Global_Data : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
     public AudioSource audioSource;
+    public AudioSource MainMusicSource;
+    public AudioSource MusicDrumSource;
     public AudioClip WinSound;
     public AudioClip LoseSound;
 
@@ -62,6 +64,8 @@ public class Global_Data : MonoBehaviour
 
     void Update()
     {
+        MusicDrumSource.timeSamples=MainMusicSource.timeSamples;
+        //elapsed time add production thing
         elapsedTime+=Time.deltaTime;
         int minutes=Mathf.FloorToInt(elapsedTime/60);
         if(minutes>=3)
@@ -84,6 +88,8 @@ public class Global_Data : MonoBehaviour
         //detect win condition
         if(!Team2.Contains(matrix2)&&!Team3.Contains(matrix3))
         {
+            MainMusicSource.volume-=0.01f;
+            MusicDrumSource.volume-=0.01f;
             if(win_sound_played==false)
             {
                 audioSource.PlayOneShot(WinSound);
@@ -94,6 +100,8 @@ public class Global_Data : MonoBehaviour
         }
         if(!Team1.Contains(matrix1))
         {
+            MainMusicSource.volume-=0.01f;
+            MusicDrumSource.volume-=0.01f;
             if(lose_sound_played==false)
             {
                 audioSource.PlayOneShot(LoseSound);
