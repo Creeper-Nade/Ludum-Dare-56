@@ -22,6 +22,7 @@ public class ResourceManager : MonoBehaviour
 
     // 资源点之间的最小距离
     public float minDistanceBetweenResources = 10f;
+    public float minDistanceBetweenMatrix = 20f;
 
     // 资源点生成范围
     public float minRange = -80f;
@@ -167,6 +168,10 @@ public class ResourceManager : MonoBehaviour
                 && position.y > (matrix.gameObject.transform.position.y - 5)
                 && position.y < (matrix.gameObject.transform.position.y + 5)
             )
+            {
+                return true;
+            }
+            if (Vector2.Distance(matrix.transform.position, position) < minDistanceBetweenMatrix)
             {
                 return true;
             }

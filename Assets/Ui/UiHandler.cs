@@ -14,6 +14,7 @@ public class UiHandler : MonoBehaviour
     private player_matrix _player_matrix;
     public Animator Black_screen_animator;
     public Animator Pause_animator;
+    public Animator Tutorial_animator;
     public AudioSource audioSource;
     public AudioClip swoosh;
     public AudioClip boing;
@@ -24,6 +25,9 @@ public class UiHandler : MonoBehaviour
         audioSource=GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
     }
 
+    private void Start() {
+        StartCoroutine(ShowTutorial());
+    }
     void Update()
     {
         X_display.text=string.Format("{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x);
@@ -62,6 +66,10 @@ public class UiHandler : MonoBehaviour
         Time.timeScale=1;
         SceneManager.LoadScene(levelIndex);
     }
+    public void CloseTutorial()
+    {
+        Tutorial_animator.SetBool("is_opened",false);
+    }
     public void SetPauseBool()
     {
         Time.timeScale=1;
@@ -75,6 +83,11 @@ public class UiHandler : MonoBehaviour
         audioSource.PlayOneShot(swoosh);
         Pause_animator.SetBool(name,value);
         yield return null;
+    }
+    IEnumerator ShowTutorial()
+    {
+        yield return new WaitForSeconds(1);
+        Tutorial_animator.SetBool("is_opened",true);
     }
 
 }

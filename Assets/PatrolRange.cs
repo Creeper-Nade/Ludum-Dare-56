@@ -58,7 +58,6 @@ public class PatrolRange : MonoBehaviour
         }
         else if(!entered_object.Any()||entered_object.Count==0)
         {
-            Debug.Log("drum fade out");
             if(DrumSource.volume>0&&is_increasing_Drum_sound==false)
             DrumSource.volume-=Time.deltaTime;
         }

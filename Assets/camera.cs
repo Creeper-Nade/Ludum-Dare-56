@@ -15,7 +15,7 @@ public class camera : MonoBehaviour
    private bool dragPanMoveActive;
    private Vector2 lastMousePosition;
    private Vector3 inputDir=new Vector3(0,0,0);
-   [SerializeField ]private float maximumFOV=20;
+   [SerializeField ]private float maximumFOV=10;
    [SerializeField ]private float minimumFOV=5;
    public LayerMask layermask;
    private float targetFOV=10;

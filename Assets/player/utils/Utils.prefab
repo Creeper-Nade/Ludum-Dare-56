@@ -214,6 +214,12 @@ MonoBehaviour:
   X_display: {fileID: 0}
   Y_display: {fileID: 0}
   Z_display: {fileID: 0}
+  Black_screen_animator: {fileID: 0}
+  Pause_animator: {fileID: 0}
+  Tutorial_animator: {fileID: 0}
+  audioSource: {fileID: 0}
+  swoosh: {fileID: 8300000, guid: a61db090060511a469c2aa55a500ca5e, type: 3}
+  boing: {fileID: 8300000, guid: 53da6f5bb0a07ac43a05cae1f0486571, type: 3}
 --- !u!1 &5146614342432783599
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,12 +269,19 @@ MonoBehaviour:
   - 3
   - 2
   elapsedTime: 0
-  Team1:
-  - {fileID: 0}
-  Team2:
-  - {fileID: 0}
-  Team3:
-  - {fileID: 0}
+  Team1: []
+  Team2: []
+  Team3: []
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
+  audioSource: {fileID: 0}
+  MainMusicSource: {fileID: 0}
+  MusicDrumSource: {fileID: 0}
+  WinSound: {fileID: 8300000, guid: f3f05aaa768397149baaae232d3b5cf0, type: 3}
+  LoseSound: {fileID: 8300000, guid: f0f430fff43fa49499435718612fd905, type: 3}
+  matrix1: {fileID: 0}
+  matrix2: {fileID: 0}
+  matrix3: {fileID: 0}
 --- !u!1 &5331716855900775192
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +382,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: c24f4533142d4714eb94cc74331db19b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: eb52111a0c491144e86ae47412bb36dd, type: 2}
 --- !u!114 &2854704036641376035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +461,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: e81504a2783370a499f8b7c8cb173d1c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a189739c9369a414f9c5081cdb5c0e5c, type: 2}
 --- !u!114 &441559442199584238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7522368637437578302}
   - component: {fileID: 7984124479034317293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 8594817896787844067}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8834885, y: -0.12467612, z: -8.723404}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -592,8 +605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachine: {fileID: 0}
-  maximumFOV: 20
-  minimumFOV: 5
+  maximumFOV: 9
+  minimumFOV: 2
   layermask:
     serializedVersion: 2
     m_Bits: 4

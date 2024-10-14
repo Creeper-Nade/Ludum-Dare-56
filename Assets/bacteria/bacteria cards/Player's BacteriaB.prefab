@@ -882,7 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: 607a1f959adf79141a7b74b5fa87f70d, type: 2}
   rts: {fileID: 0}
-  Death_particle: {fileID: 0}
+  Death_particle: {fileID: 9041055122842978207, guid: 84aa6e90be6dd10489cf0d0454ac5106, type: 3}
   data: {fileID: 0}
   healthBar: {fileID: 1744326618801832044}
   sound_source: {fileID: 2621929999099744628}

@@ -16,6 +16,7 @@ public class CombinationRange : MonoBehaviour
     public ParticleSystem Upgraded_particle2;
     [SerializeField] private Global_Data data;
     private int BacteriaType;
+    private bool SettedComboEffect=false;
 
     private void Awake() {
         same_within_range= new List<Bacteria_General>();
@@ -67,33 +68,35 @@ public class CombinationRange : MonoBehaviour
         if(same_within_range.Count>=bacGen.stat.number1_for_combination)
         {
             Upgraded_particle1.gameObject.SetActive(true);
-            switch(BacteriaType)
+            if(SettedComboEffect==false)
             {
-                case 1:
-                bacGen.ATK=7;
-                break;
+                switch(BacteriaType)
+                {
+                    case 1:
+                    bacGen.ATK=7;
+                    break;
 
-                case 2:
-                bacGen.shield+=2;
-                //bacteriaB shield effect
-                break;
+                    case 2:
+                    bacGen.shield=2;
+                    //bacteriaB shield effect
+                    break;
 
-                case 3:
-                BacC.maxTotalResources=12;
+                    case 3:
+                    BacC.maxTotalResources=12;
                 //insert bacteriaC combination effect1
-                break;
+                    break;
 
-                case 4:
-                bacGen.intake_recovery_activated=true;
-                patrolCollider=this.gameObject.GetComponentInParent<BacteriaD>().patrolRange.gameObject.GetComponent<CircleCollider2D>();
-                patrolCollider.radius=2;
-                bacGen.gameObject.GetComponentInParent<BacteriaD>().range=12;
-                //insert bacteria D recovering effect;
-                break;
-                default:
-                break;
+                    case 4:
+                    bacGen.intake_recovery_activated=true;
+                    patrolCollider=this.gameObject.GetComponentInParent<BacteriaD>().patrolRange.gameObject.GetComponent<CircleCollider2D>();
+                    patrolCollider.radius=2;
+                    bacGen.gameObject.GetComponentInParent<BacteriaD>().range=12;
+                 //insert bacteria D recovering effect;
+                    break;
+                    default:
+                    break;
+                }
             }
-
             //second upgrade
             if(same_within_range.Count>=bacGen.stat.number2_for_combination_upgrade)
             {
@@ -116,6 +119,7 @@ public class CombinationRange : MonoBehaviour
                 }
                 Upgraded_particle2.gameObject.SetActive(false);
             }
+            SettedComboEffect=true;
         }
         else{
             switch(BacteriaType)
@@ -147,7 +151,7 @@ public class CombinationRange : MonoBehaviour
                 break;
             }
             Upgraded_particle1.gameObject.SetActive(false);
-
+            SettedComboEffect=false;
             
         }
         

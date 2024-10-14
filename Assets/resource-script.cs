@@ -30,7 +30,7 @@ public class Resource : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         resourceCollider = GetComponent<CircleCollider2D>();
         if (resourceCollider == null)
         {
