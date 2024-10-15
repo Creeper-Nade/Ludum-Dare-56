@@ -10,6 +10,7 @@ public class Damage : MonoBehaviour
     [SerializeField] Bacterial_Matrix Foe_matrix;
     [SerializeField] Global_Data data;
     private int damage;
+    private int is_attacking=Animator.StringToHash("is_attacking");
     private void Awake() {
         Bacteria_stats=transform.GetComponentInParent<Bacteria_General>();
         data=GameObject.FindWithTag("GBdata").GetComponent<Global_Data>();
@@ -17,7 +18,7 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
 
         damage=Bacteria_stats.stat.attack;
-        Bacteria_stats.animator.SetTrigger("is_attacking");
+        Bacteria_stats.animator.SetTrigger(is_attacking);
         if(other.GetComponent<Bacteria_General>()!=null)
         {
             Foe_stats=other.GetComponent<Bacteria_General>();
@@ -31,7 +32,6 @@ public class Damage : MonoBehaviour
             Foe_matrix=other.GetComponent<Bacterial_Matrix>();
             if(!((data.Team1.Contains(Bacteria_stats.gameObject)&&data.Team1.Contains(Foe_matrix.gameObject))||(data.Team2.Contains(Bacteria_stats.gameObject)&&data.Team2.Contains(Foe_matrix.gameObject))||(data.Team3.Contains(Bacteria_stats.gameObject)&&data.Team3.Contains(Foe_matrix.gameObject))))
             {
-                Debug.Log("matrixdamaged");
                 Foe_matrix.Damage(damage);
                 
             }

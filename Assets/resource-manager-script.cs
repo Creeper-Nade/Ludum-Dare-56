@@ -51,7 +51,7 @@ public class ResourceManager : MonoBehaviour
 
         if (resources.Count < 4)
         {
-            Debug.LogWarning($"未设置所有资源点。当前设置了 {resources.Count} 个资源点，应该设置 4 个。");
+            //Debug.LogWarning($"未设置所有资源点。当前设置了 {resources.Count} 个资源点，应该设置 4 个。");
         }
 
         List<Vector2> positions = GenerateUniquePositions(resources.Count);
@@ -69,7 +69,7 @@ public class ResourceManager : MonoBehaviour
             resource.gameObject.SetActive(true);
         }
 
-        Debug.Log($"已初始化并激活 {activeResourceCount} 个资源点。");
+        //Debug.Log($"已初始化并激活 {activeResourceCount} 个资源点。");
     }
 
     // 添加有效的资源到列表
@@ -93,7 +93,7 @@ public class ResourceManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("尝试初始化空的资源点引用。");
+            //Debug.LogError("尝试初始化空的资源点引用。");
         }
     }
 
@@ -116,7 +116,7 @@ public class ResourceManager : MonoBehaviour
 
             if (attempts >= maxAttempts)
             {
-                Debug.LogWarning($"无法为资源点 {i + 1} 找到不重叠的位置，使用最后一次尝试的位置。");
+                //Debug.LogWarning($"无法为资源点 {i + 1} 找到不重叠的位置，使用最后一次尝试的位置。");
             }
 
             positions.Add(position);
@@ -137,10 +137,10 @@ public class ResourceManager : MonoBehaviour
     public void ResourceDepletedCounter()
     {
         activeResourceCount--;
-        Debug.Log($"资源点被耗尽，当前剩余活跃资源点：{activeResourceCount}");
+        //Debug.Log($"资源点被耗尽，当前剩余活跃资源点：{activeResourceCount}");
         if (activeResourceCount <= reinitializeThreshold)
         {
-            Debug.Log("触发资源重新初始化");
+            //Debug.Log("触发资源重新初始化");
             InitializeAllResources();
         }
     }

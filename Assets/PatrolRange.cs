@@ -33,7 +33,7 @@ public class PatrolRange : MonoBehaviour
             entered_object.Remove(other.gameObject);
             if(other.GetComponent<BacteriaD>()!=null)
             {
-                Debug.Log("force go home");
+                //Debug.Log("force go home");
                 other.GetComponent<BacteriaD>().ForceFind();
             }
 

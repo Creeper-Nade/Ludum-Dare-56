@@ -8,7 +8,7 @@ public class UnitRTS : MonoBehaviour
     private void Awake()
     {
         selectedGameObject=transform.Find("selected").gameObject;
-        Debug.Log(selectedGameObject.name);
+        //Debug.Log(selectedGameObject.name);
         SetSelectedVisible(false);
     }
     public void SetSelectedVisible(bool visible)

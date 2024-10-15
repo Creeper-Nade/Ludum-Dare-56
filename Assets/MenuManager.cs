@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     public Animator Tutorial_animator;
     public AudioSource audioSource;
     public AudioClip swoosh;
+    private int EnterGame=Animator.StringToHash("EnterGame");
+    private int is_opened=Animator.StringToHash("is_opened");
     [SerializeField] bool Played=false;
     private void Awake() {
         animator=GetComponent<Animator>();
@@ -32,7 +34,7 @@ public class MenuManager : MonoBehaviour
     }
     IEnumerator Load(int levelIndex)
     {
-        animator.SetTrigger("EnterGame");
+        animator.SetTrigger(EnterGame);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(levelIndex);
     }
@@ -44,11 +46,11 @@ public class MenuManager : MonoBehaviour
     public void SpawnTutorial()
     {
         audioSource.PlayOneShot(swoosh);
-        Tutorial_animator.SetBool("is_opened",true);
+        Tutorial_animator.SetBool(is_opened,true);
     }
     public void DisableTutorial()
     {
         audioSource.PlayOneShot(swoosh);
-        Tutorial_animator.SetBool("is_opened",false);
+        Tutorial_animator.SetBool(is_opened,false);
     }
 }

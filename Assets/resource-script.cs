@@ -172,7 +172,7 @@ public class Resource : MonoBehaviour
             }
             else
             {
-                Debug.LogError("ResourceManager引用丢失。无法报告资源耗尽。");
+                //Debug.LogError("ResourceManager引用丢失。无法报告资源耗尽。");
             }
             Instantiate(audio_object,transform.position,Quaternion.identity);
             gameObject.SetActive(false);

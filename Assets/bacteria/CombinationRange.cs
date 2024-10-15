@@ -39,7 +39,7 @@ public class CombinationRange : MonoBehaviour
         }
         
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if((data.Team1.Contains(this.transform.parent.gameObject)&&data.Team1.Contains(other.gameObject))||(data.Team2.Contains(this.transform.parent.gameObject)&&data.Team2.Contains(other.gameObject))||(data.Team3.Contains(this.transform.parent.gameObject)&&data.Team3.Contains(other.gameObject)))
         {

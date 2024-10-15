@@ -20,6 +20,8 @@ public class Bacterial_Matrix : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource cameraSource;
     public AudioClip Player_damaged;
+    private int is_producing=Animator.StringToHash("is_producing");
+    private int is_damaged=Animator.StringToHash("is_damaged");
     private bool death_coroutine_ran=false;
 
     public int Team;
@@ -52,9 +54,8 @@ public class Bacterial_Matrix : MonoBehaviour
 
         if(Health<=0)
         {
-            Debug.Log("I am dead");
                 
-                Matrix_animator.SetTrigger("is_producing");
+                Matrix_animator.SetTrigger(is_producing);
             //ui_animator
             if(death_coroutine_ran==false)
             {
@@ -77,17 +78,15 @@ public class Bacterial_Matrix : MonoBehaviour
         {
             Health-=damage;
             audioSource.PlayOneShot(audioSource.clip);
-            Debug.Log(damage);
             if(this.gameObject.GetComponent<player_matrix>()!=null)
             {
                 Cinemachine_shake.Instance.ShakeCamera(8f,.2f);
-                ui_animator.SetTrigger("is_damaged");
+                ui_animator.SetTrigger(is_damaged);
                 cameraSource.PlayOneShot(Player_damaged);
             }
             else{
             Cinemachine_shake.Instance.ShakeCamera(4f,.1f);}
             StartCoroutine(damaged_blink());
-            Debug.Log("ouch");
         }
         
     }
@@ -99,7 +98,6 @@ public class Bacterial_Matrix : MonoBehaviour
         sprite.color=Color.red;
 
         yield return new WaitForSeconds(0.05f);
-        Debug.Log("color back to original");
         sprite.color=defaultColor;
     }
 

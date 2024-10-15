@@ -81,7 +81,7 @@ public class RTS_controll : MonoBehaviour
                     selectedUnitRTS.Add(unitRTS);
                 }
             }
-            Debug.Log(selectedUnitRTS.Count);
+            //Debug.Log(selectedUnitRTS.Count);
         }
 
         if(selectedUnitRTS.Any())

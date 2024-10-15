@@ -32,6 +32,7 @@ public class card_manager : MonoBehaviour
     public AudioClip EnableSummon;
     public AudioClip Hover;
     private bool BlinkOccuring=false;
+    private int visible=Animator.StringToHash("visible");
 
     void Awake()
     {
@@ -54,7 +55,7 @@ public class card_manager : MonoBehaviour
     void Update()
     {
         //detect hover
-        if(animator.GetBool("visible")==true)
+        if(animator.GetBool(visible)==true)
         {
             RaycastUI(); 
              
@@ -114,7 +115,6 @@ public class card_manager : MonoBehaviour
                     StartCoroutine(FailingFlash());
                 }
                 
-                Debug.Log(ui_element.name);
             }
 
             foreach(GameObject child in children)
@@ -152,19 +152,19 @@ public class card_manager : MonoBehaviour
     }
     public void matrix_clicked()
     {
-        if(animator.GetBool("visible")==false)
+        if(animator.GetBool(visible)==false)
         {
             CameraSource.PlayOneShot(swoosh);
         }        
-        animator.SetBool("visible",true);
+        animator.SetBool(visible,true);
     }
     public void matrix_quit()
     {
-        if(animator.GetBool("visible"))
+        if(animator.GetBool(visible))
         {
             CameraSource.PlayOneShot(swoosh);
         }   
-        animator.SetBool("visible",false);
+        animator.SetBool(visible,false);
         foreach(GameObject child in children)
             {
                 child.GetComponent<RectTransform>().anchoredPosition= new Vector2(child.GetComponent<RectTransform>().anchoredPosition.x,-403);
@@ -182,7 +182,6 @@ public class card_manager : MonoBehaviour
                     _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_x-=selected_element.GetComponent<CardSettings>().card_stat.X_consume;
                     _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_y-=selected_element.GetComponent<CardSettings>().card_stat.Y_consume;
                     _player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z-=selected_element.GetComponent<CardSettings>().card_stat.Z_consume;
-                    Debug.Log("summoning success");
                     _player_matrix.InstantiatePrefab();
                     return true;
                     //instantiate corresponding prefab

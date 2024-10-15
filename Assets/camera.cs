@@ -64,7 +64,7 @@ public class camera : MonoBehaviour
         var rayHit=Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Input.mousePosition));
         
         if(!rayHit.collider)return;
-        Debug.Log(rayHit.collider.gameObject.name);
+        //Debug.Log(rayHit.collider.gameObject.name);
         hittedObject=rayHit.collider.gameObject;
         transform.position=hittedObject.transform.position;
         targetFOV=8;

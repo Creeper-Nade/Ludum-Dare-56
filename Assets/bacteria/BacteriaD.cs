@@ -38,7 +38,7 @@ public class BacteriaD : MonoBehaviour
     }
 
     private void Start() {
-        UnityEngine.Debug.Log(bacGen.Team);
+        //UnityEngine.Debug.Log(bacGen.Team);
         switch(bacGen.Team)
         {
             case 1:
@@ -72,7 +72,7 @@ public class BacteriaD : MonoBehaviour
 
         matrix_collider=own_matrix.gameObject.GetComponent<Collider2D>(); 
         centrePoint=own_matrix.transform;
-        UnityEngine.Debug.Log(own_matrix.name);
+        //UnityEngine.Debug.Log(own_matrix.name);
     }
     void Update()
     {
@@ -97,7 +97,7 @@ public class BacteriaD : MonoBehaviour
     {
         if (RandomPoint(centrePoint.position, range, out point)&&!matrix_collider.bounds.Contains(point)) //pass in our centre point and radius of area
         {
-                        UnityEngine.Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                        //UnityEngine.Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                         agent.SetDestination(point);
         }
     }
@@ -105,7 +105,7 @@ public class BacteriaD : MonoBehaviour
     {
         if (ForceBackRandomPoint(centrePoint.position, range, out point)&&!matrix_collider.bounds.Contains(point)) //pass in our centre point and radius of area
         {
-                        UnityEngine.Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                        //UnityEngine.Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                         agent.SetDestination(point);
         }
     }

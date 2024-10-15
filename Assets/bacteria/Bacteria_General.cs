@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -31,12 +32,16 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] public float ATK;
     [SerializeField] public float ATK_speed;
     public bool is_attack_ready=true;
+    public bool is_attack_Coroutine_ready=true;
     [SerializeField] public float ATK_CD=15f;
     [SerializeField] public float speed;
     public int damage_intake;
     public int shield;
     public bool intake_recovery_activated=false;
     Color defaultColor;
+
+        [Header("list")]
+    [SerializeField] List<GameObject> Collided_obj;
     private void Awake()
     {
                 //initialize bacteria
@@ -85,12 +90,13 @@ public class Bacteria_General : MonoBehaviour
             }
         }
         defaultColor=sprite.color;
-        
+        agent.updateRotation=false;
+        agent.updateUpAxis=false;
     }
 
     private void Start() {
-        agent.updateRotation=false;
-        agent.updateUpAxis=false;
+        //agent.updateRotation=false;
+        //agent.updateUpAxis=false;
     }
     private void Update() {
         if(is_attack_ready==false)
@@ -99,12 +105,13 @@ public class Bacteria_General : MonoBehaviour
             if(ATK_CD<=0)
             {
                 is_attack_ready=true;
+                is_attack_Coroutine_ready=true;
                 ATK_CD=15f/ATK_speed;
             }
         }
         if(Health<=0)
         {
-            Debug.Log("I am dead");
+            //Debug.Log("I am dead");
             switch(Team)
             {
                 case 1:
@@ -131,6 +138,13 @@ public class Bacteria_General : MonoBehaviour
             }           
         }
 
+        //damaging
+        if(Collided_obj.Any())
+        {
+            AttackArea.SetActive(is_attack_ready);
+            if(is_attack_ready==true&&is_attack_Coroutine_ready==true)
+            StartCoroutine(Attack_time());
+        }
 
         //rts thing
 
@@ -147,25 +161,27 @@ public class Bacteria_General : MonoBehaviour
             }
 }
     }
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if(!((data.Team1.Contains(this.gameObject)&&data.Team1.Contains(other.gameObject))||(data.Team2.Contains(this.gameObject)&&data.Team2.Contains(other.gameObject))||(data.Team3.Contains(this.gameObject)&&data.Team3.Contains(other.gameObject))))
         {
             if(!other.gameObject.CompareTag("resource"))
             {
-                //!((this.gameObject.GetComponent<Team1bacteria>()!=null&&(other.gameObject.GetComponent<Team1bacteria>()!=null||other.gameObject.GetComponentInParent<Team1bacteria>()!=null))||(this.gameObject.GetComponent<team2bacteria>()!=null&&(other.gameObject.GetComponent<team2bacteria>()!=null||other.gameObject.GetComponentInParent<team2bacteria>()!=null))||(this.gameObject.GetComponent<Team3bacteria>()!=null&&(other.gameObject.GetComponent<Team3bacteria>()!=null||other.gameObject.GetComponentInParent<Team3bacteria>()!=null)))
-            Debug.Log("attack");
-            AttackArea.SetActive(is_attack_ready);
-            if(is_attack_ready==true)
-            StartCoroutine(Attack_time());
+                Collided_obj.Add(other.gameObject);
+                AttackArea.SetActive(is_attack_ready);            
             }
             
         }
         
     }
+    private void OnCollisionExit2D(Collision2D other) {
+        if(Collided_obj.Contains(other.gameObject))
+        Collided_obj.Remove(other.gameObject);
+    }
 
     IEnumerator Attack_time()
     {
+        is_attack_Coroutine_ready=false;
         yield return new WaitForSeconds(0.25f);
         is_attack_ready=false;
     }
@@ -178,7 +194,7 @@ public class Bacteria_General : MonoBehaviour
         else{
             Health-=damage;
             
-            Debug.Log(damage);
+            //Debug.Log(damage);
             healthBar.Change(-damage);
 
             sound_source.PlayOneShot(sound_source.clip);
@@ -197,8 +213,7 @@ public class Bacteria_General : MonoBehaviour
                 }
             }
 
-            StartCoroutine("damaged_blink");
-            Debug.Log("ouch");
+            StartCoroutine(damaged_blink());
         }
         
     }
@@ -208,7 +223,6 @@ public class Bacteria_General : MonoBehaviour
         sprite.color=Color.red;
 
         yield return new WaitForSeconds(0.05f);
-        Debug.Log("color back to original");
         sprite.color=defaultColor;
     }
 

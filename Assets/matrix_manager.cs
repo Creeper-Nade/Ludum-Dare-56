@@ -84,7 +84,7 @@ public class matrix_manager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("尝试初始化空的资源点引用。");
+            //Debug.LogError("尝试初始化空的资源点引用。");
         }
     }
 
@@ -107,7 +107,7 @@ public class matrix_manager : MonoBehaviour
 
             if (attempts >= maxAttempts)
             {
-                Debug.LogWarning($"无法为资源点 {i + 1} 找到不重叠的位置，使用最后一次尝试的位置。");
+                //Debug.LogWarning($"无法为资源点 {i + 1} 找到不重叠的位置，使用最后一次尝试的位置。");
             }
 
             positions.Add(position);

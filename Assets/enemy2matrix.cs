@@ -15,6 +15,8 @@ public class enemy2matrix : MonoBehaviour
     public List<WeightedValue> weightedValues;
     [SerializeField] AudioSource audioSource;
     public AudioSource Produced_unit;
+    private int is_producing=Animator.StringToHash("is_producing");
+    
     void Awake()
     {
         patrolRange=this.gameObject.GetComponentInChildren<PatrolRange>();
@@ -37,7 +39,10 @@ public class enemy2matrix : MonoBehaviour
     }
     IEnumerator instantiate_cd()
     {
-        yield return new WaitForSeconds(1);
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        for (float duration = 1f; duration > 0; duration -= Time.fixedDeltaTime) {
+                yield return waitForFixedUpdate;
+            }
         matrix.production_x-=selected_product.GetComponent<CardSettings>().card_stat.X_consume;
         matrix.production_y-=selected_product.GetComponent<CardSettings>().card_stat.Y_consume;
         matrix.production_z-=selected_product.GetComponent<CardSettings>().card_stat.Z_consume;
@@ -47,7 +52,7 @@ public class enemy2matrix : MonoBehaviour
     }
     public void InstantiatePrefab()
     {
-        animator.SetTrigger("is_producing");
+        animator.SetTrigger(is_producing);
         Produced_unit.PlayOneShot(Produced_unit.clip);
         instantiating_prefab=selected_product.GetComponent<CardSettings>().card_stat.prefab;
         NavMeshHit hit;

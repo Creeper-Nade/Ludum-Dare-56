@@ -230,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8311711280721913305}
   - component: {fileID: 9174443198540215802}
+  - component: {fileID: 3035534049225369454}
   m_Layer: 0
   m_Name: Global data manager
   m_TagString: GBdata
@@ -282,6 +283,18 @@ MonoBehaviour:
   matrix1: {fileID: 0}
   matrix2: {fileID: 0}
   matrix3: {fileID: 0}
+--- !u!114 &3035534049225369454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146614342432783599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6559ae792e4f94a86fb198e7cb96db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5331716855900775192
 GameObject:
   m_ObjectHideFlags: 0

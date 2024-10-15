@@ -84,7 +84,7 @@ public class BacteriaB : MonoBehaviour
     {
         if (RandomPoint(centrePoint.position, range, out point)&&!matrix_collider.bounds.Contains(point)) //pass in our centre point and radius of area
         {
-                        UnityEngine.Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
+                        //UnityEngine.Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                         agent.SetDestination(point);
         }
         else{

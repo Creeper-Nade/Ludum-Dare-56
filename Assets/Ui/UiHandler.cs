@@ -18,7 +18,9 @@ public class UiHandler : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip swoosh;
     public AudioClip boing;
-    
+    //animator string to hash
+    private int Enabled=Animator.StringToHash("enabled");
+    private int is_opened=Animator.StringToHash("is_opened");
     private void Awake()
     {
         _player_matrix=FindObjectOfType<player_matrix>();
@@ -35,15 +37,15 @@ public class UiHandler : MonoBehaviour
         Z_display.text=string.Format("{0}",_player_matrix.gameObject.GetComponent<Bacterial_Matrix>().production_z);
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Pause_animator.GetBool("enabled")==true)
+            if(Pause_animator.GetBool(Enabled)==true)
             {
                 Time.timeScale=1;
-                StartCoroutine(SetPauseBoolCoroutine("enabled",false));
+                StartCoroutine(SetPauseBoolCoroutine(Enabled,false));
             }
-            if(Pause_animator.GetBool("enabled")==false)
+            if(Pause_animator.GetBool(Enabled)==false)
             {
                 audioSource.PlayOneShot(swoosh);
-                Pause_animator.SetBool("enabled",true);
+                Pause_animator.SetBool(Enabled,true);
                 Time.timeScale=0;
             }
         }
@@ -60,24 +62,23 @@ public class UiHandler : MonoBehaviour
     }
     IEnumerator Load(int levelIndex)
     {
-        Debug.Log("LoadLevel");
-        Black_screen_animator.SetBool("is_opened",true);
+        Black_screen_animator.SetBool(is_opened,true);
         yield return new WaitForSecondsRealtime(1);
         Time.timeScale=1;
         SceneManager.LoadScene(levelIndex);
     }
     public void CloseTutorial()
     {
-        Tutorial_animator.SetBool("is_opened",false);
+        Tutorial_animator.SetBool(is_opened,false);
     }
     public void SetPauseBool()
     {
         Time.timeScale=1;
         audioSource.PlayOneShot(boing);
         
-        StartCoroutine(SetPauseBoolCoroutine("enabled",false));
+        StartCoroutine(SetPauseBoolCoroutine(Enabled,false));
     }
-    IEnumerator SetPauseBoolCoroutine(string name, bool value)
+    IEnumerator SetPauseBoolCoroutine(int name, bool value)
     {
         yield return null;
         audioSource.PlayOneShot(swoosh);
@@ -87,7 +88,7 @@ public class UiHandler : MonoBehaviour
     IEnumerator ShowTutorial()
     {
         yield return new WaitForSeconds(1);
-        Tutorial_animator.SetBool("is_opened",true);
+        Tutorial_animator.SetBool(is_opened,true);
     }
 
 }

@@ -174,7 +174,7 @@ public class BacteriaC : MonoBehaviour
 
         if (targetResource == null)
         {
-            Debug.LogWarning("没有找到带有'resource'标签的可用游戏对象");
+            //Debug.LogWarning("没有找到带有'resource'标签的可用游戏对象");
         }
     }
 
@@ -290,7 +290,6 @@ public class BacteriaC : MonoBehaviour
     // 返回母巢
     private void ReturnToMatrix()
     {
-        Debug.Log(this.gameObject.name+"had return home");
         NavMeshHit hit;
         NavMesh.SamplePosition(matrixGo.transform.position,out hit, 10.0f,1);
         agent.SetDestination(hit.position);

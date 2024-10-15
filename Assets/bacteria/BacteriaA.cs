@@ -23,8 +23,12 @@ public class BacteriaA : MonoBehaviour
     private float nearestDistance=10000;
 
     [SerializeField] private GameObject nearestFoe;
-    
-    
+    private void OnEnable() {
+        Ticker.OnTickAction02+=Tick;    
+    }
+        private void OnDisable() {
+        Ticker.OnTickAction02-=Tick;    
+    }
 
     private void Awake()
     {
@@ -46,11 +50,9 @@ public class BacteriaA : MonoBehaviour
 
     }
 
-    private void Update()
+    private void Tick()
     {
         FindTarget();
-        
-        
     }
     private void FixedUpdate() {
         if(Bacgen.designated_destination==false)
