@@ -149,11 +149,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (31)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -218,6 +226,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 2920295859585304246, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalPosition.x
       value: -45.52
@@ -257,6 +269,10 @@ PrefabInstance:
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807694122821305642, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584834066826411787, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: data
@@ -300,11 +316,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (15)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -365,6 +389,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 2140691388404343664, guid: 92f59c4ea56bf974c98eb5447da8eb94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2672016806300753035, guid: 92f59c4ea56bf974c98eb5447da8eb94, type: 3}
       propertyPath: data
       value: 
@@ -421,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 9185054373932512398, guid: 92f59c4ea56bf974c98eb5447da8eb94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -479,6 +511,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296354060253912434, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2641801912337279655, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: data
       value: 
@@ -487,6 +523,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5382812224662954667, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6577539410801149593, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: m_Name
       value: Enemy1's BacteriaB (3)
@@ -594,6 +634,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 328928887545185992, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462942546555771498, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -654,6 +698,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7899495734066540697, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -680,11 +728,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (48)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -759,6 +815,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 2920295859585304246, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.6
@@ -798,6 +858,10 @@ PrefabInstance:
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807694122821305642, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584834066826411787, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: data
@@ -926,11 +990,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -999,11 +1071,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (40)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1114,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296354060253912434, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2641801912337279655, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: data
       value: 
@@ -1122,6 +1206,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5382812224662954667, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6577539410801149593, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: m_Name
       value: Enemy1's BacteriaB (2)
@@ -1157,10 +1245,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB (1)
@@ -1251,11 +1347,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (14)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1324,11 +1428,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (23)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1404,10 +1516,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB (4)
@@ -1668,11 +1788,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (17)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1737,10 +1865,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB (5)
@@ -2021,11 +2157,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (9)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2474,11 +2618,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (10)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2606,6 +2758,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6249461389865179735, guid: 48b24d1927b447443a62f74b6220a3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087144421060491139, guid: 48b24d1927b447443a62f74b6220a3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2632,11 +2792,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (37)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2702,6 +2870,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 328928887545185992, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462942546555771498, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2762,6 +2934,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7899495734066540697, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2788,11 +2964,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (36)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2857,6 +3041,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 2920295859585304246, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.5
@@ -2897,6 +3085,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4807694122821305642, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6584834066826411787, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: data
       value: 
@@ -2923,6 +3115,140 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
   m_PrefabInstance: {fileID: 589337390}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &589737165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 589737166}
+  - component: {fileID: 589737168}
+  - component: {fileID: 589737167}
+  m_Layer: 5
+  m_Name: info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &589737166
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589737165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472549968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 8, y: 8}
+  m_SizeDelta: {x: 265.8979, y: 135.1489}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &589737167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589737165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &589737168
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589737165}
+  m_CullTransparentMesh: 1
 --- !u!1001 &611751766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2979,6 +3305,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3618704176074290135, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182085668304377049, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8299934448133034939, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
       propertyPath: data
       value: 
@@ -3029,11 +3363,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (35)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3102,11 +3444,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (18)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3244,11 +3594,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (28)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3403,6 +3761,7 @@ RectTransform:
   - {fileID: 1626786903}
   - {fileID: 1554940218}
   - {fileID: 722148810}
+  - {fileID: 1472549968}
   - {fileID: 353237524}
   - {fileID: 1178046730}
   m_Father: {fileID: 0}
@@ -3456,10 +3815,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB (6)
@@ -3562,9 +3929,9 @@ RectTransform:
   - {fileID: 986263261}
   m_Father: {fileID: 353237524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 900, y: 473}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -60, y: -67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709145147
@@ -3921,11 +4288,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (39)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3999,11 +4374,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (8)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4069,6 +4452,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 328928887545185992, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462942546555771498, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4128,6 +4515,10 @@ PrefabInstance:
     - target: {fileID: 6560203450986768451, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899495734066540697, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4320,6 +4711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296354060253912434, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2641801912337279655, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: data
       value: 
@@ -4328,6 +4723,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5382812224662954667, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6577539410801149593, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: m_Name
       value: Enemy1's BacteriaB (1)
@@ -4367,11 +4766,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4440,11 +4847,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (30)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4513,11 +4928,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (20)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4586,11 +5009,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (43)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4655,6 +5086,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 683229382075607816, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487408156633973787, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4336541854887706297, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaC (3)
@@ -4733,11 +5172,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (44)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5188,11 +5635,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (27)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5261,11 +5716,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (19)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5425,11 +5888,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (47)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5735,6 +6206,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 2920295859585304246, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalPosition.x
       value: -67.1
@@ -5774,6 +6249,10 @@ PrefabInstance:
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807694122821305642, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584834066826411787, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: data
@@ -5937,11 +6416,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (29)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6010,11 +6497,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6088,11 +6583,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (32)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6283,11 +6786,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (21)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6361,11 +6872,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (16)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6439,11 +6958,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (12)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6689,6 +7216,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431257132}
   m_CullTransparentMesh: 1
+--- !u!1 &1436848318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436848319}
+  - component: {fileID: 1436848321}
+  - component: {fileID: 1436848320}
+  m_Layer: 5
+  m_Name: background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1436848319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436848318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1472549968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.000015258789}
+  m_SizeDelta: {x: 289.3454, y: 156.0685}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1436848320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436848318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.34484395, g: 0.3419811, b: 0.5, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1436848321
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436848318}
+  m_CullTransparentMesh: 1
 --- !u!4 &1437678446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522990529178967831, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
@@ -6749,6 +7351,14 @@ PrefabInstance:
     - target: {fileID: 2606582005068666850, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618704176074290135, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182085668304377049, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8299934448133034939, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
       propertyPath: data
@@ -6852,11 +7462,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (24)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6909,6 +7527,70 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+--- !u!1 &1472549967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472549968}
+  - component: {fileID: 1472549969}
+  - component: {fileID: 1472549970}
+  m_Layer: 5
+  m_Name: ToolTips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1472549968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472549967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1436848319}
+  - {fileID: 589737166}
+  m_Father: {fileID: 668796423}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 910, y: 490}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1472549969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472549967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f0658ef95f684192600e7a9281a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasRectTransform: {fileID: 668796423}
+--- !u!225 &1472549970
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472549967}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &1479004216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8522990529178967831, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
@@ -6930,11 +7612,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (25)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7003,9 +7693,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818616172682261723, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: data
@@ -7216,11 +7918,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (13)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7289,11 +7999,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7354,6 +8072,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 2140691388404343664, guid: 92f59c4ea56bf974c98eb5447da8eb94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2672016806300753035, guid: 92f59c4ea56bf974c98eb5447da8eb94, type: 3}
       propertyPath: data
       value: 
@@ -7410,6 +8132,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 9185054373932512398, guid: 92f59c4ea56bf974c98eb5447da8eb94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7436,11 +8162,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (50)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7509,11 +8243,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (46)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7582,11 +8324,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (49)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8005,11 +8755,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (45)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8070,6 +8828,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 328928887545185992, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462942546555771498, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -8130,6 +8892,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7899495734066540697, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8156,11 +8922,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (34)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8234,11 +9008,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8307,11 +9089,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (11)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8385,11 +9175,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (38)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8570,6 +9368,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 683229382075607816, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487408156633973787, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4336541854887706297, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaC (2)
@@ -8644,6 +9450,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 683229382075607816, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487408156633973787, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4336541854887706297, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaC (1)
@@ -8748,11 +9562,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (26)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8821,11 +9643,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -9033,11 +9863,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (33)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -9236,6 +10074,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 683229382075607816, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487408156633973787, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4336541854887706297, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaC (5)
@@ -9490,6 +10336,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296354060253912434, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2641801912337279655, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: data
       value: 
@@ -9498,6 +10348,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5382812224662954667, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6577539410801149593, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: m_Name
       value: Enemy1's BacteriaB (4)
@@ -9573,11 +10427,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (41)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -9903,6 +10765,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3618704176074290135, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182085668304377049, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8299934448133034939, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
       propertyPath: data
       value: 
@@ -10018,11 +10888,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (22)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -10532,11 +11410,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (42)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -10597,6 +11483,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 328928887545185992, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462942546555771498, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -10657,6 +11547,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7899495734066540697, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10684,6 +11578,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 683229382075607816, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487408156633973787, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4336541854887706297, guid: 33aa565187afd11489f01fb9d3f09772, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaC (4)
@@ -10763,10 +11665,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB (3)
@@ -10897,10 +11807,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB (2)
@@ -11028,6 +11946,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6249461389865179735, guid: 48b24d1927b447443a62f74b6220a3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087144421060491139, guid: 48b24d1927b447443a62f74b6220a3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11054,11 +11980,19 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA (7)
       objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -11307,6 +12241,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296354060253912434, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2641801912337279655, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: data
       value: 
@@ -11315,6 +12253,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5382812224662954667, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6577539410801149593, guid: 29bc8e1c35805fb409a98e6f2cb44abc, type: 3}
       propertyPath: m_Name
       value: Enemy1's BacteriaB
@@ -11505,6 +12447,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 381734180726172866, guid: 651fd26d72e12444b905b880fb876367, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 477056784375374226, guid: 651fd26d72e12444b905b880fb876367, type: 3}
       propertyPath: data
       value: 
@@ -11561,6 +12507,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8115798582249308332, guid: 651fd26d72e12444b905b880fb876367, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11577,10 +12527,6 @@ PrefabInstance:
     - target: {fileID: 2798781068297003174, guid: 52e019c70f936bf4c8e59c42e9395002, type: 3}
       propertyPath: m_Name
       value: environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090605222321128232, guid: 52e019c70f936bf4c8e59c42e9395002, type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5069470023876834546, guid: 52e019c70f936bf4c8e59c42e9395002, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11639,10 +12585,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 666922003320900749, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2599650412291918854, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 3221478021481894565, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388227658294590134, guid: 14c3ca11a0e7e8e49a3724a274800946, type: 3}
       propertyPath: m_Name
       value: Enemy2's BacteriaB
@@ -11806,6 +12760,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2868085460118429836, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_Name
       value: Player's BacteriaA
@@ -11813,6 +12771,10 @@ PrefabInstance:
     - target: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303684080066915347, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818616172682261723, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
       propertyPath: data
@@ -12054,6 +13016,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6249461389865179735, guid: 48b24d1927b447443a62f74b6220a3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087144421060491139, guid: 48b24d1927b447443a62f74b6220a3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12067,6 +13037,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 350544503}
     m_Modifications:
+    - target: {fileID: 328928887545185992, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3462942546555771498, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -12126,6 +13100,10 @@ PrefabInstance:
     - target: {fileID: 6560203450986768451, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899495734066540697, guid: 587cf801d2401e444a44d4a6b877d91b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12193,6 +13171,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3618704176074290135, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182085668304377049, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8299934448133034939, guid: 99cd9dedef8601a48a192f55a546a197, type: 3}
       propertyPath: data
       value: 
@@ -12223,6 +13209,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 255192296}
+    - target: {fileID: 2920295859585304246, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalPosition.x
       value: -67.1
@@ -12262,6 +13252,10 @@ PrefabInstance:
     - target: {fileID: 4064667521325233385, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807694122821305642, guid: f3e140518ca559b43bac956bf2389851, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584834066826411787, guid: f3e140518ca559b43bac956bf2389851, type: 3}
       propertyPath: data
@@ -12506,7 +13500,7 @@ PrefabInstance:
       objectReference: {fileID: 255192296}
     - target: {fileID: 8403110479282803902, guid: 0130a98990147f640a99270817bfc306, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.55
+      value: 0.647
       objectReference: {fileID: 0}
     - target: {fileID: 8403110479282803902, guid: 0130a98990147f640a99270817bfc306, type: 3}
       propertyPath: m_LocalPosition.y

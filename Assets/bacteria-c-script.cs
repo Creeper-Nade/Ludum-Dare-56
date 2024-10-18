@@ -13,6 +13,8 @@ public class BacteriaC : MonoBehaviour
     public NavMeshAgent agent;
     [SerializeField] Bacterial_Matrix own_matrix;
     [SerializeField] BacC_Enemy_Detection enemy_Detection;
+    public Animator animator;
+    private int is_attacking=Animator.StringToHash("is_attacking");
     public bool Had_collected=false;
         private float distance;
     private float nearestDistance=10000;
@@ -38,7 +40,7 @@ public class BacteriaC : MonoBehaviour
     [Header("战斗设置")]
     public GameObject targetResource; // 当前目标资源
     private GameObject matrixGo; // 母巢对象
-
+    [SerializeField]private GameObject Collided_resourcePoint;
     // 细菌的状态枚举
     public enum State
     {
@@ -110,7 +112,9 @@ public class BacteriaC : MonoBehaviour
                 switch (currentState)
                 {
                     case State.SeekingResource:
-                        yield return StartCoroutine(FindNearestResourceWithDelay());
+                        //yield return StartCoroutine(FindNearestResourceWithDelay());
+                        FindNearestResource();
+                        currentState = State.CollectingResource;
 
                         break;
                     case State.CollectingResource:
@@ -190,33 +194,42 @@ public class BacteriaC : MonoBehaviour
             currentState = State.SeekingResource;
         }
     }
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if(other.gameObject.CompareTag("resource"))
-        {            
-            if(Had_collected==false)StartCoroutine(CollectResourceEnum());
-            Had_collected=true;
-            
-        }
-        if(other.gameObject==matrixGo)
-        {
-            TransferResourcesToMatrix();
-            currentState = State.SeekingResource;
-        }
-        
-    }
     private void OnCollisionEnter2D(Collision2D other) {
         
         if(other.gameObject==matrixGo)
         {
             audioSource.PlayOneShot(Transfer);
+            TransferResourcesToMatrix();
+            currentState = State.SeekingResource;
+        }
+        //collect resource
+        if(other.gameObject.CompareTag("resource"))
+        {       
+            Collided_resourcePoint=other.gameObject;     
+            
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other) {
+        if(Collided_resourcePoint==other.gameObject)
+        {
+            Collided_resourcePoint=null;
+        }
+    }
+    private void Update() {
+        if(Collided_resourcePoint!=null&&Had_collected==false)
+        {StartCoroutine(CollectResourceEnum());
+            Had_collected=true;
         }
     }
 
     IEnumerator CollectResourceEnum()
     {
         CollectResource();
-        yield return new WaitForSeconds(collectionCooldown);       
+        agent.angularSpeed=999;
+        agent.acceleration=999;
+        yield return new WaitForSeconds(collectionCooldown);
+        agent.angularSpeed=120;
+        agent.acceleration=10;       
         Had_collected=false;
     }
 
@@ -231,7 +244,9 @@ public class BacteriaC : MonoBehaviour
                 string collectedResourceType;
                 if (resourceScript.TryCollect(out collectedResourceType))
                 {
+                    Debug.Log("collect");
                     int confirmCount = resourceScript.ConfirmCollection(collectedResourceType, collectionAmount);
+                    animator.SetTrigger(is_attacking);
                     AddResource(collectedResourceType, confirmCount);
                     
                     //Debug.Log($"BacteriaC collected {collectionAmount} {collectedResourceType} from {targetResource.name}. " +
@@ -350,6 +365,7 @@ public class BacteriaC : MonoBehaviour
         if(bacGen.designated_destination==false&&CheckForEnemies()==true)
         {
             //rotate as foe
+            Debug.Log("C rotated as foe");
             Vector3 targetDirection= nearestFoe.transform.position-this.transform.position;
             float angle=Mathf.Atan2(targetDirection.y,targetDirection.x)*Mathf.Rad2Deg;
             transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);

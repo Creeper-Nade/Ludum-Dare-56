@@ -16,3 +16,7 @@ MonoBehaviour:
   Y_consume: 3
   Z_consume: 4
   prefab: {fileID: 6022236634475255126, guid: 651fd26d72e12444b905b880fb876367, type: 3}
+  Role: 'Role: Guard'
+  CombinationEffect1: 'Assemble 4: health regenerates periodically when receiving
+    damage'
+  CombinationEffect2: 

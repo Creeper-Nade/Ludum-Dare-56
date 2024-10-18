@@ -16,3 +16,6 @@ MonoBehaviour:
   Y_consume: 3
   Z_consume: 0
   prefab: {fileID: 7825102182070704272, guid: 95f97771215c83f44b9c92f73f276a52, type: 3}
+  Role: 'Role: Collector'
+  CombinationEffect1: 'Assemble 3: slightly increases inventory space'
+  CombinationEffect2: 'Assemble 6: increases speed and inventory space'

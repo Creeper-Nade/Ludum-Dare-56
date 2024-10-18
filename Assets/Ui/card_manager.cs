@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -60,6 +61,9 @@ public class card_manager : MonoBehaviour
             RaycastUI(); 
              
         }
+        else{
+            ToolTip.HideTooltip_Static();
+        }
         foreach(GameObject card in children)
         {
             if(CalculateCostConstanly(card))
@@ -99,7 +103,20 @@ public class card_manager : MonoBehaviour
                 CameraSource.PlayOneShot(Hover);
                 anchoredPos.y+=2;                
                 ui_element.GetComponent<RectTransform>().anchoredPosition=anchoredPos;
+                //set tooltip
                 
+            }
+            if(children.Contains(ui_element))
+            {
+                System.Func<string> getTooltipTextFunc=()=>
+                {
+                    return ui_element.GetComponent<CardSettings>().card_stat.Role+"\n"+ui_element.GetComponent<CardSettings>().card_stat.CombinationEffect1+"\n"+ui_element.GetComponent<CardSettings>().card_stat.CombinationEffect2;
+                };
+                ToolTip.ShowTooltip_Static(getTooltipTextFunc);
+            }
+            else if(!children.Contains(ui_element))
+            {
+                ToolTip.HideTooltip_Static();
             }
             
             if(Input.GetMouseButtonDown(0))
@@ -124,6 +141,10 @@ public class card_manager : MonoBehaviour
                     child.GetComponent<RectTransform>().anchoredPosition= new Vector2(child.GetComponent<RectTransform>().anchoredPosition.x,-403);
                 }
             }
+        }
+        if(!casted_results.Any())
+        {
+            ToolTip.HideTooltip_Static();
         }
 
         

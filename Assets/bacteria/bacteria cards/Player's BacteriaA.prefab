@@ -453,7 +453,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.35
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -531,11 +531,13 @@ MonoBehaviour:
   ATK: 0
   ATK_speed: 0
   is_attack_ready: 1
+  is_attack_Coroutine_ready: 1
   ATK_CD: 15
   speed: 0
   damage_intake: 0
   shield: 0
   intake_recovery_activated: 0
+  Collided_obj: []
 --- !u!58 &6237319501655923674
 CircleCollider2D:
   m_ObjectHideFlags: 0

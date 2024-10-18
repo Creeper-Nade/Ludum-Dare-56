@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Timeline;
 
 public class Bacteria_General : MonoBehaviour
 {
@@ -16,12 +17,20 @@ public class Bacteria_General : MonoBehaviour
     [SerializeField] Global_Data data;
     [SerializeField] Health_Bar healthBar;
     public AudioSource sound_source;
+    public AudioClip shield_activated;
+    public AudioClip shield_break;
+    public AudioClip shield_hitted;
+
 
     //[SerializeField] ParticleSystem particle;
 
     [SerializeField] public NavMeshAgent agent;
     [SerializeField] UnitRTS unitRTS;
     public Animator animator;
+    public Animator shield_icon_animation;
+    public Animator shield_damage_animation;
+    private int is_opened=Animator.StringToHash("is_opened");
+    private int damaged=Animator.StringToHash("damaged");
     [SerializeField]private SpriteRenderer sprite;
     public int Team;
     private bool death_coroutine_ran=false;
@@ -102,10 +111,14 @@ public class Bacteria_General : MonoBehaviour
         if(is_attack_ready==false)
         {
             ATK_CD-=Time.deltaTime;
+            agent.angularSpeed=999;
+            agent.acceleration=999;
             if(ATK_CD<=0)
             {
                 is_attack_ready=true;
                 is_attack_Coroutine_ready=true;
+                agent.angularSpeed=120;
+                agent.acceleration=10;
                 ATK_CD=15f/ATK_speed;
             }
         }
@@ -137,7 +150,23 @@ public class Bacteria_General : MonoBehaviour
                 StartCoroutine(Die());
             }           
         }
-
+        //BacteriaB animation
+        if(shield>0&&shield_icon_animation!=null)
+        {
+            if(shield_icon_animation.GetBool(is_opened)==false)
+            {
+                sound_source.PlayOneShot(shield_activated);
+            }
+            shield_icon_animation.SetBool(is_opened,true);
+        }
+        else if(shield<=0&&shield_icon_animation!=null)
+        {
+            if(shield_icon_animation.GetBool(is_opened)==true)
+            {
+                sound_source.PlayOneShot(shield_break);
+            }
+            shield_icon_animation.SetBool(is_opened,false);
+        }
         //damaging
         if(Collided_obj.Any())
         {
@@ -145,7 +174,6 @@ public class Bacteria_General : MonoBehaviour
             if(is_attack_ready==true&&is_attack_Coroutine_ready==true)
             StartCoroutine(Attack_time());
         }
-
         //rts thing
 
         // Check if we've reached the destination
@@ -190,6 +218,8 @@ public class Bacteria_General : MonoBehaviour
         if(shield>0)
         {
             shield-=1;
+            shield_damage_animation.SetTrigger(damaged);
+            sound_source.PlayOneShot(shield_hitted);
         }
         else{
             Health-=damage;

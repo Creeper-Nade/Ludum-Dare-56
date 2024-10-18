@@ -109,7 +109,7 @@ NavMeshAgent:
   m_AgentTypeID: -1372625422
   m_Radius: 0.2
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -175,11 +175,13 @@ MonoBehaviour:
   ATK: 0
   ATK_speed: 0
   is_attack_ready: 1
+  is_attack_Coroutine_ready: 1
   ATK_CD: 15
   speed: 0
   damage_intake: 0
   shield: 0
   intake_recovery_activated: 0
+  Collided_obj: []
 --- !u!114 &5615326801853780417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +203,7 @@ MonoBehaviour:
   matrix_collider: {fileID: 0}
   own_matrix: {fileID: 0}
   nearestFoe: {fileID: 0}
+  Collided_allies: []
 --- !u!114 &1390640951126620106
 MonoBehaviour:
   m_ObjectHideFlags: 0

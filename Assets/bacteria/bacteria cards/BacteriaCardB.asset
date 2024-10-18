@@ -16,3 +16,6 @@ MonoBehaviour:
   Y_consume: 4
   Z_consume: 3
   prefab: {fileID: 7149455024031613861, guid: 0130a98990147f640a99270817bfc306, type: 3}
+  Role: 'Role: Tank'
+  CombinationEffect1: 'Assemble 6: obtains a shield that can absorb damage'
+  CombinationEffect2: 

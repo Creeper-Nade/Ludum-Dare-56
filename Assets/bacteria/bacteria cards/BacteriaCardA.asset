@@ -16,3 +16,6 @@ MonoBehaviour:
   Y_consume: 0
   Z_consume: 2
   prefab: {fileID: 2939289880787254805, guid: 2177180d45a130c458e11d5e28f2db83, type: 3}
+  Role: 'Role: Warrior'
+  CombinationEffect1: 'Assemble 5: increases ATK'
+  CombinationEffect2: 

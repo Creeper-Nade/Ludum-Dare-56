@@ -1710,6 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Foe_stats: {fileID: 0}
+  Collided_obj: []
 --- !u!1 &1784570474647269947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Foe_stats: {fileID: 0}
+  Collided_obj: []
 --- !u!1 &2798781068297003174
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,6 +3005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Foe_stats: {fileID: 0}
+  Collided_obj: []
 --- !u!1 &4090605222321128232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,7 +3084,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 861d90926315d044a973426d85302f23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4357,6 +4360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Foe_stats: {fileID: 0}
+  Collided_obj: []
 --- !u!1 &5411846586210496813
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,6 +5483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Foe_stats: {fileID: 0}
+  Collided_obj: []
 --- !u!1 &8469538612776256122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,6 +6525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Foe_stats: {fileID: 0}
+  Collided_obj: []
 --- !u!1 &9198015772037403295
 GameObject:
   m_ObjectHideFlags: 0

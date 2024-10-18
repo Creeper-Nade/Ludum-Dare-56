@@ -612,9 +612,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 7825102182070704272}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -682,9 +682,14 @@ MonoBehaviour:
   data: {fileID: 0}
   healthBar: {fileID: 2788698905265256942}
   sound_source: {fileID: 1965292642321529593}
+  shield_activated: {fileID: 0}
+  shield_break: {fileID: 0}
+  shield_hitted: {fileID: 0}
   agent: {fileID: 0}
   unitRTS: {fileID: 0}
   animator: {fileID: 3905800042645794934}
+  shield_icon_animation: {fileID: 0}
+  shield_damage_animation: {fileID: 0}
   sprite: {fileID: 0}
   Team: 0
   designated_destination: 0
@@ -692,11 +697,13 @@ MonoBehaviour:
   ATK: 0
   ATK_speed: 0
   is_attack_ready: 1
+  is_attack_Coroutine_ready: 1
   ATK_CD: 15
   speed: 0
   damage_intake: 0
   shield: 0
   intake_recovery_activated: 0
+  Collided_obj: []
 --- !u!114 &2905298735422887540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +734,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   own_matrix: {fileID: 0}
   enemy_Detection: {fileID: 0}
+  animator: {fileID: 3905800042645794934}
   Had_collected: 0
   nearestFoe: {fileID: 0}
   Retrieve: {fileID: 8300000, guid: a8da89b828a3c1a438478c47a03ac256, type: 3}
@@ -741,6 +749,7 @@ MonoBehaviour:
   findResourceDelayMin: 0.1
   findResourceDelayMax: 1
   targetResource: {fileID: 0}
+  Collided_resourcePoint: {fileID: 0}
   currentState: 0
 --- !u!70 &2603818887777164285
 CapsuleCollider2D:
@@ -942,8 +951,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.1479099, y: -0.5139153}
-  m_Size: {x: 4.4524965, y: 2.0278912}
+  m_Offset: {x: 2.14791, y: -0.25}
+  m_Size: {x: 4.4524975, y: 3.3124373}
   m_Direction: 1
 --- !u!1 &8569664398646451094
 GameObject:

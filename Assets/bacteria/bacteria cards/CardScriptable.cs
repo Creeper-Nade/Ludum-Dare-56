@@ -9,4 +9,7 @@ public class CardScriptable : ScriptableObject
     public float Y_consume;
     public float Z_consume;
     public GameObject prefab;
+    public string Role;
+    public string CombinationEffect1;
+    public string CombinationEffect2;
 }

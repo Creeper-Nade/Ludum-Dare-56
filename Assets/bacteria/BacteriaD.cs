@@ -26,6 +26,8 @@ public class BacteriaD : MonoBehaviour
     Vector3 point;
 
     [SerializeField] private GameObject nearestFoe;
+    [SerializeField] List<GameObject> Collided_allies;
+    private bool RanPosResetDelayCoroutine=false;
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -90,8 +92,19 @@ public class BacteriaD : MonoBehaviour
                 }    
             
         }
-        
+        if(Collided_allies.Any()&&RanPosResetDelayCoroutine==false)
+        {
+            StartCoroutine(DelayReset());
+            RanPosResetDelayCoroutine=true;
+        }
 
+    }
+    IEnumerator DelayReset()
+    {
+        yield return new WaitForSeconds(3);
+        if(FindTarget()==false&&bacGen.designated_destination==false)
+        Findpoint();
+        RanPosResetDelayCoroutine=false;
     }
     public void Findpoint()
     {
@@ -185,15 +198,23 @@ public class BacteriaD : MonoBehaviour
         }    
         
     }
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.GetComponent<Bacteria_General>()!=null&&other.gameObject.GetComponent<Bacteria_General>().Team==bacGen.Team)
         {
             if(FindTarget()==false&&bacGen.designated_destination==false)
             {
+                Collided_allies.Add(other.gameObject);
                 Findpoint();
+
             }
         }
         
+    }
+    private void OnCollisionExit2D(Collision2D other) {
+        if(Collided_allies.Contains(other.gameObject))
+        {
+            Collided_allies.Remove(other.gameObject);
+        }
     }
 }
